@@ -1,0 +1,230 @@
+.navbar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    .nav__sale {
+        display: none;
+    }
+    .nav__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 55px;
+        margin: 0 auto;
+        width: 89%;
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            .navbar__menu {
+                display: flex;
+                .nav__toggle {
+                    z-index: 100;
+                    display: flex;
+                    flex-direction: column;
+                    transition: 200ms;
+                    margin-top: -2px;
+                    .bar {
+                        display: block;
+                        width: 23px;
+                        height: 3.0px;
+                        border-radius: 20px;
+                        margin: 2.7px auto;
+                        background-color: #0c0c0c;
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+                .nav__search {
+                    display: flex;
+                    opacity: 0.6;
+                    .search__icon {
+                        margin-left: 1.5rem;
+                        width: 20px;
+                        height: 20px;
+                        
+                    }
+                    input {
+                        display: none;
+                    }
+                }
+            }
+            #nav__logo {
+                text-decoration: none;
+                color: #0c0c0c;
+                font-size: 1.6rem;
+                font-weight: 400;
+                margin-left: -2.25rem;
+                font-family: 'Source Sans Pro', sans-serif;
+            }
+            .nav__icons {
+                .shopping__icon {
+                    width: 30px;
+                    height: 25px;
+                    margin-right: -.1rem;
+                    cursor: pointer;
+                }
+                .account__icon {
+                    display: none;
+                    cursor: pointer;
+                }
+            }
+        }
+        .nav__menu {
+            display: none;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .navbar {
+        .nav__sale {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:#000000;
+            height: 2.2rem;
+            width: 100%;
+            h4 {
+                background: none;
+                color: #fcfcfc;
+                font-weight: 400;
+                font-size: .85rem;
+            }
+        }
+        .nav__container {
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            .nav {
+                padding: 0 2rem;
+                height: 60px;
+                .navbar__menu {
+                    
+                    .nav__toggle {
+                        display: none;
+                    }
+                    .nav__search {
+                        justify-content: center;
+                        align-items: center;
+                        margin-left: -.2rem;
+                        .search__icon {
+                            margin-left: 0;
+                        }
+                        input {
+                            display: block;
+                            opacity: 1;
+                            outline: none;
+                            border: none;
+                            padding: .5rem 1.5rem;
+                            margin-top: .1rem;
+                            font-size: 1rem;
+                            &::placeholder {
+                                
+                                font-size: 1.2rem;
+                                font-weight: 300;
+                            }
+                            
+                        }
+                    }
+                }
+                #nav__logo {
+                    font-size: 2.2rem;
+                    margin-left: -8.75rem;
+                }
+                .nav__icons {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .shopping__icon {
+                        width: 2.4rem;
+                        height: 1.9rem;
+                        font-weight: 500;
+                        margin: 0 1.5rem;
+                    }
+                    .account__icon {
+                        display: block;
+                        width: 2.2rem;
+                    }
+                }
+            }
+            .nav__secondary {
+                background-color: #f9f9f9;
+                width: 100%;
+                padding: 0 2rem;
+                .nav__menu {
+                    width: 100%;
+                    background: none;
+                    display: flex;
+                    justify-content: space-between;
+                    list-style: none;
+                    margin: 0 auto;
+                    height: 2.5rem;
+                    margin-left: -.25rem;
+                    li {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: none;
+                        a {
+                            background: none;
+                            text-decoration: none;
+                            color: #0c0c0c;
+                            font-weight: 300;
+                            font-size: 1.15rem;
+                        }
+                    }
+                    li:nth-child(2) {
+                        margin-left: 1rem;
+                    }
+                    li:nth-child(3) {
+                        margin-right: -2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1312px) {
+    .navbar {
+        .nav__sale {
+            height: 2rem;
+        }
+        .nav__container {
+            width: 100%;
+            .nav {
+                padding: 0 2rem;
+                height: 65px;
+                justify-content: space-between;
+                #nav__logo {
+                    font-size: 2.3rem;
+                }
+            }
+            .nav__secondary {
+                width: 100%;
+                .nav__menu {
+                    width: 45%;
+                    margin: 0 auto;
+                    height: 2.3rem;
+                    padding-left: 1.9rem;
+                    li {
+                        a{
+                            font-size: 1rem;
+                        }
+                    }
+                    li:nth-child(2) {
+                        margin-left: 0rem;
+                    }
+                    li:nth-child(3) {
+                        margin-right: -0rem;
+                    }
+                }
+            }
+        }
+    }
+}

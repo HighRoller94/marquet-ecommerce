@@ -46,4 +46,5 @@ class Navbar extends HTMLElement {
     }
 }
 
-window.customElements.define('my-nav', Navbar);
+window.customElements.define('marquet-nav', Navbar);
+

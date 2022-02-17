@@ -1,0 +1,32 @@
+.divider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1.75rem auto;
+    h2 {
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+    }
+    span {
+        height: 1px;
+        width: 10%;
+        margin: 0.5rem auto;
+        background-color: grey;
+    }
+}
+
+@media screen and(min-width: 768px) {
+    .divider {
+        margin: 2.25rem 0;
+        h2 {
+            font-size: 1.45rem;
+        }
+        span {
+            margin: 0.7rem auto;
+            width: 7.5%;
+        }
+    }
+    
+}

@@ -12,10 +12,6 @@
     <!-- NAVBAR -->
 
     <Marquet-Nav></Marquet-Nav>
-    
-    <!-- DIVIDER-->
-
-    <span class="divider"></span>
 
     <!-- HERO -->
 
@@ -40,22 +36,11 @@
 
     <!-- SALE ENDS -->
 
-    <div class="sale">
-        <div class="sale__text">
-            <h4>Hurry! Sale ends in</h4>
-        </div>
-        <div class="sale__timer">
-            <p>03:02:38</p>
-        </div>
-    </div>
+    <Sale-text></Sale-text>
 
-    <!-- EXCLUSIVES DIVIDER -->
+    <!-- DIVIDER -->
 
-    <div class="exclusives">
-        <span></span>
-        <h2>Exclusives</h2>
-        <span></span>
-    </div>
+    <Page-Divider heading="exclusives"></Page-Divider>
 
     <!-- GRID SECTION -->
 
@@ -74,11 +59,11 @@
                     <h2>Coats</h2>
                 </div>
         </div>
-        <div class="accessories_1">
-            <span></span>
-            <h2>Accentuate</h2>
-            <span></span>
-        </div>
+
+        <!-- DIVIDER-->
+        
+        <Page-Divider heading="accentuate"></Page-Divider>
+
         <div class="secondary__grid">
             <div class="shirts">
                 <img src="../assets/mens/shirts.svg" alt="" />
@@ -91,13 +76,9 @@
         </div>
     </div>
 
-    <!-- EXTRAS DIVIDER -->
+    <!-- DIVIDER -->
 
-    <div class="accessories_2">
-        <span></span>
-        <h2>Accessories</h2>
-        <span></span>
-    </div>
+    <Page-Divider heading="accessories"></Page-Divider>
 
     <!-- EXTRAS SECTION -->
 
@@ -112,13 +93,6 @@
         </div>
     </div>
 
-    <!-- DIVIDER-->
-
-    <div class="divider">
-        <span></span>
-    </div>
-    
-
     <!-- NEWSLETTER -->
 
     <Marquet-Newsletter></Marquet-Newsletter>
@@ -131,5 +105,7 @@
     <script src="../js/components/navbar.js"></script>
     <script src="../js/components/footer.js"></script>
     <script src="../js/components/newsletter.js"></script>
+    <script src="../js/components/sale.js"></script>
+    <script src="../js/components/divider.js"></script>
     <script src="../js/main.js"></script>
 </html>

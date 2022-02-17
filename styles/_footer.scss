@@ -1,17 +1,19 @@
 .footer {
-    padding-top: 10vh;
-    padding-bottom: 12.5vh;
+    padding-top: 6vh;
+    padding-bottom: 10vh;
     width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     .footer__container {
         width: 85%;
         display: flex;
         flex-direction: column;
         margin: 0 auto;
-        .footer__logo {
-            text-transform: uppercase;
-            font-weight: 400;
-            font-size: 3.5rem;
-            font-family: 'Source Sans Pro', sans-serif;
+        #footer__logo {
+                text-decoration: none;
+                color: #0c0c0c;
+                font-size: 3.2rem;
+                font-weight: 400;
+                font-family: 'Source Sans Pro', sans-serif;
         }
         .footer__icons {
             margin-top: .7rem;
@@ -38,8 +40,11 @@
                 text-transform: uppercase;
                 margin: .3rem 0;
                 cursor: pointer;
-                font-size: 1rem;
+                font-size: .96rem;
                 font-weight: 400;
+                &:hover {
+                    opacity: .7;
+                }
             }
         }
         .footer__secondaryOptions {
@@ -83,6 +88,7 @@
             width: 97%;
             .footer__logo {
                 font-size: 3rem;
+                cursor: pointer;
             }
             .footer__icons {
                 justify-content: center;
@@ -118,6 +124,10 @@
                     margin: 0 1.23rem;
                     font-size: .8rem;
                     font-weight: 400;
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
                 }
                 .language {
                     display: flex;

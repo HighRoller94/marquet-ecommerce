@@ -5,7 +5,6 @@
         display: none;
     }
     .hero {
-        margin-top: 4.5vh;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -51,6 +50,12 @@
                     margin-top: 16vh;
                     width: 10rem;
                     padding: .6rem 1.2rem;
+                    &:hover {
+                        background-color: #fcfcfc;
+                        color: #0c0c0c;
+                        border: 1.5px solid #0c0c0c;
+                        cursor: pointer;
+                    }
                 }
             }
         }
@@ -58,7 +63,7 @@
             width: 100%;
             img {
                 margin-left: -13rem;
-                height: 77vh;
+                height: 37rem;
                 width: 56vw;
                 object-fit: cover;
                 object-position: 50% 0;
@@ -67,59 +72,7 @@
     }
 }
 
-.sale {
-    background-color: #0c0c0c;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 1.5rem;
-    .sale__text {
-        padding-top: 1rem;
-        margin-top: -.3rem;
-        h4 {
-            font-weight: 300;
-            font-size: .95rem;
-            text-transform: uppercase;
-            color: white;
-        }
-    }
-    .sale__timer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: .9rem;
-        width: 45%;
-        background-color: white;
-        p {
-            font-size: 2rem;
-            color: black;
-        }
-    }
-}
-
-.exclusives {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 3vh;
-    align-items: center;
-    h2 {
-        font-weight: 300;
-        text-transform: uppercase;
-        font-size: 1.3rem;
-    }
-    span {
-        height: 1px;
-        width: 10%;
-        margin: 0.5rem auto;
-        background-color: grey;
-    }
-}
-
 .grid__container{
-    margin: 3vh auto;
     width: 100%;
     .grid {
         display: grid;
@@ -228,25 +181,6 @@
             }
         }
     }
-    .accessories_1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 4vh auto;
-        margin-bottom: 5vh;
-        align-items: center;
-        h2 {
-            font-weight: 300;
-            text-transform: uppercase;
-            font-size: 1.3rem;
-        }
-        span {
-            height: 1px;
-            width: 10%;
-            margin: 0.5rem auto;
-            background-color: grey;
-        }
-    }
     .secondary__grid {
         display: grid;
         grid-template-columns: .5fr .5fr;
@@ -323,26 +257,6 @@
     }
 }
 
-.accessories_2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 6vh auto;
-    margin-top: 7vh;
-    align-items: center;
-    h2 {
-        font-weight: 300;
-        text-transform: uppercase;
-        font-size: 1.3rem;
-    }
-    span {
-        height: 1px;
-        width: 10%;
-        margin: 0.5rem auto;
-        background-color: grey;
-    }
-}
-
 .extras__section {
     display: flex;
     flex-direction: column;
@@ -411,15 +325,8 @@
     }
 }
 
-.divider {
-    width: 15%;
-    margin: 5vh auto;
-    height: 1px;
-    background-color: grey;
-    opacity: 0.8;
-}
-
 @media screen and (min-width: 768px) {
+
     .hero__section {
         padding-bottom: 2.75vh;
         position: relative;
@@ -489,34 +396,7 @@
             }
         }
     }
-    .sale {
-        margin-top: -3.2rem;
-        padding-bottom: 2rem;
-        .sale__text {
-            padding-top: 1.25rem;
-            h4 {
-                font-size: 1.25rem;
-            }
-        }
-        .sale__timer {
-            margin-top: 1rem;
-            width: 32%;
-            p {
-                font-size: 2.5rem;
-                padding: .2rem 0;
-            }
-        }
-    }
-    .exclusives {
-        margin: 4.75vh;
-        h2 {
-            font-size: 1.45rem;
-        }
-        span {
-            margin: 0.7rem auto;
-            width: 7.5%;
-        }
-    }
+
     .grid__container {
         display: flex;
         width: 100%;
@@ -530,16 +410,7 @@
             display: none;
         }
     }
-    .accessories_2{
-        margin: 4.75vh;
-        h2 {
-            font-size: 1.45rem;
-        }
-        span {
-            margin: 0.7rem auto;
-            width: 7.5%;
-        }
-    }
+
     .extras__section {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -568,9 +439,6 @@
                 bottom: .5;
             }
         }
-    }
-    .divider {
-        width: 5%;
     }
 }
 

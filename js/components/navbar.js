@@ -3,7 +3,9 @@ class Navbar extends HTMLElement {
         this.innerHTML = `
         <nav class="navbar">
             <div class="nav__sale">
-                <h4>SALE ENDS IN 13:02:38</h4>
+                <h4>SALE ENDS IN 
+                    <span class="timer"></span>
+                </h4>
             </div>
             <div class="nav__container">
                 <div class="nav">
@@ -18,7 +20,7 @@ class Navbar extends HTMLElement {
                             <input required type="text" spellcheck="false" placeholder="SEARCH" />
                         </div>
                     </div>
-                    <a href="#home" id="nav__logo">MARQUET</a>
+                    <a href="/html/main.html" id="nav__logo">MARQUET</a>
                     <div class="nav__icons">
                         <img class="shopping__icon" src="../assets/navbar/shopping-bag.png" alt="" />
                         <img class="account__icon" src="../assets/navbar/account.png" alt="" />
@@ -27,21 +29,27 @@ class Navbar extends HTMLElement {
                 <div class="nav__secondary">
                     <ul class="nav__menu">
                         <li class="navbar__item">
-                            <a href="#mens" class="navbar__links">Clothing</a>
+                            <a href="/html/mens.html" class="navbar__links">Mens</a>
                         </li>
                         <li class="navbar__item">
-                            <a href="#mens" class="navbar__links">Footwear</a>
+                            <a href="/html/womens.html" class="navbar__links">Womens</a>
                         </li>
                         <li class="navbar__item">
-                            <a href="#mens" class="navbar__links">Homeware</a>
+                            <a href="/html/footwear.html" class="navbar__links">Footwear</a>
                         </li>
                         <li class="navbar__item">
-                            <a href="#mens" class="navbar__links">Accessories</a>
+                            <a href="/html/homeware.html" class="navbar__links">Homeware</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a href="/html/accessories.html" class="navbar__links">Accessories</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <div class="divider__top">
+            <span></span>
+        </div>
     `;
     }
 }

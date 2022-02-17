@@ -15,7 +15,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 8vh;
+        min-height: 4rem;
         margin: 0 auto;
         width: 100%;
         .nav {
@@ -30,7 +30,7 @@
                     z-index: 100;
                     display: flex;
                     flex-direction: column;
-                    transition: 200ms;
+                    transition: 100ms;
                     margin-top: -2px;
                     &:hover {
                         cursor: pointer;
@@ -79,7 +79,7 @@
             #nav__logo {
                 text-decoration: none;
                 color: #0c0c0c;
-                font-size: clamp(1.6rem, 4.3vh, 6vh);
+                font-size: 2.3rem;
                 font-weight: 400;
                 margin-left: -2.25rem;
                 font-family: 'Source Sans Pro', sans-serif;
@@ -112,7 +112,7 @@
             width: 50vw;
             left: -1000px;
             opacity: 0;
-            transition: all .75s ease-in-out;
+            transition: all 500ms ease-in-out;
             z-index: 999;
             height: 100vh;
             border: 1px solid lightgrey;
@@ -125,7 +125,6 @@
                     background: none;
                     padding: 0 2rem;
                     transition: 100ms;
-                    
                     margin: 1.75rem 0;
                     a {
                         color: black;
@@ -146,7 +145,7 @@
             width: 50vw;
             left: 0;
             opacity: 1;
-            transition: all .75s ease-in-out;
+            transition: all 500ms ease-in-out;
             z-index: 99;
             height: 100vh;
             border: 1px solid lightgrey;
@@ -159,18 +158,16 @@
                     background: none;
                     padding: 0 2rem;
                     transition: 100ms;
-                    
                     margin: 1.75rem 0;
                     a {
                         color: black;
+                        padding: .4rem .8rem;
                         text-decoration: none;
                         font-size: clamp(1rem, 1.15rem, 2rem);
                         text-transform: uppercase;
                         font-weight: 500;
-                    }
-                    &:hover {
-                        background: #0c0c0c;
-                        a {
+                        &:hover {
+                            background: #0c0c0c;
                             color: white;
                         }
                     }
@@ -199,7 +196,7 @@
         }
         .nav__container {
             padding: 0;
-            height: 100%;
+            min-height: 100%;
             width: 100%;
             .nav {
                 padding: 0 1.5rem;
@@ -260,6 +257,9 @@
                 width: 100%;
                 opacity: 1;
                 height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 .nav__menu {
                     padding-top: 0;
                     width: 100%;
@@ -269,35 +269,37 @@
                     list-style: none;
                     margin: 0 auto;
                     height: 2.5rem;
-                    margin-left: .5rem;
                     li {
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         background: none;
-                        padding: 0 2rem;
+                        height: 100%;
                         transition: 100ms;
                         margin: 0;
                         cursor: pointer;
-                        &:hover {
-                            background: #0c0c0c;
-                            a {
-                                color: white;
-                            }
-                        }
                         a {
                             background: none;
                             text-decoration: none;
                             color: #0c0c0c;
                             font-weight: 300;
-                            font-size: 1.15rem;
+                            font-size: 1.1rem;
+                            transition: 200ms ease-in;
+                            padding: 0.5rem 0.7rem;
+                            &:hover {
+                                background-color: #0c0c0c;
+                                color: white;
+                            }
                         }
                     }
-                    li:nth-child(2) {
-                        margin-left: 1rem;
+                    a.active {
+                        padding: 0.5rem 0.7rem;
+                        background-color: #0c0c0c;
+                        color: white;
                     }
                 }
             }
+            
         }
     }
 }
@@ -320,16 +322,18 @@
             .nav__secondary {
                 width: 100%;
                 .nav__menu {
-                    
                     justify-content: center;
                     width: 45%;
                     margin: 0 auto;
                     height: 2.3rem;
-                    padding-left: 1.9rem;
                     li {
                         a{
-                            font-size: 1rem;
+                            font-size: 1.1rem;
+                            padding: 0.4rem 0.7rem;
                         }
+                    }
+                    a.active {
+                        padding: 0.4rem 0.7rem;
                     }
                     li:nth-child(2) {
                         margin-left: 0rem;

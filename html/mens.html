@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="../styles/styles.css"> 
 </head>
 <body>
-
     <!-- NAVBAR -->
-
     <Marquet-Nav></Marquet-Nav>
 
-    <!-- HERO -->
+    <!-- BODY-->
+    <main>
 
+    <!-- HERO -->
     <div class="hero__section" id="home">
         <img class="hero__bg" src="../assets/mens/hero__bg.svg" alt="" />
         <div class="hero">
             <div class="hero__text">
                 <div class="hero__header">
                     <h1>Mens</h1>
-                    <h2>Apparel</h2>
+                    <h2>2022 collection</h2>
                 </div>
                 <div class="hero__offer">
                     <h3>25% off selected brands</h3>
@@ -33,17 +33,11 @@
             </div>
         </div>
     </div>
-
     <!-- SALE ENDS -->
-
     <Sale-text></Sale-text>
-
     <!-- DIVIDER -->
-
     <Page-Divider heading="exclusives"></Page-Divider>
-
     <!-- GRID SECTION -->
-
     <div class="grid__container">
         <div class="grid">
             <div class="arrivals__container">
@@ -59,11 +53,11 @@
                     <h2>Coats</h2>
                 </div>
         </div>
-
-        <!-- DIVIDER-->
-        
-        <Page-Divider heading="accentuate"></Page-Divider>
-
+        <div class="middle__divider">
+            <span></span>
+            <h2>Accentuate</h2>
+            <span></span>
+        </div>
         <div class="secondary__grid">
             <div class="shirts">
                 <img src="../assets/mens/shirts.svg" alt="" />
@@ -75,13 +69,9 @@
             </div>
         </div>
     </div>
-
     <!-- DIVIDER -->
-
     <Page-Divider heading="accessories"></Page-Divider>
-
     <!-- EXTRAS SECTION -->
-
     <div class="extras__section">
         <div class="watches__container">
             <img class="watches__img" src="../assets/mens/watches.svg" alt="" />
@@ -92,15 +82,11 @@
             <h1>Bags</h1>
         </div>
     </div>
-
     <!-- NEWSLETTER -->
-
     <Marquet-Newsletter></Marquet-Newsletter>
-    
     <!-- FOOTER -->
-
     <Marquet-Footer></Marquet-Footer>
-    
+    </main>
 </body>
     <script src="../js/components/navbar.js"></script>
     <script src="../js/components/footer.js"></script>
@@ -108,4 +94,5 @@
     <script src="../js/components/sale.js"></script>
     <script src="../js/components/divider.js"></script>
     <script src="../js/main.js"></script>
+ 
 </html>

@@ -1,3 +1,10 @@
+if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else { 
+    ready()
+}
+
+
 // MOBILE MENU
 
 const menu = document.querySelector(".nav__toggle");
@@ -13,7 +20,7 @@ menu.addEventListener('click', mobileMenu);
 // CURRENT URL LOCATION
 
 const currentLocation = location.href;
-const menuItem = document.querySelectorAll('li');
+const menuItem = document.querySelectorAll('.navbar__item');
 const menuLength = menuItem.length;
 
 for (let i = 0; i < menuLength; i++) {
@@ -27,6 +34,7 @@ for (let i = 0; i < menuLength; i++) {
 const countdown = () => {
     const currentDate = new Date().getTime();
     const countDate = new Date('March 15, 2022 00:00:00').getTime();
+    
     const diff = countDate - currentDate;
 
     const second = 1000;
@@ -50,4 +58,40 @@ const countdown = () => {
 }
 
 setInterval(countdown, 1000);
+
+// SHOPPING CART FUNCTIONALITY
+
+function ready() {
+    
+    if (sessionStorage.getItem('basket') == null) {
+        sessionStorage.setItem('basket', '[]');
+    }
+    
+    const addToCartButtons = document.getElementsByClassName('add__button')
+    for (var i = 0; i < addToCartButtons.length; i++) {
+        var button = addToCartButtons[i]
+        button.addEventListener('click', addToCartClicked)
+    }
+}
+
+    // ADD TO CART
+
+    const addToCartClicked = (event) => {
+        var button = event.target
+        var shopItem = button.parentElement
+        var name = shopItem.getElementsByClassName('item__name')[0].innerText
+        var price = shopItem.getElementsByClassName('item__price')[0].innerText
+        var image = shopItem.getElementsByClassName('item__image')[0].src
+
+        var item = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1'}
+        addItemToCart(item)
+    }
+
+    const addItemToCart = (item) => {
+        const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+        basketItems.push(item)
+        sessionStorage.setItem(`basket`, JSON.stringify(basketItems));
+        console.log(JSON.parse(sessionStorage.getItem('basket')));
+    }
+
 

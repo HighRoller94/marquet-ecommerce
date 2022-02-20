@@ -13,13 +13,11 @@ function ready() {
         button.addEventListener('click', removeCartItem);
     }
     
-    const quantityInputs = document.getElementsByClassName('item__quantity')
+    const quantityInputs = document.getElementsByClassName('basketItem__quantity')
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i];
         input.addEventListener('change', quantityChanged);
     }
-    
-    
 }
 
 // RETRIEVE AND DISPLAY BASKET ITEMS 
@@ -30,12 +28,19 @@ const retrieveBasket = () => {
     basketItems.forEach(item => {
         var itemContainer = document.createElement('div');
         var itemContents =
-            `<div class="item">
-                <img class="item__image"src=${item.image} alt="" />
-                <h4 class="item__name">${item.name}</h4>
-                <p class="item__price">${item.price}</p>
-                <input class="item__quantity" type="number" value=${item.quantity}>
-                <button class="remove__button">Remove from Basket</button>
+            `<div class="basket__item">
+                <div class="basket__image">
+                <img class="basketItem__image" src=${item.image} alt="" />
+                </div>
+                <div class="basketItem__info">
+                    <h4 class="basketItem__name">${item.name}</h4>
+                    <p class="basketItem__price">${item.price}</p>
+                    <div class="quantity">
+                        <p>Quantity:</p>
+                        <input class="basketItem__quantity" type="number" value=${item.quantity}>
+                    </div>
+                    <button class="remove__button">Remove from Basket</button>
+                </div>
             </div>`
         itemContainer.innerHTML = itemContents;
         itemsContainer.append(itemContainer);
@@ -48,9 +53,9 @@ const retrieveBasket = () => {
 
 const removeCartItem = (event) => {
     var button = event.target
-    button.parentElement.remove()
+    button.parentElement.parentElement.remove()
     var shopItem = button.parentElement
-    var name = shopItem.getElementsByClassName('item__name')[0].innerText
+    var name = shopItem.getElementsByClassName('basketItem__name')[0].innerText
     console.log('removed' + name)
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
     // iterate over the current basket
@@ -85,13 +90,13 @@ const quantityChanged = (event) => {
 
 const updateCartTotal = () => {
     const cartItemsContainer = document.getElementsByClassName('items__container')[0]
-    const cartItems = cartItemsContainer.getElementsByClassName('item')
+    const cartItems = cartItemsContainer.getElementsByClassName('basket__item')
     var total = 0
     for (var i = 0; i < cartItems.length; i++) {
         var cartItem = cartItems[i]
 
-        var priceElement = cartItem.getElementsByClassName('item__price')[0]
-        var quantityElement = cartItem.getElementsByClassName('item__quantity')[0]
+        var priceElement = cartItem.getElementsByClassName('basketItem__price')[0]
+        var quantityElement = cartItem.getElementsByClassName('basketItem__quantity')[0]
 
         var price = parseFloat(priceElement.innerHTML.replace('£', ''))
         var quantity = quantityElement.value

@@ -1,6 +1,6 @@
 .hero__section {
     width: 100%;
-    padding-bottom: 3.5vh;
+    padding-bottom: 2rem;
     .hero__bg {
         display: none;
     }
@@ -14,31 +14,32 @@
             text-align: left;
             z-index: 10;
             width: 100%;
-            margin-left: 8vw;
+            margin-left: 2rem;
             .hero__header {
                 h1 {
                     font-weight: 300;
                     text-transform: uppercase;
-                    font-size: clamp(2rem, 15vh, 10rem);
+                    font-size: 8.75rem;
                 }
                 h2 {
                     text-transform: uppercase;
                     color: #4A4A4A;
                     font-weight: 400;
-                    margin-top: -2.5rem;
-                    font-size: 2.2rem;
-                    margin-left: 2vw;
+                    margin-top: -1.5rem;
+                    font-size: 1.75rem;
+                    width: 100%;
+                    margin-left: .7rem;
                 }
             }
             .hero__offer {
-                margin-top: 10vh;
-                margin-left: 2vw;
+                margin-top: 5rem;
+                margin-left: .7rem;
                 h3 {
                     z-index: 10;
                     font-weight: 400;
                     text-transform: uppercase;
                     font-size: 1.1rem;
-                    width: 45vw;
+                    width: 10rem;
                 }
                 .hero__btn {
                     outline: none;
@@ -47,7 +48,7 @@
                     color: white;
                     text-transform: uppercase;
                     font-size: 1rem;
-                    margin-top: 16vh;
+                    margin-top: 8rem;
                     width: 10rem;
                     padding: .6rem 1.2rem;
                     transition: 200ms ease-in;
@@ -62,9 +63,9 @@
         .hero__image {
             width: 100%;
             img {
-                margin-left: -13rem;
-                height: 37rem;
-                width: 56vw;
+                margin-left: -14rem;
+                height: 40rem;
+                width: 18rem;
                 object-fit: cover;
                 object-position: 50% 0;
             }

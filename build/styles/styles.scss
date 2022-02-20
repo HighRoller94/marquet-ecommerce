@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;700&display=swap');
+
+// PAGES
+
+@import './mens';
+@import './footwear';
+
+// COMPONENTS
+
+@import './navbar';
+@import './sale';
+@import './newsletter';
+@import './footer';
+@import './divider';
+
+* {
+    margin: 0;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.divider__bottom {
+    width: 12.5%;
+    margin: 2rem auto 3rem auto;
+    height: 1px;
+    background-color: grey;
+    opacity: 0.8;
+}
+

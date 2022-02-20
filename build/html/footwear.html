@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marquet | FOOTWEAR</title>
+    <link rel="stylesheet" href="../styles/styles.css"> 
+</head>
+<body>
+    <!-- NAVBAR -->
+
+    <Marquet-Nav></Marquet-Nav>
+
+    <!-- FOOTWEAR HERO -->
+
+    <div class="footwear__heroContainer">
+        <img class="footwear__bg" src="../assets/footwear/hero_bg.svg" alt="" />
+        <div class="footwear__heroHeader">
+            <img src="../assets//logos/vans__logo.svg" alt="" />
+            <h2>30% off</h2>
+            <button>Start Shopping</button>
+        </div>
+    </div>
+
+    <!-- SALE ENDS -->
+
+    <Sale-text></Sale-text>
+
+    <!-- DIVIDER -->
+
+    <Page-Divider heading="exclusive sale"></Page-Divider>
+    
+    <!-- FOOTWEAR EXCLUSIVES-->
+
+    <div class="footwear__container">
+        <div class="footwear__nike">
+            <img src="../assets/footwear/nike.svg" alt="" />
+            <h4>Nike</h4>
+        </div>
+        <div class="footwear__vans">
+            <img src="../assets/footwear/vans.svg" alt="" />
+            <h4>Vans</h4>
+        </div>
+    </div>
+
+    <!-- DIVIDER -->
+
+    <Page-Divider heading="latest arrivals"></Page-Divider>
+
+    <!-- FOOTWEAR LATEST -->
+
+    <div class="latest__footwear items__container">
+        <div class="latest item">
+            <img class="item__image" src="../assets/footwear/new1.svg" alt="" />
+            <h4 class="item__name">Nike GS Pink</h4>
+            <p class="item__price">£39.99</p>
+            <button class="add__button">Add to Cart</button>
+        </div>
+        <div class="latest item">
+            <img class="item__image" src="../assets/footwear/new3.svg" alt="" />
+            <h4 class="item__name">Nike Free TR</h4>
+            <p class="item__price">£49.99</p>
+            <button class="add__button">Add to Cart</button>
+        </div>
+        <div class="latest item">
+            <img class="item__image" src="../assets/footwear/new5.svg" alt="" />
+            <h4 class="item__name">VANS Original</h4>
+            <p class="item__price">£79.99</p>
+            <button class="add__button">Add to Cart</button>
+        </div>
+        <div class="latest item">
+            <img class="item__image" src="../assets/footwear/new4.svg" alt="" />
+            <h4 class="item__name">SKETCHERS</h4>
+            <p class="item__price">£79.99</p>
+            <button class="add__button">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- DIVIDER -->
+
+    <Page-Divider heading="collections"></Page-Divider>
+
+    <!-- COLLECTIONS CONTAINER-->
+
+    <div class="collections">
+        <div class="collections__mens">
+            <div class="mens__colHeader">
+                <h1>Mens</h1>
+                <h4>from £79.99</h4>
+                <!-- arrow-->
+            </div>
+            <img src="../assets/footwear/mens.svg" alt="" />
+        </div>
+        <div class="collections__womens">
+            <img src="../assets/footwear/womens.svg" alt="" />
+            <div class="mens__colHeader">
+                <h1>Womens</h1>
+                <h4>from £79.99</h4>
+                <!-- arrow-->
+            </div>
+        </div>
+    </div>
+
+    <!-- NEWSLETTER -->
+
+    <Marquet-Newsletter></Marquet-Newsletter>
+    
+    <!-- FOOTER -->
+
+    <Marquet-Footer></Marquet-Footer>
+    </body>
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/footer.js"></script>
+    <script src="../js/components/newsletter.js"></script>
+    <script src="../js/components/sale.js"></script>
+    <script src="../js/components/divider.js"></script>
+    <script src="../js/main.js"></script>
+</html>

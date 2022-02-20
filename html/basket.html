@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marquet | BASKET</title>
     <link rel="stylesheet" href="../styles/styles.css"> 
+    <link rel="browser icon" type="image/jpg" href="../assets/logos/MarquetLogo.ico" />
 </head>
 <body>
     <!-- NAVBAR -->
@@ -16,15 +17,27 @@
         <div class="basket">
             <div class="basket__header">
                 <h1>My shopping cart</h1>
+                <p>You have<span class="basket__count"></span> items in your shopping cart
             </div>
             <div class="items__container">
                 
             </div>
         </div>
+        <span class="basket__divider"></span>
         <div class="subtotal">
             <h1 class="basket__total"></h1>
+            <div class="basket__gift">
+                <input type="checkbox">
+                <p>This order contains a gift</p>
+            </div>
+            <button class="basket__checkout">CHECKOUT</button>
         </div>
     </div>
+
+    <!-- NEWSLETTER -->
+
+    <Marquet-Newsletter></Marquet-Newsletter>
+
     <!-- FOOTER -->
 
     <Marquet-Footer></Marquet-Footer>
@@ -32,6 +45,8 @@
 </body>
     <script src="../js/components/navbar.js"></script>
     <script src="../js/components/footer.js"></script>
+    <script src="../js/components/newsletter.js"></script>
+
     <script src="../js/main.js"></script>
     <script src="../js/basket.js"></script>
 

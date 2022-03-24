@@ -1,0 +1,95 @@
+.product__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .product__row {
+        display: grid;
+        grid-template-columns: .4fr .6fr;
+        margin: 0 auto;
+        width: 65%;
+        margin-top: 4.5rem;
+        .image__container {
+            background-color: rgb(243, 243, 243);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-width: 300px;
+            .item__image {
+                height: 85%;
+                width: 85%;
+            }
+        }
+        .item__details {
+
+            margin-left: 2.5rem;
+            .item__cat {
+                margin-top: .5rem;
+                font-size: .9rem;
+            }
+            .item__name {
+                font-size: 3.25rem;
+                text-transform: capitalize;
+            }
+            .item__price {
+                font-size: 1.5rem;
+            }
+            select {
+                margin-top: 1.5rem;
+                padding: .3rem .5rem;
+                padding-right: .75rem;
+            }
+            .add__item {
+                display: flex;
+                margin-top: 1.5rem;
+                input {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 3rem;
+                    padding: .75rem 0 .75rem .8rem;
+                    font-size: .9rem;
+                    height: 2rem;
+                }
+                .add__button {
+                    margin-left: 2rem;
+                    outline: none;
+                    border: none;
+                    background-color: #0c0c0c;
+                    color: white;
+                    text-transform: uppercase;
+                    font-size: .9rem;
+                    padding: .3rem 1rem;
+                    border: 1.5px solid #0c0c0c;
+                    transition: 200ms ease-in;
+                    &:hover {
+                        background-color: #fcfcfc;
+                        color: #0c0c0c;
+                        border: 1.5px solid #0c0c0c;
+                        cursor: pointer;
+                    }
+                }
+            }
+            h3 {
+                margin-top: 1.5rem;
+                font-size: 1.75rem;
+            }
+            p {
+                font-size: .85rem;
+                margin-top: 1rem;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.more__products {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    h1 {
+        font-size: 1.5rem;
+        margin-top: 5rem;
+        width: 65%;
+    }
+}

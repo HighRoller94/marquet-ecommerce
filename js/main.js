@@ -8,7 +8,7 @@ if (document.readyState == 'loading') {
 // MOBILE MENU
 
 const menu = document.querySelector(".nav__toggle");
-const navMenu = document.querySelector(".nav__secondary");
+const navMenu = document.querySelector(".side__menu");
 
 const mobileMenu = () => {
     menu.classList.toggle('active')
@@ -33,7 +33,7 @@ for (let i = 0; i < menuLength; i++) {
 
 const countdown = () => {
     const currentDate = new Date().getTime();
-    const countDate = new Date('March 15, 2022 00:00:00').getTime();
+    const countDate = new Date('September 15, 2022 00:00:00').getTime();
     
     const diff = countDate - currentDate;
 
@@ -62,36 +62,83 @@ setInterval(countdown, 1000);
 // SHOPPING CART FUNCTIONALITY
 
 function ready() {
-    
+
     if (sessionStorage.getItem('basket') == null) {
         sessionStorage.setItem('basket', '[]');
     }
     
+    if (sessionStorage.getItem('productDetails') == null) {
+        sessionStorage.setItem('productDetails', '[]');
+    }
+
+
     const addToCartButtons = document.getElementsByClassName('add__button')
     for (var i = 0; i < addToCartButtons.length; i++) {
         var button = addToCartButtons[i]
         button.addEventListener('click', addToCartClicked)
     }
+
+    const productItems = document.getElementsByClassName('item__image')
+    for (var i = 0; i < productItems.length; i++) {
+        var button = productItems[i]
+        button.addEventListener('click', addProductDetails)
+    }
+
+    getBasketCount()
 }
 
-    // ADD TO CART
+// GET NUMBER OF ITEMS IN BASKET 
 
-    const addToCartClicked = (event) => {
-        var button = event.target
-        var shopItem = button.parentElement
-        var name = shopItem.getElementsByClassName('item__name')[0].innerText
-        var price = shopItem.getElementsByClassName('item__price')[0].innerText
-        var image = shopItem.getElementsByClassName('item__image')[0].src
-
-        var item = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1'}
-        addItemToCart(item)
+const getBasketCount = () => {
+    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+    const countText = document.querySelector(".basket__count");
+    const basketIcon = document.querySelector(".shopping__icon")
+    if (basketItems.length === 0) {
+        countText.innerHTML = ''
+    } else {
+        countText.innerHTML = basketItems.length
     }
+    
+}
 
-    const addItemToCart = (item) => {
-        const basketItems = JSON.parse(sessionStorage.getItem('basket'));
-        basketItems.push(item)
-        sessionStorage.setItem(`basket`, JSON.stringify(basketItems));
-        console.log(JSON.parse(sessionStorage.getItem('basket')));
-    }
+// ADD TO CART
 
+const addToCartClicked = (event) => {
+    var button = event.target
+    var shopItem = button.parentElement
+    var name = shopItem.getElementsByClassName('item__name')[0].innerText
+    var price = shopItem.getElementsByClassName('item__price')[0].innerText
+    var image = shopItem.getElementsByClassName('item__image')[0].src
 
+    var item = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1'}
+    addItemToCart(item)
+}
+
+const addItemToCart = (item) => {
+    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+    basketItems.push(item)
+    sessionStorage.setItem(`basket`, JSON.stringify(basketItems));
+    getBasketCount()
+}
+
+// PRODUCT CLICKED
+
+const addProductDetails = (event) => {
+    var clicked = event.target
+    var product = clicked.parentElement
+    var name = product.getElementsByClassName('item__name')[0].innerText
+    var price = product.getElementsByClassName('item__price')[0].innerText
+    var image = product.getElementsByClassName('item__image')[0].src
+
+    var product = { name: `${name}`, price: `${price}`, image: `${image}`}
+    
+    const productDetails = JSON.parse(sessionStorage.getItem('productDetails'));
+    productDetails.push(product)
+    sessionStorage.setItem(`productDetails`, JSON.stringify(productDetails));
+
+    pushProductPage(name)
+}
+
+const pushProductPage = (name) => {
+    window.document.location = './details.html' + '?' + `${name}`;
+}

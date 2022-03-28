@@ -6,25 +6,15 @@ if (document.readyState == 'loading') {
 
 function ready() {
     retrieveBasket();
-
-    const removeCartItemButtons = document.getElementsByClassName('remove__button');
-    for (var i = 0; i < removeCartItemButtons.length; i++) {
-        var button = removeCartItemButtons[i]
-        button.addEventListener('click', removeCartItem);
-    }
-    
-    const quantityInputs = document.getElementsByClassName('basketItem__quantity')
-    for (var i = 0; i < quantityInputs.length; i++) {
-        var input = quantityInputs[i];
-        input.addEventListener('change', quantityChanged);
-    }
+    updateCartTotal();
 }
 
-// RETRIEVE AND DISPLAY BASKET ITEMS 
+// GET BASKET ITEMS 
 
 const retrieveBasket = () => {
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
     var itemsContainer = document.getElementsByClassName('items__container')[0];
+
     basketItems.forEach(item => {
         var itemContainer = document.createElement('div');
         var itemContents =
@@ -45,48 +35,7 @@ const retrieveBasket = () => {
         itemContainer.innerHTML = itemContents;
         itemsContainer.append(itemContainer);
     })
-    updateCartTotal()
-    console.log(basketItems)
 }
-
-// REMOVE BASKET ITEM
-
-const removeCartItem = (event) => {
-    var button = event.target
-    button.parentElement.parentElement.remove()
-    var shopItem = button.parentElement
-    var name = shopItem.getElementsByClassName('basketItem__name')[0].innerText
-    console.log('removed' + name)
-    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
-    // iterate over the current basket
-    basketItems.forEach(item => {
-        // get the index of the item in the array that we want to remove, based on its name (key)
-        if (item.name == `${name}`) {
-            const index = basketItems.indexOf(item)
-            if (index > -1) {
-                // remove said item from the array and then update the basket
-                basketItems.splice(index, 1)
-                sessionStorage.setItem(`basket`, JSON.stringify(basketItems));
-            }
-        }
-    })
-    console.log(basketItems)
-    updateCartTotal()
-}
-
-// CHANGING QUANTITY
-
-const quantityChanged = (event) => {
-    var input = event.target
-    console.log(input)
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1
-    }
-    console.log(input.value)
-    updateCartTotal()
-}
-
-// BASKET TOTAL 
 
 const updateCartTotal = () => {
     const cartItemsContainer = document.getElementsByClassName('items__container')[0]
@@ -105,4 +54,47 @@ const updateCartTotal = () => {
     }
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('basket__total')[0].innerHTML = '£' + total
+}
+
+// FORMS
+
+const firstForm = document.getElementById('firstForm');
+const secondForm = document.getElementById('secondForm');
+const thirdForm = document.getElementById('thirdForm');
+
+// BUTTONS
+
+const nextOne = document.getElementById('Next1');
+const nextTwo = document.getElementById('Next2');
+const backOne = document.getElementById('Back1');
+const backTwo = document.getElementById('Back2');
+
+// PROGRESS BAR 
+
+const progress = document.getElementById('progress');
+
+// ON CLICKS
+
+nextOne.onclick = () => {
+    firstForm.style.left = "-100%";
+    secondForm.style.left = "13%";
+    progress.style.width = "240px";
+}
+
+backOne.onclick = () => {
+    firstForm.style.left = "0";
+    secondForm.style.left = "450px";
+    progress.style.width = "120px";
+}
+
+nextTwo.onclick = () => {
+    secondForm.style.left = "-100%";
+    thirdForm.style.left = "13%";
+    progress.style.width = "360px";
+}
+
+backTwo.onclick = () => {
+    secondForm.style.left = "0";
+    thirdForm.style.left = "450px";
+    progress.style.width = "240px";
 }

@@ -14,7 +14,7 @@ class Navbar extends HTMLElement {
                         <span class="bar"></span>
                         <span class="bar"></span>
                     </div>
-                    <a href="/html/main.html" id="nav__logo">MARQUET</a>
+                    <a href="/html/index.html" id="nav__logo">MARQUET</a>
                     <div class="side__menu">
                         <ul class="nav__menu">
                             <div class="mobile__logoContainer">
@@ -29,9 +29,6 @@ class Navbar extends HTMLElement {
                             </li>
                             <li class="navbar__item">
                                 <a href="/html/footwear.html" class="navbar__links">Footwear</a>
-                            </li>
-                            <li class="navbar__item">
-                                <a href="/html/homeware.html" class="navbar__links">Homeware</a>
                             </li>
                             <li class="navbar__item">
                                 <a href="/html/accessories.html" class="navbar__links">Accessories</a>
@@ -49,7 +46,9 @@ class Navbar extends HTMLElement {
                                 <path id="Icon_metro-shopping-basket" data-name="Icon metro-shopping-basket" d="M29.645,16.272,22.677,5.843a1.547,1.547,0,0,0-1.32-.676,1.567,1.567,0,0,0-1.32.676L13.068,16.272H5.447a1.6,1.6,0,0,0-1.591,1.591,1.868,1.868,0,0,0,.056.43L7.945,33.041a3.19,3.19,0,0,0,3.071,2.323H31.7a3.171,3.171,0,0,0,3.063-2.331l4.033-14.748a1.419,1.419,0,0,0,.064-.422,1.6,1.6,0,0,0-1.591-1.591H29.645Zm-13.062,0,4.773-7,4.773,7ZM21.356,29a3.182,3.182,0,1,1,3.182-3.182A3.181,3.181,0,0,1,21.356,29Z" transform="translate(-3.856 -5.167)"/>
                             </svg>
                         </a>
-                        <img class="account__icon" src="../assets/navbar/account.png" alt="" />
+                        <a href="/html/orders.html">
+                            <img class="account__icon" src="../assets/navbar/account.png" alt="" />
+                        </a>
                     </div>
                 </div>
             </div>

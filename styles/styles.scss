@@ -2,8 +2,14 @@
 
 // PAGES
 
+@import './index';
 @import './mens';
+@import './womens';
+@import './accessories';
 @import './footwear';
+@import './checkout';
+@import './basket';
+@import './productDetails';
 
 // COMPONENTS
 
@@ -12,8 +18,8 @@
 @import './newsletter';
 @import './footer';
 @import './divider';
-@import './basket';
 @import './basketItem';
+
 
 * {
     margin: 0;
@@ -26,6 +32,6 @@
 
 body {
     overflow-x: hidden;
-    background-color: #fcfcfc;
+    background-color: white;
 }
 

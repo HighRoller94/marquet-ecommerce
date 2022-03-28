@@ -20,11 +20,14 @@ function ready() {
     }
 }
 
+// UPDATE BASKET ITEMS 
+
 // RETRIEVE AND DISPLAY BASKET ITEMS 
 
 const retrieveBasket = () => {
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
     var itemsContainer = document.getElementsByClassName('items__container')[0];
+
     basketItems.forEach(item => {
         var itemContainer = document.createElement('div');
         var itemContents =
@@ -49,6 +52,7 @@ const retrieveBasket = () => {
     console.log(basketItems)
 }
 
+
 // REMOVE BASKET ITEM
 
 const removeCartItem = (event) => {
@@ -72,6 +76,7 @@ const removeCartItem = (event) => {
     })
     console.log(basketItems)
     updateCartTotal()
+    getBasketCount()
 }
 
 // CHANGING QUANTITY

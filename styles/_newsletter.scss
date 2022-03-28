@@ -1,19 +1,8 @@
-.container {
-    padding-top: 2rem;
-    .divider__bottom {
-        width: 10%;
-        margin: 2rem auto 3rem auto;
-        height: 1px;
-        background-color: grey;
-        opacity: 0.8;
-    }
-}
-
 .newsletter {
+    margin-top: 5rem;
     padding: 4vh 0;
     width: 100%;
     background-color: #1c1c1c;
-
     .newsletter__container {
         display: flex;
         flex-direction: column;
@@ -69,9 +58,8 @@
 
 @media screen and (min-width: 768px) {
     .newsletter {
-        margin-top: 5rem;
+        margin-top: 4rem;
         padding: 2vh;
-
         .newsletter__container {
             width: 60%;
             text-align: center;
@@ -94,18 +82,8 @@
 }
 
 @media screen and (min-width: 1312px) {
-    .container {
-        .divider__bottom {
-            width: 5%;
-            margin: 2rem auto 3rem auto;
-            height: 1px;
-            background-color: grey;
-            opacity: 0.8;
-        }
-    }
-    
     .newsletter {
-        margin-top: 5rem;
+        margin-top: 8rem;
         padding: 3rem;
         .divider__bottom {
             width: 5%;

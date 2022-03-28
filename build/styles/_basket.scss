@@ -50,7 +50,7 @@
         background-color: white;
         padding: 1.5rem;
         margin: 0 auto;
-        .basket__total {
+        h1 {
             font-weight: 500;
             font-size: 2rem;
             margin-bottom: 1rem;
@@ -67,44 +67,30 @@
             margin-top: 2.25rem;
             outline: none;
             border: none;
-            text-decoration: none;
             background-color: #0c0c0c;
             color: white;
             padding: .6rem .6rem;
             font-size: 1.2rem;
             border: 1px solid #0c0c0c;
             overflow: auto;
-            z-index: 1;
-            position: relative;
-            cursor: pointer;
-            transition: 300ms ease-in-out;
-            a {
-                transition: 300ms ease-in-out;
-                text-decoration: none;
-                color: white;
-            }
-            &::before {
-                content: '';
+            &::after {
                 position: absolute;
-                outline: none;
+                content: "";                
                 top: 0;
                 left: 0;
-                bottom: 0;
-                right: 0;
-                z-index: -1;
+                width: 0;
+                height: 100%;
+                transition: .35s;
                 background-color: white;
-                transform: scaleX(0);
-                transform-origin: left;
-                transition: transform 300ms ease-in-out;
             }
-            &:hover::before,
-            &:focus::before {
-                transform: scaleX(1);
-                
+            &:hover {
+                color: black;
+                cursor: pointer;
+                z-index: 10;
             }
-            &:hover a,
-            &:focus a {
-                color: #0c0c0c;
+            &:hover:after {
+                content: "";
+                width: 100%;
             }
         }
     }

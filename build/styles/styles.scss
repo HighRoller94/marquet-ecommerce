@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&family=Source+Sans+Pro:wght@200;300;400;700&display=swap');
 
 // PAGES
 
@@ -12,6 +12,8 @@
 @import './newsletter';
 @import './footer';
 @import './divider';
+@import './basket';
+@import './basketItem';
 
 * {
     margin: 0;
@@ -24,13 +26,6 @@
 
 body {
     overflow-x: hidden;
-}
-
-.divider__bottom {
-    width: 12.5%;
-    margin: 2rem auto 3rem auto;
-    height: 1px;
-    background-color: grey;
-    opacity: 0.8;
+    background-color: #fcfcfc;
 }
 

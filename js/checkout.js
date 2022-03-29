@@ -5,6 +5,11 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
+
+    if (localStorage.getItem('orders') == null) {
+        localStorage.setItem('orders', '[]');
+    }
+
     retrieveBasket();
     updateCartTotal();
 }
@@ -69,6 +74,8 @@ const nextTwo = document.getElementById('Next2');
 const backOne = document.getElementById('Back1');
 const backTwo = document.getElementById('Back2');
 
+const submitButton = document.getElementById('submitBtn');
+
 // PROGRESS BAR 
 
 const progress = document.getElementById('progress');
@@ -98,3 +105,81 @@ backTwo.onclick = () => {
     thirdForm.style.left = "450px";
     progress.style.width = "240px";
 }
+
+submitButton.onclick = () => {
+    submitOrder();
+}
+
+const getOrderItems = () => {
+    const orderDets = { 
+        name: `ash`, 
+        dateSubmitted: `b`, 
+        deliveryDate: `b`,
+        orderNumber: `b`, 
+        orderPrice: `b`, 
+        orderAddress: `b`
+    }
+    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+    const orderDetails = {
+        ...orderDets,
+        ...basketItems
+    };
+    console.log(orderDetails)
+}
+
+getOrderItems();
+
+// GET DELIVERY DATE
+
+const addDays = (originalDate, days) => {
+    cloneDate = new Date(originalDate.valueOf());
+    cloneDate.setDate(cloneDate.getDate() + days);
+    return cloneDate;
+}
+
+// SUBMIT ORDER
+
+const submitOrder = () => {
+
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+
+    const fullName = firstName + ' ' + lastName;
+
+    const address = document.getElementById('address').value;
+    const county = document.getElementById('county');
+    const country = document.getElementById('country');
+
+    const orderPrice = document.getElementsByClassName('basket__total')[0].textContent;
+    const timeSubmitted = new Date().toLocaleDateString();
+
+    let today = new Date();
+    const deliveryDate = addDays(today, 3);
+
+    const randomNumberOne = Math.ceil(Math.random() * (1000, 9999));
+    const randomNumberTwo = Math.ceil(Math.random() * (10000, 99999));
+    const orderNumber = randomNumberOne + '-' + randomNumberTwo;
+
+    const orderDets = { 
+        name: `${fullName}`, 
+        dateSubmitted: `${timeSubmitted}`, 
+        deliveryDate: `${deliveryDate.toLocaleDateString()}`,
+        orderNumber: `${orderNumber}`, 
+        orderPrice: `${orderPrice}`, 
+        orderAddress: `${address}`
+    }
+    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+
+    const orderDetails = {
+        ...orderDets,
+        ...basketItems
+    };
+    
+    const orders = JSON.parse(localStorage.getItem('orders'))
+    orders.push(orderDetails)
+    sessionStorage.clear('basket');
+    sessionStorage.setItem('recentOrders', JSON.stringify(orders))
+    localStorage.setItem(`orders`, JSON.stringify(orders));
+}
+
+

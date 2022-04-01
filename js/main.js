@@ -104,7 +104,7 @@ const getBasketCount = () => {
 
 const addToCartClicked = (event) => {
     var button = event.target
-    var shopItem = button.parentElement.parentElement.parentElement
+    var shopItem = button.parentElement
     var name = shopItem.getElementsByClassName('item__name')[0].innerText
     var price = shopItem.getElementsByClassName('item__price')[0].innerText
     var image = shopItem.getElementsByClassName('item__image')[0].src

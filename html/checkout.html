@@ -17,12 +17,12 @@
             <!-- FIRST FORM -->
             <form id="firstForm">
                 <h3>Confirm Details</h3>
-                <input type="text" placeholder="First Name" oninput="this.className = 'firstName'" required>
-                <input type="text" placeholder="Last Name" oninput="this.className = 'lastName'" required>
+                <input type="text" placeholder="First Name" oninput="this.className = ''" id="firstName" required>
+                <input type="text" placeholder="Last Name" oninput="this.className = ''" id="lastName"required>
                 <br>
-                <input type="text" placeholder="Address" oninput="this.className = 'address'" required>
-                <input type="text" placeholder="County" oninput="this.className = 'county'" required>
-                <input type="text" placeholder="Country" oninput="this.className = 'country'" required>
+                <input type="text" placeholder="Address" oninput="this.className = ''" id="address" required>
+                <input type="text" placeholder="County" oninput="this.className = ''" required>
+                <input type="text" placeholder="Country" oninput="this.className = ''" required>
 
                 <div class="btn">
                     <button type="button" id="Next1">Next</button>
@@ -36,7 +36,12 @@
                 <div class="items__container">
                 
                 </div>
-                <h1 class="basket__total"></h1>
+                <div class="total__price">
+                    <h1 class="total">
+                        Total:<h1 class="basket__total"></h1>
+                    </h1>
+                </div>
+                
                 <div class="btn">
                     <button type="button" id="Back1">Back</button>
                     <button type="button" id="Next2">Next</button>
@@ -47,30 +52,31 @@
 
             <form id="thirdForm">
                 <h3>Delivery Details</h3>
-                <input type="text" placeholder="First Name" oninput="this.className = ''" required>
-                <input type="text" placeholder="Last Name" oninput="this.className = ''" required>
-                <input type="text" placeholder="Email" oninput="this.className = ''" required>
-                <input type="text" placeholder="Address" oninput="this.className = ''" required>
-                <input type="text" placeholder="County" oninput="this.className = ''" required>
-                <input type="text" placeholder="Country" oninput="this.className = ''" required>
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name"required>
+                <input type="text" placeholder="Email" required>
+                <input type="text" placeholder="Address" required>
+                <input type="text" placeholder="County" required>
+                <input type="text" placeholder="Country" required>
 
                 <div class="btn">
                     <button type="button" id="Back2">Back</button>
-                    <button type="button" class="button">
-                        <a href="/html/confirmation.html">
-                            <span class="button__text">CONFIRM PURCHASE</span>
-                        </a>
+                    <button type="button" class="button" id="submitBtn">
+                        <span class="button__text">CONFIRM PURCHASE</span>
                     </button>
                 </div>
             </form>
 
             <div class="step__row">
                 <div id="progress"></div>
-                <div class="step__col">Step One</div>
-                <div class="step__col">Step Two</div>
-                <div class="step__col">Step Three</div>
+                <div class="step__col">1. Details</div>
+                <div class="step__col">2. Products</div>
+                <div class="step__col">3. Delivery</div>
             </div>
         </div>
+
+        <!-- NEWSLETTER -->
+        <Marquet-Newsletter></Marquet-Newsletter>
 
         <!-- FOOTER -->
         <Marquet-Footer></Marquet-Footer>
@@ -78,7 +84,7 @@
     </body>
     <script src="../js/components/navbar.js"></script>
     <script src="../js/components/footer.js"></script>
-
+    <script src="../js/components/newsletter.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/checkout.js"></script>
 </html>

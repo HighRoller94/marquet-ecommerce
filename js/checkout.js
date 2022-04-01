@@ -9,7 +9,7 @@ function ready() {
     if (localStorage.getItem('orders') == null) {
         localStorage.setItem('orders', '[]');
     }
-
+        
     retrieveBasket();
     updateCartTotal();
 }
@@ -61,6 +61,7 @@ const updateCartTotal = () => {
     document.getElementsByClassName('basket__total')[0].innerHTML = '£' + total
 }
 
+
 // FORMS
 
 const firstForm = document.getElementById('firstForm');
@@ -74,7 +75,12 @@ const nextTwo = document.getElementById('Next2');
 const backOne = document.getElementById('Back1');
 const backTwo = document.getElementById('Back2');
 
+
 const submitButton = document.getElementById('submitBtn');
+submitButton.onclick = () => {
+    submitButton.classList.toggle('button--loading')
+    setTimeout(submitOrder, 2000);
+}
 
 // PROGRESS BAR 
 
@@ -84,50 +90,29 @@ const progress = document.getElementById('progress');
 
 nextOne.onclick = () => {
     firstForm.style.left = "-100%";
-    secondForm.style.left = "13%";
+    secondForm.style.left = "7.5%";
     progress.style.width = "240px";
 }
 
 backOne.onclick = () => {
-    firstForm.style.left = "0";
-    secondForm.style.left = "450px";
+    firstForm.style.left = "7.5%";
+    secondForm.style.left = "110%";
     progress.style.width = "120px";
 }
 
 nextTwo.onclick = () => {
     secondForm.style.left = "-100%";
-    thirdForm.style.left = "13%";
+    thirdForm.style.left = "7.75%";
     progress.style.width = "360px";
 }
 
 backTwo.onclick = () => {
-    secondForm.style.left = "0";
-    thirdForm.style.left = "450px";
+    secondForm.style.left = "7.5%";
+    thirdForm.style.left = "110%";
     progress.style.width = "240px";
 }
 
-submitButton.onclick = () => {
-    submitOrder();
-}
 
-const getOrderItems = () => {
-    const orderDets = { 
-        name: `ash`, 
-        dateSubmitted: `b`, 
-        deliveryDate: `b`,
-        orderNumber: `b`, 
-        orderPrice: `b`, 
-        orderAddress: `b`
-    }
-    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
-    const orderDetails = {
-        ...orderDets,
-        ...basketItems
-    };
-    console.log(orderDetails)
-}
-
-getOrderItems();
 
 // GET DELIVERY DATE
 
@@ -168,11 +153,12 @@ const submitOrder = () => {
         orderPrice: `${orderPrice}`, 
         orderAddress: `${address}`
     }
+
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
 
     const orderDetails = {
         ...orderDets,
-        ...basketItems
+        orderItems: basketItems
     };
     
     const orders = JSON.parse(localStorage.getItem('orders'))
@@ -180,6 +166,8 @@ const submitOrder = () => {
     sessionStorage.clear('basket');
     sessionStorage.setItem('recentOrders', JSON.stringify(orders))
     localStorage.setItem(`orders`, JSON.stringify(orders));
+
+    window.document.location = "/html/confirmation.html";
 }
 
 

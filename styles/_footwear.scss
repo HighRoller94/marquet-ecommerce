@@ -1,7 +1,8 @@
 .footwear__heroContainer {
     display: flex;
     justify-content: center;
-    padding-bottom: 2.5rem;
+    margin-top: 2.5rem;
+    padding-bottom: 3rem;
     height: 100%;
     .footwear__bg {
         position: relative;
@@ -37,9 +38,7 @@
             border: 1.5px solid #0c0c0c;
             transition: 200ms ease-in;
             &:hover {
-                background-color: #fcfcfc;
-                color: #0c0c0c;
-                border: 1.5px solid #0c0c0c;
+                background-color: #424242;
                 cursor: pointer;
             }
         }

@@ -1,8 +1,21 @@
-const addToCartButtons = document.getElementsByClassName('add__button')
-for (var i = 0; i < addToCartButtons.length; i++) {
-    var button = addToCartButtons[i]
-    button.addEventListener('click', addToCartClicked)
+if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else { 
+    ready()
 }
+
+function ready() {
+
+    const addToCartButtons = document.getElementsByClassName('add__button')
+    for (var i = 0; i < addToCartButtons.length; i++) {
+        var button = addToCartButtons[i]
+        button.addEventListener('click', addToCartClicked)
+    }
+
+    getProductDetails()
+}
+
+
 
 const productInfo = [];
 
@@ -29,5 +42,3 @@ const getProductDetails = () => {
     productPrice.innerHTML = productInfo[0].price
     
 }
-
-getProductDetails()

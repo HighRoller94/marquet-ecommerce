@@ -4,7 +4,7 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: #eeeeee;
     margin: 0 auto;
     padding: 2rem 1.25rem;
     .basketItem__image {
@@ -14,9 +14,9 @@
     .basketItem__info {
         margin-left: 1rem;
         .basketItem__name {
-            font-weight: 300;
+            font-weight: 400;
             text-transform: uppercase;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin-top: -.25rem;
         }
         .basketItem__price {
@@ -36,6 +36,7 @@
                 outline: none;
                 border: none;
                 width: 20%;
+                background: none;
             }
         }
         
@@ -52,8 +53,7 @@
             transition: 200ms ease-in;
             border: .5px solid #0c0c0c;
             &:hover {
-                background-color: #fbfbfb;
-                color: #0c0c0c;
+                background-color: #424242;
                 cursor: pointer;
             }
         }

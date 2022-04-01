@@ -30,11 +30,10 @@ class Navbar extends HTMLElement {
                             <li class="navbar__item">
                                 <a href="/html/footwear.html" class="navbar__links">Footwear</a>
                             </li>
-                            <li class="navbar__item">
-                                <a href="/html/accessories.html" class="navbar__links">Accessories</a>
-                            </li>
                             <div class="mobile__bottom">
-                                <p>My account</p>
+                                <a href="/html/orders.html">
+                                    <p>My account</p>
+                                </a>
                                 <p>Contact us</p>
                             </div>
                         </ul>
@@ -59,3 +58,14 @@ class Navbar extends HTMLElement {
 
 window.customElements.define('marquet-nav', Navbar);
 
+const nav = document.querySelector('.navbar');
+console.log(nav)
+const scrollNav = () => {
+    if (window.scrollY >= 10) {
+        nav.classList.add('active')
+    } else {
+        nav.classList.remove('active')
+    }
+}
+
+window.addEventListener("scroll", scrollNav);

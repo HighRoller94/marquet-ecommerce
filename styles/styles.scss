@@ -5,11 +5,12 @@
 @import './index';
 @import './mens';
 @import './womens';
-@import './accessories';
 @import './footwear';
 @import './checkout';
 @import './basket';
 @import './productDetails';
+@import './confirmation';
+@import './orders';
 
 // COMPONENTS
 
@@ -19,7 +20,7 @@
 @import './footer';
 @import './divider';
 @import './basketItem';
-
+@import './latestArrivals';
 
 * {
     margin: 0;
@@ -33,5 +34,6 @@
 body {
     overflow-x: hidden;
     background-color: white;
+    height: 100%;
 }
 

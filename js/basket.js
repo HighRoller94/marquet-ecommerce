@@ -6,7 +6,8 @@ if (document.readyState == 'loading') {
 
 function ready() {
     retrieveBasket();
-
+    counterText();
+    toggleCheckout();
     const removeCartItemButtons = document.getElementsByClassName('remove__button');
     for (var i = 0; i < removeCartItemButtons.length; i++) {
         var button = removeCartItemButtons[i]
@@ -19,6 +20,34 @@ function ready() {
         input.addEventListener('change', quantityChanged);
     }
 }
+
+// UPDATE COUNTER TEXT
+
+const counterText = () => {
+    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+    const counterText = document.getElementById('basket__counter')
+    if (basketItems.length === 0) {
+        counterText.innerHTML = 'You have no items in your basket';
+    } else if (basketItems.length === 1) {
+        counterText.innerHTML = 'You have 1 item in your basket';
+    } else if (basketItems.length > 1) {
+        counterText.innerHTML = `You have ${basketItems.length} items in your basket`;
+    }
+}
+
+// TOGGLE CHECKOUT BUTTON 
+
+const toggleCheckout = () => {
+    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+    const checkoutButton = document.getElementById('basket__checkout');
+    if (basketItems.length === 0) {
+        checkoutButton.href = '#'
+        const button = checkoutButton.parentElement
+        button.style.opacity = '0.4'
+        button.style.pointerEvents = 'none'
+    } 
+}
+
 
 // UPDATE BASKET ITEMS 
 
@@ -75,8 +104,10 @@ const removeCartItem = (event) => {
         }
     })
     console.log(basketItems)
-    updateCartTotal()
-    getBasketCount()
+    updateCartTotal();
+    getBasketCount();
+    toggleCheckout();
+    counterText();
 }
 
 // CHANGING QUANTITY

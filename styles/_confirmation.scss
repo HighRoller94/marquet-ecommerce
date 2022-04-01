@@ -1,0 +1,19 @@
+.confirmation__container {
+    display: flex;
+    flex-direction: column;
+    width: 86%;
+    margin: 2.5rem auto;
+    .confirmation__header {
+        display: flex;
+        flex-direction: column;
+        h1 {
+            font-size: 1.3rem;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+        h3 {
+            margin-top: 1rem;
+            font-weight: 300;
+            font-size: 1rem;
+        }
+    }
+}

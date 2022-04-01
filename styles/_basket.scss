@@ -3,6 +3,8 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    margin-top: 3rem;
+    padding-bottom: 3rem;
     .basket{
         display: flex;
         align-items: center;
@@ -12,7 +14,7 @@
         width: 100%;
         .basket__header {
             display: flex;
-            width: 87.5%;
+            width: 85%;
             justify-content: left;
             flex-direction: column;
             margin-top: 1rem;
@@ -37,8 +39,8 @@
         }
     }
     .basket__divider {
-        margin: 3rem auto;
-        width: 90%;
+        margin: 3rem auto 2.5rem auto;
+        width: 85%;
         height: 2px;
         background-color: grey;
         opacity: .8;
@@ -46,10 +48,9 @@
     .subtotal {
         display: flex;
         flex-direction: column;
-        width: 87.5%;
-        background-color: white;
-        padding: 1.5rem;
+        justify-content: center;
         margin: 0 auto;
+        width: 85%;
         .basket__total {
             font-weight: 500;
             font-size: 2rem;
@@ -64,14 +65,14 @@
             }
         }
         .basket__checkout {
-            margin-top: 2.25rem;
+            margin-top: 3.5rem;
             outline: none;
             border: none;
             text-decoration: none;
             background-color: #0c0c0c;
             color: white;
             padding: .6rem .6rem;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             border: 1px solid #0c0c0c;
             overflow: auto;
             z-index: 1;

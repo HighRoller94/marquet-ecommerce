@@ -57,7 +57,7 @@ const countdown = () => {
     })
 }
 
-setInterval(countdown, 1000);
+setInterval(countdown, 100);
 
 // SHOPPING CART FUNCTIONALITY
 
@@ -92,11 +92,13 @@ function ready() {
 const getBasketCount = () => {
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
     const countText = document.querySelector(".basket__count");
-    const basketIcon = document.querySelector(".shopping__icon")
+    const basketIcon = document.querySelector(".shopping__icon");
     if (basketItems.length === 0) {
         countText.innerHTML = ''
+        basketIcon.src = '../assets/icons/emptyBag.svg'
     } else {
         countText.innerHTML = basketItems.length
+        basketIcon.src = '../assets/icons/bagFull.svg'
     }
 }
 
@@ -111,10 +113,18 @@ const addToCartClicked = (event) => {
 
     var item = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1'}
     addItemToCart(item)
+
 }
 
 const addItemToCart = (item) => {
-    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+    var basketItems = JSON.parse(sessionStorage.getItem('basket'));
+    for (let i = 0; i < basketItems.length; i++) {
+        const basketItem = basketItems[i]
+        if (basketItem.name === item.name) {
+            console.log(`${basketItem.name} is already in your basket`);
+            return;
+        }
+    }
     basketItems.push(item)
     sessionStorage.setItem(`basket`, JSON.stringify(basketItems));
     getBasketCount()

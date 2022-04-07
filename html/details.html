@@ -16,29 +16,34 @@
 
     <div class="product__container">
         <div class="product__row">
-            <div class="image__container">
-                <img class="item__image" src="" alt="" />
+            <div class="item">
+                <div class="image__container">
+                    <img class="item__image" id="item__image" src="" alt="" />
+                    <div class="item__gallery">
+
+                    </div>
+                </div>
+                <div class="item__details">
+                    <p class="item__cat">Mens Clothing / Sweatshirts</p>
+                    <h1 class="item__name" id="name"></h1>
+                    <h4 class="item__price"></h4>
+                    <div class="item__specs">
+                        <select class="item__size">
+                            <option>Select Size</option>
+                            <option>XXL</option>
+                            <option>XL</option>
+                            <option>Large</option>
+                            <option>Medium</option>
+                            <option>Small</option>
+                        </select>
+                        <input type="number" value="1">
+                    </div>
+                    <button class="add__button">Add to Cart</button>
+                </div>
             </div>
-            <div class="item__details">
-                <p class="item__cat">Mens Clothing / Sweatshirts</p>
-                <h1 class="item__name"></h1>
-                <h4 class="item__price"></h4>
-                <div class="item__specs">
-                    <select class="item__size">
-                        <option>Select Size</option>
-                        <option>XXL</option>
-                        <option>XL</option>
-                        <option>Large</option>
-                        <option>Medium</option>
-                        <option>Small</option>
-                    </select>
-                    <input type="number" value="1">
-                </div>
-                <button class="add__button">Add to Cart</button>
-                <div class="product__details">
-                    <h3>Product Details</h3>
-                    <p>Culpa Lorem qui est nisi dolore cillum occaecat ipsum exercitation dolor ex qui cupidatat. Mollit veniam ut sint qui cillum magna nostrud qui eiusmod exercitation ea adipisicing. Magna consequat laborum consequat consequat ipsum nulla in Lorem culpa ea cillum reprehenderit. Commodo occaecat et aliquip esse.</p>
-                </div>
+            <div class="product__details">
+                <h3>Product Details</h3>
+                <p>Culpa Lorem qui est nisi dolore cillum occaecat ipsum exercitation dolor ex qui cupidatat. Mollit veniam ut sint qui cillum magna nostrud qui eiusmod exercitation ea adipisicing. Magna consequat laborum consequat consequat ipsum nulla in Lorem culpa ea cillum reprehenderit. Commodo occaecat et aliquip esse.</p>
             </div>
         </div>
     </div>
@@ -54,7 +59,6 @@
 
 </body>
     <script src="../js/components/navbar.js"></script>
-    <script src="../js/main.js"></script>
     <script src="../js/productDetails.js"></script>
     <script src="../js/components/footer.js"></script>
     <script src="../js/components/newsletter.js"></script>

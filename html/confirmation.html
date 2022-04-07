@@ -17,7 +17,10 @@
         <div class="confirmation__header">
             <h1>Thankyou for your purchase!</h1>
             <h3>Your items are on the way and will be with you soon!</h3>
-            <p class="order__numberText">Order Number:<p class="order__number"></p></p>
+            <div class="order__numberContainer">
+                <p class="order__numberText">Order Number:<p class="order__number"></p></p>
+            </div>
+            
         </div>
         <div class="items__container">
 
@@ -28,17 +31,9 @@
         </div>
     </div>
 
-    <!-- LATEST ARRIVAL SUGGESTIONS-->
-
-    <div class="arrivals__container">
-        <h1>Check out our latest arrivals</h1>
-        <div class="arrivals__grid">
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-        </div>
-    </div>
+    <!-- LATEST ARRIVALS-->
+    
+    <Latest-Arrivals></Latest-Arrivals>
     
     <!-- FOOTER -->
 
@@ -49,4 +44,5 @@
     <script src="../js/components/newsletter.js"></script>
     <script src="../js/confirmation.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/components/latestArrivals.js"></script>
 </html>

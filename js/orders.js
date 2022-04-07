@@ -10,37 +10,38 @@ function ready() {
 
 const retrievePastOrders = () => {
     const pastOrders = JSON.parse(localStorage.getItem('orders'));
-    var itemsContainer = document.getElementsByClassName('orders')[0];
 
     pastOrders.forEach(order => {
-        console.log(order)
-        var itemContainer = document.createElement('div');
-        var itemContents =
-            `<div class="order__container">
-                <div class="order__number">
-                    <p> Order Number - <p>${order.orderNumber}</p></p>
-                </div>
-                <div class="order">
-                    <div class="order__date">
-                        <p>Purchased on <strong>${order.dateSubmitted}</strong></p>
+        var itemsContainer = document.getElementsByClassName('orders')[0];
+            var itemContainer = document.createElement('div');
+            var itemContents =
+                `<div class="order__container">
+                    <div class="order__number">
+                        <p> Order Number - <p>${order.orderNumber}</p></p>
                     </div>
-                    <h2 class="order__delivery">Expected Delivery - ${order.deliveryDate}</h2>
-                <div class="order__items">
-                </div>
-                <h1 class="order__price">Total: ${order.orderPrice}</h2>
-            </div>`
-        itemContainer.innerHTML = itemContents;
-        itemsContainer.append(itemContainer);
-        getOrderProducts(order)
+                    <div class="order">
+                        <div class="order__date">
+                            <p>Purchased on <strong>${order.dateSubmitted}</strong></p>
+                        </div>
+                        <h2 class="order__delivery">Expected Delivery - ${order.deliveryDate}</h2>
+                    <div class="order__items">
+                    </div>
+                    <h1 class="order__price">Total: ${order.orderPrice}</h2>
+                </div>`
+            itemContainer.innerHTML = itemContents;
+            itemsContainer.append(itemContainer);
+            
+            getOrderProducts(order)
+        
     })
     
 }
 
 const getOrderProducts = (order) => {
+    console.log(order)
     const productsContainer = document.getElementsByClassName('order__items')
-    console.log(productsContainer)
     const orderItems = order.orderItems
-    for (var i = 0; 0 < productsContainer.length; i++) {
+    for (var i = 0; i < productsContainer.length; i++) {
         let container = productsContainer[i]
         orderItems.forEach(item => {
             var productContainer = document.createElement('div');

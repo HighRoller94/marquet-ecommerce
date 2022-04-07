@@ -1,0 +1,82 @@
+.confirmed__item {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+    .confirmedItem__image {
+        min-width: 120px;
+        width: 75%;
+    }
+    .confirmedItem__info {
+        margin-left: 1rem;
+        .confirmedItem__name {
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin-top: -.25rem;
+        }
+        .confirmedItem__price {
+            font-weight: 300;
+            color: grey;
+            font-size: 1rem;
+        }
+        .confirmed__specs {
+            display: flex;
+            p {
+
+            }
+        }
+        .remove__button {
+            outline: none;
+            border: none;
+            background-color: #0c0c0c;
+            color: white;
+            text-transform: uppercase;
+            font-size: .85rem;
+            margin-top: .5rem;
+            min-width: 11rem;
+            padding: .5rem .8rem;
+            transition: 200ms ease-in;
+            border: .5px solid #0c0c0c;
+            &:hover {
+                background-color: #424242;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .confirmed__item {
+        width: 97%;
+        .confirmedItem__info {
+            margin-left: 1.2rem;
+            .confirmedItem__name {
+                font-size: 1.4rem;
+            }
+            .confirmedItem__price {
+                margin-top: .2rem;
+                font-size: 1.1rem;
+            }
+            .quantity {
+                p {
+                    font-size: 1rem;
+                }
+                .confirmedItem__quantity {
+                    font-size: 1rem;
+                }
+            }
+            .remove__button {
+                font-size: .85rem;
+                padding: .2rem .4rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1312px) {
+}

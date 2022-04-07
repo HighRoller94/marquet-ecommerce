@@ -10,6 +10,12 @@ function ready() {
         localStorage.setItem('orders', '[]');
     }
         
+    const removeCartItemButtons = document.getElementsByClassName('remove__button');
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        var button = removeCartItemButtons[i]
+        button.addEventListener('click', removeCartItem);
+    }
+
     retrieveBasket();
     updateCartTotal();
 }
@@ -23,16 +29,16 @@ const retrieveBasket = () => {
     basketItems.forEach(item => {
         var itemContainer = document.createElement('div');
         var itemContents =
-            `<div class="basket__item">
-                <div class="basket__image">
-                <img class="basketItem__image" src=${item.image} alt="" />
+            `<div class="checkout__item">
+                <div class="checkout__imageContainer">
+                    <img class="checkout__itemImage" src=${item.image} alt="" />
                 </div>
-                <div class="basketItem__info">
-                    <h4 class="basketItem__name">${item.name}</h4>
-                    <p class="basketItem__price">${item.price}</p>
+                <div class="checkoutItem__info">
+                    <h4 class="checkoutItem__name">${item.name}</h4>
+                    <p class="checkoutItem__price">${item.price}</p>
                     <div class="quantity">
                         <p>Quantity:</p>
-                        <input class="basketItem__quantity" type="number" value=${item.quantity}>
+                        <p>${item.quantity}</p>
                     </div>
                     <button class="remove__button">Remove from Basket</button>
                 </div>
@@ -42,20 +48,46 @@ const retrieveBasket = () => {
     })
 }
 
+// REMOVE CHECKOUT ITEM
+
+const removeCartItem = (event) => {
+    var button = event.target
+    button.parentElement.parentElement.remove()
+    var shopItem = button.parentElement.parentElement.parentElement
+    var name = shopItem.getElementsByClassName('basketItem__name')[0].innerText
+    console.log('removed' + name)
+    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+    // iterate over the current basket
+    basketItems.forEach(item => {
+        // get the index of the item in the array that we want to remove, based on its name (key)
+        if (item.name == `${name}`) {
+            const index = basketItems.indexOf(item)
+            if (index > -1) {
+                // remove said item from the array and then update the basket
+                basketItems.splice(index, 1)
+                sessionStorage.setItem(`basket`, JSON.stringify(basketItems));
+            }
+        }
+    })
+    console.log(basketItems)
+
+    updateCartTotal();
+    getBasketCount();
+    counterText();
+}
+
 const updateCartTotal = () => {
     const cartItemsContainer = document.getElementsByClassName('items__container')[0]
-    const cartItems = cartItemsContainer.getElementsByClassName('basket__item')
+    const cartItems = cartItemsContainer.getElementsByClassName('checkout__item')
     var total = 0
     for (var i = 0; i < cartItems.length; i++) {
         var cartItem = cartItems[i]
 
-        var priceElement = cartItem.getElementsByClassName('basketItem__price')[0]
-        var quantityElement = cartItem.getElementsByClassName('basketItem__quantity')[0]
+        var priceElement = cartItem.getElementsByClassName('checkoutItem__price')[0]
 
         var price = parseFloat(priceElement.innerHTML.replace('£', ''))
-        var quantity = quantityElement.value
 
-        total = total + (price * quantity)
+        total = total + price
     }
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('basket__total')[0].innerHTML = '£' + total
@@ -91,27 +123,26 @@ const progress = document.getElementById('progress');
 nextOne.onclick = () => {
     firstForm.style.left = "-100%";
     secondForm.style.left = "7.5%";
-    progress.style.width = "240px";
+    progress.style.width = "66%";
 }
 
 backOne.onclick = () => {
     firstForm.style.left = "7.5%";
     secondForm.style.left = "110%";
-    progress.style.width = "120px";
+    progress.style.width = "33%";
 }
 
 nextTwo.onclick = () => {
     secondForm.style.left = "-100%";
     thirdForm.style.left = "7.75%";
-    progress.style.width = "360px";
+    progress.style.width = "100%";
 }
 
 backTwo.onclick = () => {
     secondForm.style.left = "7.5%";
     thirdForm.style.left = "110%";
-    progress.style.width = "240px";
+    progress.style.width = "66%";
 }
-
 
 
 // GET DELIVERY DATE
@@ -170,4 +201,16 @@ const submitOrder = () => {
     window.document.location = "/html/confirmation.html";
 }
 
+// ADJUST FORM HEIGHT BASED ON CHILD HEIGHT
 
+const parent = document.querySelector('.checkout__container')
+const children = parent.children;
+
+let largestExtent = 0
+
+for (var i = 0; i < children.length; i++) {
+    let extent = children[i].offsetHeight + children[i].offsetTop
+    if (extent > largestExtent) largestExtent = extent
+}
+
+parent.style.height = `${largestExtent + 20}px`

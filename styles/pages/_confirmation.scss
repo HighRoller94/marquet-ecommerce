@@ -1,0 +1,43 @@
+.confirmation__container {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: 1.75rem auto;
+    .confirmation__header {
+        display: flex;
+        flex-direction: column;
+        color: #202020;
+        h1 {
+            font-size: 2.1rem;
+            letter-spacing: .1rem;
+            width: 90%;
+            font-weight: 400;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+        h3 {
+            margin-top: .5rem;
+            font-weight: 400;
+            font-size: .95rem;
+        }
+        .order__numberContainer {
+            display: flex;
+            margin-top: 1rem;
+            justify-content: right;
+            p {
+                font-size: .8rem;
+            }
+            .order__number {
+                margin-left: .2rem;
+            }
+        }
+    }
+    .items__container {
+        margin-top: 1.4rem;
+    }
+    .confirmation__total {
+        span {
+            height: 1px;
+            background-color: solid grey;
+        }
+    }
+}

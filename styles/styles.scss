@@ -2,25 +2,27 @@
 
 // PAGES
 
-@import './index';
-@import './mens';
-@import './womens';
-@import './footwear';
-@import './checkout';
-@import './basket';
-@import './productDetails';
-@import './confirmation';
-@import './orders';
+@import './pages/index';
+@import './pages/mens';
+@import './pages/womens';
+@import './pages/footwear';
+@import './pages/checkout';
+@import './pages/basket';
+@import './pages/productDetails';
+@import './pages/confirmation';
+@import './pages/orders';
 
 // COMPONENTS
 
-@import './navbar';
-@import './sale';
-@import './newsletter';
-@import './footer';
-@import './divider';
-@import './basketItem';
-@import './latestArrivals';
+@import './components/navbar';
+@import './components/sale';
+@import './components/newsletter';
+@import './components/footer';
+@import './components/divider';
+@import './components/basketItem';
+@import './components/confirmedItem';
+@import './components/checkoutItem';
+@import './components/latestArrivals';
 
 * {
     margin: 0;
@@ -33,7 +35,7 @@
 
 body {
     overflow-x: hidden;
-    background-color: white;
     height: 100%;
+    background-color: #f1f1f1;
 }
 

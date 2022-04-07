@@ -32,7 +32,7 @@ class Navbar extends HTMLElement {
                             </li>
                             <div class="mobile__bottom">
                                 <a href="/html/orders.html">
-                                    <p>My account</p>
+                                    <p>My orders</p>
                                 </a>
                                 <p>Contact us</p>
                             </div>
@@ -41,12 +41,10 @@ class Navbar extends HTMLElement {
                     <div class="nav__icons">
                         <a href="/html/basket.html">
                             <p class="basket__count"></p>
-                            <svg class="shopping__icon" xmlns="http://www.w3.org/2000/svg" width="35.001" height="30.196" viewBox="0 0 35.001 30.196">
-                                <path id="Icon_metro-shopping-basket" data-name="Icon metro-shopping-basket" d="M29.645,16.272,22.677,5.843a1.547,1.547,0,0,0-1.32-.676,1.567,1.567,0,0,0-1.32.676L13.068,16.272H5.447a1.6,1.6,0,0,0-1.591,1.591,1.868,1.868,0,0,0,.056.43L7.945,33.041a3.19,3.19,0,0,0,3.071,2.323H31.7a3.171,3.171,0,0,0,3.063-2.331l4.033-14.748a1.419,1.419,0,0,0,.064-.422,1.6,1.6,0,0,0-1.591-1.591H29.645Zm-13.062,0,4.773-7,4.773,7ZM21.356,29a3.182,3.182,0,1,1,3.182-3.182A3.181,3.181,0,0,1,21.356,29Z" transform="translate(-3.856 -5.167)"/>
-                            </svg>
+                            <img class="shopping__icon" src="" alt="Basket" />
                         </a>
                         <a href="/html/orders.html">
-                            <img class="account__icon" src="../assets/navbar/account.png" alt="" />
+                            <img class="account__icon" src="../assets/navbar/account.svg" alt="" />
                         </a>
                     </div>
                 </div>
@@ -59,7 +57,7 @@ class Navbar extends HTMLElement {
 window.customElements.define('marquet-nav', Navbar);
 
 const nav = document.querySelector('.navbar');
-console.log(nav)
+
 const scrollNav = () => {
     if (window.scrollY >= 10) {
         nav.classList.add('active')

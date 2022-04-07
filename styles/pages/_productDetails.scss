@@ -1,0 +1,215 @@
+.product__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .product__row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 1rem;
+        width: 90%;
+        .image__container {
+            width: 100%;
+            background-color: #f1f1f1;
+            .item__image {
+                display: flex;
+                margin: 0 auto;
+                width: 100%;
+                height: 100%;
+            }
+            .item__gallery {
+                margin-top: .5rem;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-gap: 3%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .item__details {
+            margin-top: 2rem;
+            .item__cat {
+                font-size: .8rem;
+            }
+            .item__name {
+                margin-top: .5rem;
+                font-size: 3rem;
+                font-family: 'Helvetica Neue', sans-serif;
+            }
+            .item__price {
+                margin-top: .5rem;
+                font-size: 1.75rem;
+                color: grey;
+                font-weight: 600;
+            }
+            .item__specs {
+                margin-top: 1rem;
+                .item__size {
+                    padding: .3rem .6rem;
+                    font-size: .95rem;
+                }
+                input {
+                    width: 2.5rem;
+                    padding: .15rem .25rem;
+                    margin-left: 1rem;
+                    font-size: 1rem;
+                }
+            }
+            .add__button {
+                margin-top: 2.25rem;
+                outline: none;
+                border: none;
+                background-color: #0c0c0c;
+                color: white;
+                text-transform: uppercase;
+                font-size: 1rem;
+                padding: .4rem 1.2rem;
+                border: 1.5px solid #0c0c0c;
+                transition: 200ms ease-in;
+                &:hover {
+                    background-color: #555555;
+                    border: 1.5px solid #0c0c0c;
+                    cursor: pointer;
+                }
+            }
+        }
+        .product__details {
+            margin-top: 4rem;
+            h3 {
+                font-size: 1.6rem;
+                font-family: 'Helvetica Neue', sans-serif;
+            }
+            p {
+                margin-top: .75rem;
+                font-size: .9rem;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .product__container {
+        .product__row {
+            flex-direction: column;
+            width: 90%;
+            align-items: flex-start;
+            margin-top: 5rem;
+            .item {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                .image__container {
+                    width: 50%;
+                    height: 20rem;
+                    display: flex;
+                    align-items: center;
+                    .item__image {
+                        width: 70%;
+                        height: 50%;
+                        margin: 0 auto;
+                        min-height: fit-content;
+                        object-fit: cover;
+                    }
+                }
+                .item__details {
+                    margin-left: 2rem;
+                    margin-top: 1rem;
+                    .item__cat {
+                        font-size: .8rem;
+                    }
+                    .item__name {
+                        margin-top: 1rem;
+                        font-size: 2.75rem;
+                    }
+                    .item__price {
+                        font-size: 1.5rem;
+                        margin-top: .5rem;
+                    }
+                    .item__specs {
+                        margin-top: 1rem;
+                    }
+                    .add__button {
+                        margin-top: 1.5rem;
+                    }
+                }
+            }
+            .product__details {
+                margin-top: 4rem;
+                h3 {
+                    font-size: 2rem;
+                    font-weight: 700;
+                }
+                p {
+                    margin-top: 1rem;
+                    font-size: .9rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1312px) {
+    .product__container {
+        .product__row {
+            width: 100%;
+            margin-top: 5rem;
+            .item {
+                display: grid;
+                grid-template-columns: .45fr .4fr;
+                margin: 0 auto;
+                width: 65%;
+                .image__container {
+                    background-color: rgb(243, 243, 243);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 30rem;
+                    width: 100%;
+                    .item__image {
+                        width: 80%;
+                    }
+                }
+                .item__details {
+                    margin-left: 2.5rem;
+                    .item__cat {
+                        margin-top: .5rem;
+                        font-size: 1rem;
+                    }
+                    .item__name {
+                        margin-top: 1rem;
+                        font-size: 4rem;
+                        text-transform: capitalize;
+                    }
+                    .item__price {
+                        font-size: 2rem;
+                    }
+                    .item__specs {
+                        margin-top: 2rem;
+                    }
+                    .add__item {
+                        margin-top: 3rem;
+                    }
+                }
+            }
+            .product__details {
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+                width: 65%;
+                margin-top: 3rem;
+                h3 {
+                    font-size: 2rem;
+                    font-weight: 700;
+                }
+                p {
+                    margin-top: 1rem;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

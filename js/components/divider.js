@@ -2,8 +2,8 @@ class Divider extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <div class="divider">
-            <span></span>
             <h2>${this.getAttribute('heading')}</h2>
+            <p>${this.getAttribute('text')}</p>
             <span></span>
         </div>
         `;

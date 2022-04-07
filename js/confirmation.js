@@ -5,11 +5,13 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
-    retrieveBasket();
+    retrieveRecentOrder();
 }
 
-const retrieveBasket = () => {
-    const recentOrder = JSON.parse(sessionStorage.getItem('recentOrders'));
+const retrieveRecentOrder = () => {
+    const recentOrders = JSON.parse(sessionStorage.getItem('recentOrders'));
+    const recentOrder = recentOrders.slice(-1);
+    console.log(recentOrder)
     var itemsContainer = document.getElementsByClassName('items__container')[0];
     const recentOrderItems = recentOrder[0].orderItems
 
@@ -22,16 +24,16 @@ const retrieveBasket = () => {
     recentOrderItems.forEach(item => {
         var itemContainer = document.createElement('div');
         var itemContents =
-            `<div class="basket__item">
-                <div class="basket__image">
-                <img class="basketItem__image" src=${item.image} alt="" />
+            `<div class="confirmed__item">
+                <div class="confirmed__image">
+                    <img class="confirmedItem__image" src=${item.image} alt="" />
                 </div>
-                <div class="basketItem__info">
-                    <h4 class="basketItem__name">${item.name}</h4>
-                    <p class="basketItem__price">${item.price}</p>
-                    <div class="quantity">
-                        <p>Quantity:</p>
-                        <input class="basketItem__quantity" type="number" value=${item.quantity}>
+                <div class="confirmedItem__info">
+                    <h4 class="confirmedItem__name">${item.name}</h4>
+                    <p class="confirmedItem__price">${item.price}</p>
+                    <div class="confirmed__specs">
+                        <p>Quantity: ${item.quantity}</p>
+                        <p>Size: Large</p>
                     </div>
                     <button class="remove__button">View Item</button>
                 </div>

@@ -1,0 +1,107 @@
+.checkout__item {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+    .checkout__imageContainer {
+        .checkout__itemImage {
+            min-width: 120px;
+            width: 75%;
+        }
+    }
+    .checkoutItem__info {
+        margin-left: 1rem;
+        .checkoutItem__name {
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin-top: -.25rem;
+        }
+        .checkoutItem__price {
+            font-weight: 300;
+            color: grey;
+            font-size: 1rem;
+        }
+        .checkoutItem__quantity {
+            display: flex;
+            margin: .25rem auto;
+            .quantity {
+                display: flex;
+                margin: .25rem auto;
+            }
+        }
+        .remove__button {
+            outline: none;
+            border: none;
+            background-color: #0c0c0c;
+            color: white;
+            text-transform: uppercase;
+            font-size: .85rem;
+            margin-top: .5rem;
+            min-width: 11rem;
+            padding: .5rem .8rem;
+            transition: 200ms ease-in;
+            border: .5px solid #0c0c0c;
+            &:hover {
+                background-color: #424242;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .checkout__item {
+        .checkout__imageContainer {
+            .checkout__itemImage {
+                
+            }
+        }
+        .checkoutItem__info {
+            .checkoutItem__name {
+    
+            }
+            .checkoutItem__price {
+    
+            }
+            .checkoutItem__quantity {
+                .quantity {
+    
+                }
+            }
+            .remove__button {
+    
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1312px) {
+    .checkout__item {
+        .checkout__imageContainer {
+            .checkout__itemImage {
+                
+            }
+        }
+        .checkoutItem__info {
+            .checkoutItem__name {
+    
+            }
+            .checkoutItem__price {
+    
+            }
+            .checkoutItem__quantity {
+                .quantity {
+    
+                }
+            }
+            .remove__button {
+    
+            }
+        }
+    }
+}

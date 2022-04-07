@@ -25,7 +25,7 @@ function ready() {
 
 const counterText = () => {
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
-    const counterText = document.getElementById('basket__counter')
+    const counterText = document.getElementById('basket__counter');
     if (basketItems.length === 0) {
         counterText.innerHTML = 'You have no items in your basket';
     } else if (basketItems.length === 1) {
@@ -78,7 +78,6 @@ const retrieveBasket = () => {
         itemsContainer.append(itemContainer);
     })
     updateCartTotal()
-    console.log(basketItems)
 }
 
 
@@ -104,6 +103,7 @@ const removeCartItem = (event) => {
         }
     })
     console.log(basketItems)
+    
     updateCartTotal();
     getBasketCount();
     toggleCheckout();

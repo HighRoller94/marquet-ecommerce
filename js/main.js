@@ -111,8 +111,15 @@ const addToCartClicked = (event) => {
     var price = shopItem.getElementsByClassName('item__price')[0].innerText
     var image = shopItem.getElementsByClassName('item__image')[0].src
 
-    var item = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1'}
+    var gallery = shopItem.getElementsByClassName('item__gallery')[0]
+    const galleryImages = []
+    for (let i = 0; i < gallery.children.length; i++) {
+        galleryImages.push(gallery.children[i].currentSrc)
+    }
+
+    var item = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1', gallery: galleryImages}
     addItemToCart(item)
+    console.log(item)
 
 }
 
@@ -125,6 +132,7 @@ const addItemToCart = (item) => {
             return;
         }
     }
+    console.log(item)
     basketItems.push(item)
     sessionStorage.setItem(`basket`, JSON.stringify(basketItems));
     getBasketCount()
@@ -139,8 +147,13 @@ const addProductDetails = (event) => {
     var price = product.getElementsByClassName('item__price')[0].innerText
     var image = product.getElementsByClassName('item__image')[0].src
 
-    var product = { name: `${name}`, price: `${price}`, image: `${image}`}
-    
+    var gallery = product.getElementsByClassName('item__gallery')[0]
+    const galleryImages = []
+    for (let i = 0; i < gallery.children.length; i++) {
+        galleryImages.push(gallery.children[i].currentSrc)
+    }
+    var product = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1', gallery: galleryImages}
+    console.log(product)
     const productDetails = JSON.parse(sessionStorage.getItem('productDetails'));
     productDetails.push(product)
     sessionStorage.setItem(`productDetails`, JSON.stringify(productDetails));

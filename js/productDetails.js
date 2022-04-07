@@ -12,8 +12,10 @@ function ready() {
         button.addEventListener('click', addToCartClicked);
     }
 
+    checkProduct();
     getBasketCount();
     getProductDetails();
+
 }
 
 
@@ -33,14 +35,57 @@ const getProductDetails = () => {
         }
     }
 
+    console.log(productDetails[0])
     const productName = document.querySelector('.item__name')
     const productImage = document.querySelector('.item__image')
     const productPrice = document.querySelector('.item__price')
 
+    const galleryContainer = document.querySelector('.item__gallery')
+    const productGallery = productInfo[0].gallery
+
+    console.log(productGallery)
+    productGallery.forEach(image => {
+        const img = document.createElement('img');
+        img.src = image;
+        img.id = image;
+        galleryContainer.appendChild(img)
+    })
+    
     productName.innerHTML = productInfo[0].name;
     productImage.src = productInfo[0].image;
     productPrice.innerHTML = productInfo[0].price;
     
+}
+
+// CHECK IF PRODUCT IS IN CART 
+
+const checkProduct = () => {
+    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+    
+
+    for (let i = 0; i < basketItems.length; i++) {
+        const itemName = basketItems[i].name
+        if (productName === itemName) {
+            const addButton = document.querySelector('.add__button');
+
+            addButton.style.opacity = '0.4'
+            addButton.style.pointerEvents = 'none'
+        }
+    }
+}
+
+// PRODUCT IMAGES 
+
+const scrollThroughImages = () => {
+    const mainImage = document.getElementById('item__image');
+    const images = document.getElementsByClassName('item__gallery')[0];
+    for (let i = 0; i < images.children.length; i++) {
+        const image = images.children[i]
+        const imageSrc = images.children[i].src
+        image.addEventListener("click", function() {
+            mainImage.src = imageSrc
+        })
+    }
 }
 
 const addToCartClicked = (event) => {

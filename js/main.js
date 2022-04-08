@@ -80,10 +80,11 @@ function ready() {
 
     const productItems = document.getElementsByClassName('item__image')
     for (var i = 0; i < productItems.length; i++) {
-        var button = productItems[i]
-        button.addEventListener('click', addProductDetails)
+        var item = productItems[i]
+        item.addEventListener('click', addProductDetails)
     }
 
+    toastNotification()
     getBasketCount()
 }
 
@@ -118,7 +119,8 @@ const addToCartClicked = (event) => {
     }
 
     var item = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1', gallery: galleryImages}
-    addItemToCart(item)
+    addItemToCart(item);
+    showToast(item);
     console.log(item)
 
 }
@@ -163,4 +165,29 @@ const addProductDetails = (event) => {
 
 const pushProductPage = (name) => {
     window.document.location = './details.html' + '?' + `${name}`;
+}
+
+// TOAST NOTIFICATIONS
+
+const toastNotification = () => {
+    const navbar = document.querySelector('.nav');
+    const notification = document.createElement('div');
+    notification.hideTimeOut = null;
+
+    notification.className = 'toast';
+
+    navbar.appendChild(notification);
+
+}
+
+const showToast = (item) => {
+    const notification = document.querySelector('.toast');
+    clearTimeout(notification.hideTimeout);
+
+    notification.textContent = `${item.name } has been added to your basket!`;
+    notification.className = 'toast toast-visible';
+
+    notification.hideTimeout = setTimeout(() => {
+        notification.classList.remove('toast-visible')
+    }, 3000)
 }

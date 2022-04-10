@@ -4,60 +4,46 @@ if (document.readyState == 'loading') {
     ready()
 }
 
+// HERO CAROUSEL
 
-// MOBILE MENU
+const loadCarousel = () => {
+    const carouselContainer = document.querySelector('.hero__carousel');
 
-const menu = document.querySelector(".nav__toggle");
-const navMenu = document.querySelector(".side__menu");
-
-const mobileMenu = () => {
-    menu.classList.toggle('active')
-    navMenu.classList.toggle('active')
-}
-
-menu.addEventListener('click', mobileMenu);
-
-// CURRENT URL LOCATION
-
-const currentLocation = location.href;
-const menuItem = document.querySelectorAll('.navbar__item');
-const menuLength = menuItem.length;
-
-for (let i = 0; i < menuLength; i++) {
-    if (menuItem[i].href === currentLocation) {
-        menuItem[i].classList.toggle("active")
-    }
-}
-
-// COUNTDOWN TIMER
-
-const countdown = () => {
-    const currentDate = new Date().getTime();
-    const countDate = new Date('September 15, 2022 00:00:00').getTime();
+    document.querySelectorAll('.hero__carousel').forEach(carousel => {
+        // Generate the html for each of the carousel divs we have
+        const items = carousel.querySelectorAll('.carousel__div');
+        const buttonsHtml = Array.from(items, () => {
+            return `<span class="carousel__btn"></span>`;
+        })
     
-    const diff = countDate - currentDate;
-
-    const second = 1000;
-    const minute = second * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
-
-    const textDay = Math.floor(diff / day);
-    const textHour = Math.floor((diff % day) / hour);
-    const textMinute = Math.floor((diff % hour) / minute);
-    const textSecond = Math.floor((diff % minute) / second);
-
-    const outputHours = (textHour).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
-    const outputMinutes = (textMinute).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
-    const outputSeconds = (textSecond).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
-
-    const timer = document.querySelectorAll('.timer');
-    timer.forEach(time => {
-        time.innerHTML = outputHours + ':' + outputMinutes + ':' + outputSeconds;
+        // Append the carousel nav to the end of the carousal div container
+        carousel.insertAdjacentHTML('beforeend', `
+        <div class="carousel__nav">
+            ${buttonsHtml.join('')}
+        </div>
+        `)
+        
+        const buttons = carousel.querySelectorAll('.carousel__btn');
+        buttons.forEach((button, i) => {
+            button.addEventListener('click', () => {
+                // Unselect any current carousel divs/buttons
+                items.forEach(item => 
+                    item.classList.remove('carousel__selected', 'fade-in'));
+                buttons.forEach(button => 
+                    button.classList.remove('selected', 'fade-in' ));
+                // Select and add class to selected carousel and button
+                items[i].classList.add('carousel__selected', 'fade-in');
+                button.classList.add('selected', 'fade-in');
+            })
+        })
+        
+        // Select the first carousel div to display
+        items[0].classList.add('carousel__selected', 'fade-in');
+        buttons[0].classList.add('selected', 'fade-in');
     })
 }
 
-setInterval(countdown, 100);
+
 
 // SHOPPING CART FUNCTIONALITY
 
@@ -84,8 +70,9 @@ function ready() {
         item.addEventListener('click', addProductDetails)
     }
 
-    toastNotification()
-    getBasketCount()
+    loadCarousel();
+    toastNotification();
+    getBasketCount();
 }
 
 // GET NUMBER OF ITEMS IN BASKET 
@@ -120,9 +107,8 @@ const addToCartClicked = (event) => {
 
     var item = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1', gallery: galleryImages}
     addItemToCart(item);
-    showToast(item);
+    
     console.log(item)
-
 }
 
 const addItemToCart = (item) => {
@@ -130,13 +116,15 @@ const addItemToCart = (item) => {
     for (let i = 0; i < basketItems.length; i++) {
         const basketItem = basketItems[i]
         if (basketItem.name === item.name) {
-            console.log(`${basketItem.name} is already in your basket`);
+            const message = `${basketItem.name} is already in your basket`;
+            showToast(message);
             return;
         }
     }
-    console.log(item)
+    const message = `${item.name } has been added to your basket`;
     basketItems.push(item)
     sessionStorage.setItem(`basket`, JSON.stringify(basketItems));
+    showToast(message);
     getBasketCount()
 }
 
@@ -173,18 +161,15 @@ const toastNotification = () => {
     const navbar = document.querySelector('.nav');
     const notification = document.createElement('div');
     notification.hideTimeOut = null;
-
     notification.className = 'toast';
-
     navbar.appendChild(notification);
-
 }
 
-const showToast = (item) => {
+const showToast = (message) => {
     const notification = document.querySelector('.toast');
     clearTimeout(notification.hideTimeout);
 
-    notification.textContent = `${item.name } has been added to your basket!`;
+    notification.textContent = message;
     notification.className = 'toast toast-visible';
 
     notification.hideTimeout = setTimeout(() => {

@@ -1,3 +1,5 @@
+// NAVBAR WEB COMPONENT
+
 class Navbar extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -22,13 +24,16 @@ class Navbar extends HTMLElement {
                                 </svg>
                             </div>
                             <li class="navbar__item">
-                                <a href="/html/mens.html" class="navbar__links">Mens</a>
+                                <a href="#" class="navbar__links">Mens /</a>
                             </li>
                             <li class="navbar__item">
-                                <a href="/html/womens.html" class="navbar__links">Womens</a>
+                                <a href="#" class="navbar__links">Womens /</a>
                             </li>
                             <li class="navbar__item">
-                                <a href="/html/footwear.html" class="navbar__links">Footwear</a>
+                                <a href="#" class="navbar__links">Footwear /</a>
+                            </li>
+                            <li class="navbar__item">
+                                <a href="#" class="navbar__links">Accessories /</a>
                             </li>
                             <div class="mobile__bottom">
                                 <a href="/html/orders.html">
@@ -49,6 +54,11 @@ class Navbar extends HTMLElement {
                     </div>
                 </div>
             </div>
+            <div class="nav__slider">
+                <p>Join the family and get 20% off your next purchase</p>
+                <p>Free delivery when you spend over £50</p>
+                <p>Not happy with your order? Send it back and get in touch</p>
+            </div>
         </nav>
     `;
     }
@@ -56,9 +66,12 @@ class Navbar extends HTMLElement {
 
 window.customElements.define('marquet-nav', Navbar);
 
+// CHANGE NAV ON SCROLL 
+
 const nav = document.querySelector('.navbar');
 
 const scrollNav = () => {
+    const toast = document.querySelector('.toast')
     if (window.scrollY >= 10) {
         nav.classList.add('active')
     } else {
@@ -67,3 +80,90 @@ const scrollNav = () => {
 }
 
 window.addEventListener("scroll", scrollNav);
+
+// NAV TEXT SLIDER
+
+var timer;
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    const slides = document.querySelector('.nav__slider').children;
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('fade-in')
+    }
+    slides[slideIndex - 1].classList.add('fade-in')
+    clearTimeout(timer);
+    timer = setTimeout(() => plusSlides(1), 8000);
+}
+
+
+
+// MOBILE MENU
+
+const menu = document.querySelector(".nav__toggle");
+const navMenu = document.querySelector(".side__menu");
+
+const mobileMenu = () => {
+    menu.classList.toggle('active')
+    navMenu.classList.toggle('active')
+}
+
+menu.addEventListener('click', mobileMenu);
+
+// CURRENT URL LOCATION
+
+const currentLocation = location.href;
+const menuItem = document.querySelectorAll('.navbar__item');
+const menuLength = menuItem.length;
+
+for (let i = 0; i < menuLength; i++) {
+    if (menuItem[i].href === currentLocation) {
+        menuItem[i].classList.toggle("active")
+    }
+}
+
+// COUNTDOWN TIMER
+
+const countdown = () => {
+    const currentDate = new Date().getTime();
+    const countDate = new Date('September 15, 2022 00:00:00').getTime();
+    
+    const diff = countDate - currentDate;
+
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+
+    const textDay = Math.floor(diff / day);
+    const textHour = Math.floor((diff % day) / hour);
+    const textMinute = Math.floor((diff % hour) / minute);
+    const textSecond = Math.floor((diff % minute) / second);
+
+    const outputHours = (textHour).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
+    const outputMinutes = (textMinute).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
+    const outputSeconds = (textSecond).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
+
+    const timer = document.querySelectorAll('.timer');
+    timer.forEach(time => {
+        time.innerHTML = outputHours + ':' + outputMinutes + ':' + outputSeconds;
+    })
+}
+
+setInterval(countdown, 100);

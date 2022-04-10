@@ -12,10 +12,13 @@ function ready() {
         button.addEventListener('click', addToCartClicked);
     }
 
-    checkProduct();
+    const removeButton = document.querySelector('.remove__button');
+    removeButton.addEventListener('click', removeCartItem);
+
     getBasketCount();
     getProductDetails();
-
+    scrollThroughImages();
+    
 }
 
 
@@ -28,22 +31,19 @@ const getProductDetails = () => {
     const paramsNameUncleaned = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&')[0];
     const paramsName = paramsNameUncleaned.replace(/%20/g, ' ');
     // Loop over items in productDetails array, if URL params = product name 
-    for (let index = 0; index < productDetails.length; index++) {
-        let product = productDetails[index];
+    for (let i = 0; i < productDetails.length; i++) {
+        let product = productDetails[i];
         if (product.name === paramsName) {
             productInfo.push(product);
         }
     }
+    const productName = document.querySelector('.item__name');
+    const productImage = document.querySelector('.item__image');
+    const productPrice = document.querySelector('.item__price');
+    const klarnaPrice = document.querySelector('.klarna__statement');
+    const galleryContainer = document.querySelector('.item__gallery');
+    const productGallery = productInfo[0].gallery;
 
-    console.log(productDetails[0])
-    const productName = document.querySelector('.item__name')
-    const productImage = document.querySelector('.item__image')
-    const productPrice = document.querySelector('.item__price')
-
-    const galleryContainer = document.querySelector('.item__gallery')
-    const productGallery = productInfo[0].gallery
-
-    console.log(productGallery)
     productGallery.forEach(image => {
         const img = document.createElement('img');
         img.src = image;
@@ -55,21 +55,30 @@ const getProductDetails = () => {
     productImage.src = productInfo[0].image;
     productPrice.innerHTML = productInfo[0].price;
     
+    var price = parseFloat(productPrice.innerHTML.replace('£', ''));
+    var klarna = Math.floor((price / 3) * 100);
+    const klarnaSplit = klarna / 100;
+
+    klarnaPrice.innerHTML = '£' + klarnaSplit;
+    checkProduct();
+
 }
 
-// CHECK IF PRODUCT IS IN CART 
+// CHECK IF PRODUCT IS IN CART AND CHANGE BUTTONS
 
 const checkProduct = () => {
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
-    
+    const productName = document.querySelector('.item__name').innerHTML;
 
     for (let i = 0; i < basketItems.length; i++) {
         const itemName = basketItems[i].name
         if (productName === itemName) {
             const addButton = document.querySelector('.add__button');
-
-            addButton.style.opacity = '0.4'
-            addButton.style.pointerEvents = 'none'
+            const removeButton = document.querySelector('.remove__button');
+            const removeText = document.querySelector('.remove__text');
+            addButton.style.display = 'none';
+            removeButton.style.display = 'block';
+            removeText.style.display = 'flex';
         }
     }
 }
@@ -87,6 +96,8 @@ const scrollThroughImages = () => {
         })
     }
 }
+
+// ADD ITEM TO BASKET
 
 const addToCartClicked = (event) => {
     var button = event.target;
@@ -110,8 +121,10 @@ const addItemToCart = (item) => {
     }
     basketItems.push(item)
     sessionStorage.setItem(`basket`, JSON.stringify(basketItems));
-    getBasketCount()
+    checkProduct(item);
+    getBasketCount();
 }
+
 
 const getBasketCount = () => {
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
@@ -124,4 +137,34 @@ const getBasketCount = () => {
         countText.innerHTML = basketItems.length
         basketIcon.src = '../assets/icons/bagFull.svg'
     }
+}
+
+// REMOVE ITEM FROM CART
+
+const removeCartItem = () => {
+
+    var name = document.getElementsByClassName('item__name')[0].innerText
+    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+    // iterate over the current basket
+    basketItems.forEach(item => {
+        // get the index of the item in the array that we want to remove, based on its name (key)
+        if (item.name == `${name}`) {
+            const index = basketItems.indexOf(item)
+            if (index > -1) {
+                // remove said item from the array and then update the basket
+                console.log('removed' + name)
+                basketItems.splice(index, 1)
+                sessionStorage.setItem(`basket`, JSON.stringify(basketItems));
+                const addButton = document.querySelector('.add__button');
+                const removeButton = document.querySelector('.remove__button');
+                const removeText = document.querySelector('.remove__text');
+                removeButton.style.display = 'none';
+                removeText.style.display = 'none';
+                addButton.style.display = 'block';
+            }
+        }
+    })
+    console.log(basketItems)
+    
+    getBasketCount();
 }

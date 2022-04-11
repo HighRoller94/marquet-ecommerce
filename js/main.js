@@ -107,8 +107,6 @@ const addToCartClicked = (event) => {
 
     var item = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1', gallery: galleryImages}
     addItemToCart(item);
-    
-    console.log(item)
 }
 
 const addItemToCart = (item) => {

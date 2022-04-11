@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marquet</title>
+    <title>Marquet | Home</title>
     <link href='/styles/styles.css' rel='stylesheet'>
     <link rel="browser icon" type="image/jpg" href="/assets/logos/MarquetLogo.ico" />
     <link rel="stylesheet" href="/styles/styles.css"> 
@@ -14,17 +14,39 @@
   <Marquet-Nav></Marquet-Nav>
 
   <!-- MAIN SECTION -->
-  <div class="main__bg">
-    <div class="main__header">
-      <h4>2022 Spring Collection</h4>
-      <h1>Huge Sale</h1>
-      <h2>Up to 60% off</h2>
-      <button class="main__btn">Shop now</button>
+  <div class="hero__carousel">
+    <div class="carousel__div">
+      <div class="main__header">
+        <h4>2022 Spring Collection</h4>
+        <h1>Huge Sale</h1>
+        <h2>Up to 60% off</h2>
+        <button class="main__btn">Shop now</button>
+      </div>
+    </div>
+    <div class="carousel__div">
+      <div class="main__header">
+        <h4>2022 Spring Collection</h4>
+        <h1>Huge Sale</h1>
+        <h2>Up to 60% off</h2>
+        <button class="main__btn">Shop now</wbutton>
+      </div>
+    </div>
+    <div class="carousel__div">
+      <div class="main__header">
+        <h4>2022 Spring Collection</h4>
+        <h1>Huge Sale</h1>
+        <h2>Up to 60% off</h2>
+        <button class="main__btn">Shop now</button>
+      </div>
     </div>
   </div>
+  
+
+  <!-- SALE ENDS -->
+  <Sale-text></Sale-text>
 
   <!-- DIVIDER -->
-  <Page-Divider heading="shop by" text="shop by category"></Page-Divider>
+  <Page-Divider id="shop__category" heading="shop by" text="shop by category"></Page-Divider>
 
   <!-- SECTIONS -->
   <div class="options__container">
@@ -40,7 +62,7 @@
   </div>
   
   <!-- DIVIDER -->
-  <Page-Divider heading="trending products" text="all the latest additions to marquet"></Page-Divider>
+  <Page-Divider id="trending__divider" heading="trending products" text="all the latest additions to marquet"></Page-Divider>
 
   <!-- TRENDING PRODUCTS GRID -->
 
@@ -58,18 +80,6 @@
       </div>
     </div>
     <div class="trending latest__item">
-      <img class="item__image" src="../assets/vans/coat/vanscoat1.svg" alt="" />
-      <h1 class="item__name">Drill chore coat</h1>
-      <p class="item__price">£59.99</p>
-      <button class="add__button">Add to cart</button>
-      <div class="alt__images item__gallery">
-        <img src="../assets/vans/coat/vanscoat2.svg" alt="" />
-        <img src="../assets/vans/coat/vanscoat3.svg" alt="" />
-        <img src="../assets/vans/coat/vanscoat4.svg" alt="" />
-        <img src="../assets/vans/coat/vanscoat5.svg" alt="" />
-      </div>
-    </div>
-    <div class="trending latest__item">
       <img class="item__image" src="../assets/converse/converse1.svg" alt="" />
       <h1 class="item__name">Converse All Stars</h1>
       <p class="item__price">£62.00</p>
@@ -79,6 +89,18 @@
         <img src="../assets/converse/converse3.svg" alt="" />
         <img src="../assets/converse/converse4.svg" alt="" />
         <img src="../assets/converse/converse5.svg"shirt alt="" />
+      </div>
+    </div>
+    <div class="trending latest__item">
+      <img class="item__image" src="../assets/vans/coat/vanscoat1.svg" alt="" />
+      <h1 class="item__name">Drill chore coat</h1>
+      <p class="item__price">£59.99</p>
+      <button class="add__button">Add to cart</button>
+      <div class="alt__images item__gallery">
+        <img src="../assets/vans/coat/vanscoat2.svg" alt="" />
+        <img src="../assets/vans/coat/vanscoat3.svg" alt="" />
+        <img src="../assets/vans/coat/vanscoat4.svg" alt="" />
+        <img src="../assets/vans/coat/vanscoat5.svg" alt="" />
       </div>
     </div>
     <div class="trending latest__item">
@@ -93,6 +115,7 @@
         <img src="../assets/vans/shirt/vansshirt5.svg" alt="" />
       </div>
     </div>
+    
   </div>
 
   <!-- SHIPPING / SUPPORT / RETURNS-->
@@ -100,7 +123,7 @@
   <div class="options__row">
     <div class="options">
       <div class="shipping">
-        <img src="../assets/icons/shipping__icon.svg" alt="">
+        <img src="../assets/icons/delivery__icon.svg" alt="">
         <div class="shipping__info">
           <h1>Free shipping</h1>
           <h2>On orders over £50</h2>
@@ -123,105 +146,106 @@
   </div>
 
   <!-- DIVIDER -->
-  <Page-Divider heading="latest arrivals" text="Hand picked just for you"></Page-Divider>
+  <Page-Divider id="latest__divider" heading="latest arrivals" text="Hand picked just for you"></Page-Divider>
 
   <!-- LATEST ARRIVALS LARGE -->
 
   <div class="latest__products">
     <div class="trending latest__item">
-      <img class="item__image" src="../assets/vans/footwear/vans1.svg" alt="" />
-      <h1 class="item__name">VANS Oldskools</h1>
-      <p class="item__price" >£65.00</p>
+      <img class="item__image" src="../assets/nike/hoody/nike1.svg" alt="" />
+      <h1 class="item__name">Womens Lightweight Jacket</h1>
+      <p class="item__price">£94.95</p>
       <button class="add__button">Add to cart</button>
       <div class="alt__images item__gallery">
-        <img src="../assets/vans/footwear/vans2.svg" alt="" />
-        <img src="../assets/vans/footwear/vans3.svg" alt="" />
-        <img src="../assets/vans/footwear/vans4.svg" alt="" />
-        <img src="../assets/vans/footwear/vans5.svg" alt="" />
+        <img src="../assets/nike/hoody/nike2.svg" alt="" />
+        <img src="../assets/nike/hoody/nike3.svg" alt="" />
+        <img src="../assets/nike/hoody/nike4.svg" alt="" />
+        <img src="../assets/nike/hoody/nike5.svg" alt="" />
       </div>
     </div>
     <div class="trending latest__item">
-      <img class="item__image" src="../assets/vans/coat/vanscoat1.svg" alt="" />
-      <h1 class="item__name">Drill chore coat</h1>
-      <p class="item__price">£59.99</p>
-      <button class="add__button">Add to cart</button>
-      <div class="alt__images item__gallery">
-        <img src="../assets/vans/coat/vanscoat2.svg" alt="" />
-        <img src="../assets/vans/coat/vanscoat3.svg" alt="" />
-        <img src="../assets/vans/coat/vanscoat4.svg" alt="" />
-        <img src="../assets/vans/coat/vanscoat5.svg" alt="" />
-      </div>
-    </div>
-    <div class="trending latest__item">
-      <img class="item__image" src="../assets/converse/converse1.svg" alt="" />
-      <h1 class="item__name">Converse All Stars</h1>
-      <p class="item__price">£62.00</p>
-      <button class="add__button">Add to cart</button>
-      <div class="alt__images item__gallery">
-        <img src="../assets/converse/converse2.svg" alt="" />
-        <img src="../assets/converse/converse3.svg" alt="" />
-        <img src="../assets/converse/converse4.svg" alt="" />
-        <img src="../assets/converse/converse5.svg"shirt alt="" />
-      </div>
-    </div>
-    <div class="trending latest__item">
-      <img  class="item__image" src="../assets/vans/shirt/vansshirt1.svg" alt="" />
-      <h1 class="item__name">Time off stripe shirt</h1>
+      <img  class="item__image" src="../assets/nike/trainers/niketrainers1.svg" alt="" />
+      <h1 class="item__name">Nike Air Pegasus 39</h1>
       <p class="item__price">£32.00</p>
       <button class="add__button">Add to cart</button>
       <div class="alt__images item__gallery">
-        <img src="../assets/vans/shirt/vansshirt2.svg" alt="" />
-        <img src="../assets/vans/shirt/vansshirt3.svg" alt="" />
-        <img src="../assets/vans/shirt/vansshirt4.svg" alt="" />
-        <img src="../assets/vans/shirt/vansshirt5.svg" alt="" />
+        <img src="../assets/nike/trainers/niketrainers2.svg" alt="" />
+        <img src="../assets/nike/trainers/niketrainers3.svg" alt="" />
+        <img src="../assets/nike/trainers/niketrainers4.svg" alt="" />
+        <img src="../assets/nike/trainers/niketrainers5.svg" alt="" />
       </div>
     </div>
     <div class="trending latest__item">
-      <img class="item__image" src="../assets/vans/footwear/vans1.svg" alt="" />
-      <h1 class="item__name">VANS Oldskools</h1>
+      <img class="item__image" src="../assets/vans/tee/vans3.svg" alt="" />
+      <h1 class="item__name">VANS Classic Tee</h1>
       <p class="item__price" >£65.00</p>
       <button class="add__button">Add to cart</button>
       <div class="alt__images item__gallery">
-        <img src="../assets/vans/footwear/vans2.svg" alt="" />
-        <img src="../assets/vans/footwear/vans3.svg" alt="" />
-        <img src="../assets/vans/footwear/vans4.svg" alt="" />
-        <img src="../assets/vans/footwear/vans5.svg" alt="" />
+        <img src="../assets/vans/tee/vans2.svg" alt="" />
+        <img src="../assets/vans/tee/vans4.svg" alt="" />
+        <img src="../assets/vans/tee/vans5.svg" alt="" />
+        <img src="../assets/vans/tee/vans1.svg" alt="" />
       </div>
     </div>
     <div class="trending latest__item">
-      <img class="item__image" src="../assets/vans/coat/vanscoat1.svg" alt="" />
-      <h1 class="item__name">Drill chore coat</h1>
-      <p class="item__price">£59.99</p>
+      <img class="item__image" src="../assets/nike/mens tracksuit/nikestrack1.svg" alt="" />
+      <h1 class="item__name">Nike Mens Tracksuit</h1>
+      <p class="item__price">£69.95</p>
       <button class="add__button">Add to cart</button>
       <div class="alt__images item__gallery">
-        <img src="../assets/vans/coat/vanscoat2.svg" alt="" />
-        <img src="../assets/vans/coat/vanscoat3.svg" alt="" />
-        <img src="../assets/vans/coat/vanscoat4.svg" alt="" />
-        <img src="../assets/vans/coat/vanscoat5.svg" alt="" />
+        <img src="../assets/nike/mens tracksuit/nikestrack2.svg" alt="" />
+        <img src="../assets/nike/mens tracksuit/nikestrack3.svg" alt="" />
+        <img src="../assets/nike/mens tracksuit/nikestrack4.svg" alt="" />
+        <img src="../assets/nike/mens tracksuit/nikestrack5.svg"shirt alt="" />
+      </div>
+    </div>
+    
+    <div class="trending latest__item">
+      <img class="item__image" src="../assets/vans/hoody/vans4.svg" alt="" />
+      <h1 class="item__name">Vans Pullover Hoodie</h1>
+      <p class="item__price" >£55.00</p>
+      <button class="add__button">Add to cart</button>
+      <div class="alt__images item__gallery">
+        <img src="../assets/vans/hoody/vans1.svg" alt="" />
+        <img src="../assets/vans/hoody/vans3.svg" alt="" />
+        <img src="../assets/vans/hoody/vans2.svg" alt="" />
+        <img src="../assets/vans/hoody/vans5.svg" alt="" />
       </div>
     </div>
     <div class="trending latest__item">
-      <img class="item__image" src="../assets/converse/converse1.svg" alt="" />
-      <h1 class="item__name">Converse All Stars</h1>
-      <p class="item__price">£62.00</p>
+      <img class="item__image" src="../assets/converse/footwear/chuck/chuck1.svg" alt="" />
+      <h1 class="item__name">Chuck 70 Paisley Patchwork</h1>
+      <p class="item__price">£99.99</p>
       <button class="add__button">Add to cart</button>
       <div class="alt__images item__gallery">
-        <img src="../assets/converse/converse2.svg" alt="" />
-        <img src="../assets/converse/converse3.svg" alt="" />
-        <img src="../assets/converse/converse4.svg" alt="" />
-        <img src="../assets/converse/converse5.svg"shirt alt="" />
+        <img src="../assets/converse/footwear/chuck/chuck2.svg" alt="" />
+        <img src="../assets/converse/footwear/chuck/chuck3.svg" alt="" />
+        <img src="../assets/converse/footwear/chuck/chuck4.svg" alt="" />
+        <img src="../assets/converse/footwear/chuck/chuck5.svg" alt="" />
       </div>
     </div>
     <div class="trending latest__item">
-      <img  class="item__image" src="../assets/vans/shirt/vansshirt1.svg" alt="" />
-      <h1 class="item__name">Time off stripe shirt</h1>
-      <p class="item__price">£32.00</p>
+      <img class="item__image" src="../assets/converse/trench/trench1.svg" alt="" />
+      <h1 class="item__name">3-in-1 Trench Coat</h1>
+      <p class="item__price">£120.00</p>
       <button class="add__button">Add to cart</button>
       <div class="alt__images item__gallery">
-        <img src="../assets/vans/shirt/vansshirt2.svg" alt="" />
-        <img src="../assets/vans/shirt/vansshirt3.svg" alt="" />
-        <img src="../assets/vans/shirt/vansshirt4.svg" alt="" />
-        <img src="../assets/vans/shirt/vansshirt5.svg" alt="" />
+        <img src="../assets/converse/trench/trench2.svg" alt="" />
+        <img src="../assets/converse/trench/trench3.svg" alt="" />
+        <img src="../assets/converse/trench/trench4.svg" alt="" />
+        <img src="../assets/converse/trench/trench5.svg"shirt alt="" />
+      </div>
+    </div>
+    <div class="trending latest__item">
+      <img  class="item__image" src="../assets/converse/tee/tee1.svg" alt="" />
+      <h1 class="item__name">Unity Jersey T Shirt</h1>
+      <p class="item__price">£9.99</p>
+      <button class="add__button">Add to cart</button>
+      <div class="alt__images item__gallery">
+        <img src="../assets/converse/tee/tee2.svg" alt="" />
+        <img src="../assets/converse/tee/tee3.svg" alt="" />
+        <img src="../assets/converse/tee/tee4.svg" alt="" />
+        <img src="../assets/converse/tee/tee5.svg" alt="" />
       </div>
     </div>
   </div>
@@ -229,17 +253,10 @@
   <!-- MAIN PAGE BANNER -->
 
   <div class="banner__bg">
-    <h1>2022 collection</h1>
+    <h1>2022 spring collection</h1>
+    <p>Shop Now</p>
   </div>
 
-  <!-- SPONSORS SECTION -->
-
-  <div class="sponsors__container">
-    <img src="" alt="" />
-    <img src="" alt="" />
-    <img src="" alt="" />
-    <img src="" alt="" />
-  </div>
   <!-- NEWSLETTER -->
 
   <Marquet-Newsletter></Marquet-Newsletter>

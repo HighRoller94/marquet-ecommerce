@@ -18,6 +18,7 @@ function ready() {
 
     retrieveBasket();
     updateCartTotal();
+    formSelection();
 }
 
 // GET BASKET ITEMS 
@@ -77,40 +78,27 @@ const removeCartItem = (event) => {
 }
 
 const updateCartTotal = () => {
-    const cartItemsContainer = document.getElementsByClassName('items__container')[0]
-    const cartItems = cartItemsContainer.getElementsByClassName('checkout__item')
-    var total = 0
+    const cartItemsContainer = document.getElementsByClassName('items__container')[0];
+    const cartItems = cartItemsContainer.getElementsByClassName('checkout__item');
+    var total = 0;
     for (var i = 0; i < cartItems.length; i++) {
-        var cartItem = cartItems[i]
+        var cartItem = cartItems[i];
 
-        var priceElement = cartItem.getElementsByClassName('checkoutItem__price')[0]
+        var priceElement = cartItem.getElementsByClassName('checkoutItem__price')[0];
 
-        var price = parseFloat(priceElement.innerHTML.replace('£', ''))
+        var price = parseFloat(priceElement.innerHTML.replace('£', ''));
 
-        total = total + price
+        total = total + price;
     }
-    total = Math.round(total * 100) / 100
-    document.getElementsByClassName('basket__total')[0].innerHTML = '£' + total
+    total = Math.round(total * 100) / 100;
+    document.getElementsByClassName('basket__total')[0].innerHTML = '£' + total;
 }
-
-
-// FORMS
-
-const firstForm = document.getElementById('firstForm');
-const secondForm = document.getElementById('secondForm');
-const thirdForm = document.getElementById('thirdForm');
 
 // BUTTONS
 
-const nextOne = document.getElementById('Next1');
-const nextTwo = document.getElementById('Next2');
-const backOne = document.getElementById('Back1');
-const backTwo = document.getElementById('Back2');
-
-
 const submitButton = document.getElementById('submitBtn');
 submitButton.onclick = () => {
-    submitButton.classList.toggle('button--loading')
+    submitButton.classList.toggle('button--loading');
     setTimeout(submitOrder, 2000);
 }
 
@@ -118,32 +106,69 @@ submitButton.onclick = () => {
 
 const progress = document.getElementById('progress');
 
-// ON CLICKS
+// SCROLL TO TOP
 
-nextOne.onclick = () => {
-    firstForm.style.left = "-100%";
-    secondForm.style.left = "7.5%";
-    progress.style.width = "66%";
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behaviour: 'smooth'
+    })
 }
 
-backOne.onclick = () => {
-    firstForm.style.left = "7.5%";
-    secondForm.style.left = "110%";
-    progress.style.width = "33%";
-}
+// CHECKOUT FORMS
 
-nextTwo.onclick = () => {
-    secondForm.style.left = "-100%";
-    thirdForm.style.left = "7.75%";
-    progress.style.width = "100%";
-}
+const formSelection = () => {
+    const forms = document.querySelectorAll('.checkout__form');
+    const containerHeight = document.querySelector('.checkout__container');
+    forms[0].classList.add('form__section', 'fade-in');
 
-backTwo.onclick = () => {
-    secondForm.style.left = "7.5%";
-    thirdForm.style.left = "110%";
-    progress.style.width = "66%";
-}
+    firstFormHeight = forms[0].clientHeight;
+    secondFormHeight = forms[1].clientHeight;
+    thirdFormHeight = forms[2].clientHeight;
 
+    containerHeight.style.height = `${firstFormHeight}px`;
+    console.log(firstFormHeight);
+    console.log(forms[1].clientHeight);
+    
+    const nextOne = document.getElementById('Next1');
+    const nextTwo = document.getElementById('Next2');
+    const backOne = document.getElementById('Back1');
+    const backTwo = document.getElementById('Back2');
+
+    console.log(containerHeight)
+
+    nextOne.onclick = () => {
+        forms[0].classList.remove('form__section', 'fade-in');
+        containerHeight.style.height = `${secondFormHeight}px`;
+        forms[1].classList.add('form__section', 'fade-in');
+        progress.style.width = "66%";
+
+    }
+    
+    backOne.onclick = () => {
+        forms[0].classList.add('form__section', 'fade-in');
+        containerHeight.style.height = `${firstFormHeight}px`;
+        forms[1].classList.remove('form__section', 'fade-in');
+        progress.style.width = "33%";
+        scrollToTop();
+    }
+    
+    nextTwo.onclick = () => {
+        forms[2].classList.add('form__section', 'fade-in');
+        containerHeight.style.height = `${thirdFormHeight}px`;
+        forms[1].classList.remove('form__section', 'fade-in');
+        progress.style.width = "100%";
+        scrollToTop();
+    }
+    
+    backTwo.onclick = () => {
+        forms[2].classList.remove('form__section', 'fade-in');
+        containerHeight.style.height = `${secondFormHeight}px`;
+        forms[1].classList.add('form__section', 'fade-in');
+        progress.style.width = "66%";
+    }
+    
+}
 
 // GET DELIVERY DATE
 

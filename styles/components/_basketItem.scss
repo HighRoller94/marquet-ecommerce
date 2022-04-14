@@ -2,31 +2,37 @@
     width: 95%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
     justify-content: center;
-    background-color: #eeeeee;
+    background-color: #fcfcfc;
     margin: 0 auto;
-    padding: 2rem 1.25rem;
-    .basketItem__image {
+    position: relative;
+    padding: 1rem;
+    max-height: 13rem;
+    .item__image {
         min-width: 120px;
-        width: 75%;
+        object-fit: cover;
+        max-height: 11rem;
+        width: 100%;
     }
     .basketItem__info {
         margin-left: 1rem;
+        max-height: 11.5rem;
         .basketItem__name {
             font-weight: 400;
-            text-transform: uppercase;
-            font-size: 1.5rem;
-            margin-top: -.25rem;
+            font-family: 'Helvetica', sans-serif;
+            text-transform: capitalize;
+            font-size: 1.4rem;
         }
         .basketItem__price {
             font-weight: 300;
             color: grey;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            margin-top: .3rem;
         }
         .quantity {
             display: flex;
             margin: .25rem auto;
+            font-size: .85rem;
             p {
                 font-weight: 400;
                 font-size: .9rem;
@@ -39,24 +45,46 @@
                 background: none;
             }
         }
-        
-        .remove__button {
-            outline: none;
-            border: none;
-            background-color: #0c0c0c;
-            color: white;
-            text-transform: uppercase;
-            font-size: .85rem;
-            margin-top: .5rem;
-            min-width: 11rem;
-            padding: .5rem .8rem;
-            transition: 200ms ease-in;
-            border: .5px solid #0c0c0c;
-            &:hover {
-                background-color: #424242;
-                cursor: pointer;
+        .basketItem__btns {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: absolute;
+            width: 97.5%;
+            bottom: .5rem;
+            right: .2rem;
+            .remove__button {
+                text-align: left;
+                outline: none;
+                margin-bottom: .5rem;
+                border: none;
+                background-color: #fcfcfc;
+                font-size: .85rem;
+                width: 100%;
+                transition: 200ms ease-in;
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+            .view__button {
+                outline: none;
+                border: none;
+
+                background-color: #0c0c0c;
+                color: white;
+                font-size: .85rem;
+                width: 100%;
+                padding: .3rem .6rem;
+                transition: 200ms ease-in;
+                border: .5px solid #0c0c0c;
+                &:hover {
+                    background-color: #424242;
+                    cursor: pointer;
+                }
             }
         }
+        
     }
 }
 
@@ -66,7 +94,7 @@
         .basketItem__info {
             margin-left: 1.2rem;
             .basketItem__name {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
             .basketItem__price {
                 margin-top: .2rem;
@@ -82,11 +110,44 @@
             }
             .remove__button {
                 font-size: .85rem;
-                padding: .2rem .4rem;
             }
         }
     }
 }
 
 @media screen and (min-width: 1312px) {
+    .basket__item {
+        margin: 0;
+        display: flex;
+        justify-content: flex-start;
+        .item__image {
+            width: 250px;
+        }
+        .basketItem__info {
+            margin-left: 1.3rem;
+            width: 100%;
+            .basketItem__name {
+                font-size: 1.5rem;
+            }
+            .basketItem__btns {
+                bottom: .3rem;
+                display: flex;
+                flex-direction: row;
+                bottom: 0;
+                justify-content: flex-end;
+                .remove__button {
+                    opacity: .8;
+                    margin-right: 1rem;
+                    margin-top: .35rem;
+                    padding: 0;
+                    width: 6rem;
+                }
+                .view__button {
+                    text-align: center;
+                    min-width: 7rem;
+                    width: 30%;
+                }
+            }
+        }
+    }
 }

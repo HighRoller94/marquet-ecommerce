@@ -6,9 +6,8 @@ if (document.readyState == 'loading') {
 
 function ready() {
     retrieveBasket();
-    counterText();
     toggleCheckout();
-    const removeCartItemButtons = document.getElementsByClassName('remove__button');
+    var removeCartItemButtons = document.getElementsByClassName('remove__button');
     for (var i = 0; i < removeCartItemButtons.length; i++) {
         var button = removeCartItemButtons[i]
         button.addEventListener('click', removeCartItem);
@@ -46,10 +45,9 @@ const toggleCheckout = () => {
         button.style.opacity = '0.4'
         button.style.pointerEvents = 'none'
     } 
+    counterText();
 }
 
-
-// UPDATE BASKET ITEMS 
 
 // RETRIEVE AND DISPLAY BASKET ITEMS 
 
@@ -62,7 +60,7 @@ const retrieveBasket = () => {
         var itemContents =
             `<div class="basket__item">
                 <div class="basket__image">
-                <img class="basketItem__image" src=${item.image} alt="" />
+                    <img class="item__image" src=${item.image} alt="" />
                 </div>
                 <div class="basketItem__info">
                     <h4 class="basketItem__name">${item.name}</h4>
@@ -71,30 +69,48 @@ const retrieveBasket = () => {
                         <p>Quantity:</p>
                         <input class="basketItem__quantity" type="number" value=${item.quantity}>
                     </div>
-                    <button class="remove__button">Remove from Basket</button>
+                    <div class="basketItem__btns">
+                        <button class="remove__button">Remove Item</button>
+                        <button class="view__button">View Item</button>
+                    </div>
                 </div>
             </div>`
         itemContainer.innerHTML = itemContents;
         itemsContainer.append(itemContainer);
     })
-    updateCartTotal()
+
+    var removeCartItemButtons = document.getElementsByClassName('remove__button');
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        var button = removeCartItemButtons[i]
+        button.addEventListener('click', removeCartItem);
+    }
+
+    const quantityInputs = document.getElementsByClassName('basketItem__quantity')
+    for (var i = 0; i < quantityInputs.length; i++) {
+        var input = quantityInputs[i];
+        input.addEventListener('change', quantityChanged);
+    }
+    toggleCheckout();
+    updateCartTotal();
 }
 
 
 // REMOVE BASKET ITEM
 
 const removeCartItem = (event) => {
-    var button = event.target
-    button.parentElement.parentElement.remove()
-    var shopItem = button.parentElement
-    var name = shopItem.getElementsByClassName('basketItem__name')[0].innerText
-    console.log('removed' + name)
+    var button = event.target;
+    var shopItem = button.parentElement.parentElement;
+    var name = shopItem.getElementsByClassName('basketItem__name')[0].innerText;
+    console.log('removed' + name);
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+    var itemsContainer = document.getElementsByClassName('items__container')[0];
+    console.log(itemsContainer)
+    itemsContainer.innerHTML = '';
     // iterate over the current basket
     basketItems.forEach(item => {
         // get the index of the item in the array that we want to remove, based on its name (key)
         if (item.name == `${name}`) {
-            const index = basketItems.indexOf(item)
+            const index = basketItems.indexOf(item);
             if (index > -1) {
                 // remove said item from the array and then update the basket
                 basketItems.splice(index, 1)
@@ -102,12 +118,8 @@ const removeCartItem = (event) => {
             }
         }
     })
-    console.log(basketItems)
-    
-    updateCartTotal();
+    retrieveBasket();
     getBasketCount();
-    toggleCheckout();
-    counterText();
 }
 
 // CHANGING QUANTITY
@@ -140,5 +152,12 @@ const updateCartTotal = () => {
         total = total + (price * quantity)
     }
     total = Math.round(total * 100) / 100
-    document.getElementsByClassName('basket__total')[0].innerHTML = '£' + total
+    const rounded = total.toFixed(2);
+    document.getElementsByClassName('basket__total')[0].innerHTML = '£' + rounded
+
+    const klarnaPrice = document.querySelector('.klarna__statement');
+    var klarna = Math.floor((total / 3) * 100);
+    const klarnaSplit = klarna / 100;
+
+    klarnaPrice.innerHTML = '£' + klarnaSplit;
 }

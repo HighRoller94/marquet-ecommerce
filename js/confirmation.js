@@ -5,8 +5,21 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
+    const recentOrders = JSON.parse(sessionStorage.getItem('recentOrders'));
+    const recentOrder = recentOrders.slice(-1);
+    const orderItems = recentOrder[0].orderItems
+
+    const subCount = document.querySelector('.subtotal__count');
+    if (orderItems.length === 1) {
+        subCount.innerHTML = `(${orderItems.length} item):`;
+    } else {
+        subCount.innerHTML = `(${orderItems.length} items):`;
+    }
+
     retrieveRecentOrder();
 }
+
+// RETRIEVE RECENT ORDER 
 
 const retrieveRecentOrder = () => {
     const recentOrders = JSON.parse(sessionStorage.getItem('recentOrders'));
@@ -15,9 +28,11 @@ const retrieveRecentOrder = () => {
     var itemsContainer = document.getElementsByClassName('items__container')[0];
     const recentOrderItems = recentOrder[0].orderItems
 
-    const orderNumber = document.getElementsByClassName('order__number')[0]
+    const orderNumber = document.getElementsByClassName('order__number')[0];
+    const expectedDelivery = document.getElementsByClassName('expected__date')[0]
     const orderPrice = document.getElementsByClassName('confirmed__total')[0]
 
+    expectedDelivery.innerHTML = recentOrder[0].deliveryDate;
     orderPrice.innerHTML = recentOrder[0].orderPrice;
     orderNumber.innerHTML = recentOrder[0].orderNumber;
 
@@ -33,7 +48,6 @@ const retrieveRecentOrder = () => {
                     <p class="confirmedItem__price">${item.price}</p>
                     <div class="confirmed__specs">
                         <p>Quantity: ${item.quantity}</p>
-                        <p>Size: Large</p>
                     </div>
                     <button class="remove__button">View Item</button>
                 </div>
@@ -42,3 +56,4 @@ const retrieveRecentOrder = () => {
         itemsContainer.append(itemContainer);
     })
 }
+

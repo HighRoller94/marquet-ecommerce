@@ -2,27 +2,32 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
     justify-content: center;
-    background-color: #eeeeee;
+    background-color: #fcfcfc;
     margin: 0 auto;
-    padding: 2rem 1.25rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding: 1rem;
+    max-height: 13rem;
     .confirmedItem__image {
         min-width: 120px;
-        width: 75%;
+        object-fit: cover;
+        max-height: 11rem;
+        width: 100%;
     }
     .confirmedItem__info {
-        margin-left: 1rem;
+        margin-left: 2rem;
         .confirmedItem__name {
             font-weight: 400;
-            text-transform: uppercase;
-            font-size: 1.5rem;
-            margin-top: -.25rem;
+            font-family: 'Helvetica', sans-serif;
+            text-transform: capitalize;
+            font-size: 1.4rem;
         }
         .confirmedItem__price {
             font-weight: 300;
             color: grey;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            margin-top: .3rem;
         }
         .confirmed__specs {
             display: flex;
@@ -33,13 +38,15 @@
         .remove__button {
             outline: none;
             border: none;
+            position: absolute;
+            width: 97.5%;
+            bottom: .5rem;
+            right: .2rem;
             background-color: #0c0c0c;
             color: white;
-            text-transform: uppercase;
             font-size: .85rem;
-            margin-top: .5rem;
-            min-width: 11rem;
-            padding: .5rem .8rem;
+            width: 100%;
+            padding: .3rem .6rem;
             transition: 200ms ease-in;
             border: .5px solid #0c0c0c;
             &:hover {

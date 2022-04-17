@@ -9,9 +9,10 @@ function ready() {
 }
 
 const retrievePastOrders = () => {
-    const pastOrders = JSON.parse(localStorage.getItem('orders'));
-
+    const orders = JSON.parse(localStorage.getItem('orders'));
+    const pastOrders = orders.reverse();
     pastOrders.forEach(order => {
+        const index = pastOrders.indexOf(order)
         var itemsContainer = document.getElementsByClassName('orders')[0];
             var itemContainer = document.createElement('div');
             var itemContents =
@@ -31,38 +32,41 @@ const retrievePastOrders = () => {
             itemContainer.innerHTML = itemContents;
             itemsContainer.append(itemContainer);
             
-            getOrderProducts(order)
+            getOrderProducts(order, index)
         
     })
     
 }
 
-const getOrderProducts = (order) => {
+const getOrderProducts = (order, index) => {
     console.log(order)
     const productsContainer = document.getElementsByClassName('order__items')
     const orderItems = order.orderItems
     for (var i = 0; i < productsContainer.length; i++) {
         let container = productsContainer[i]
-        orderItems.forEach(item => {
-            var productContainer = document.createElement('div');
-            var productContents = 
-                `<div class="basket__item">
-                    <div class="basket__image">
-                        <img class="basketItem__image" src=${item.image} alt="" />
-                    </div>
-                    <div class="basketItem__info">
-                        <h4 class="basketItem__name">${item.name}</h4>
-                        <p class="basketItem__price">${item.price}</p>
-                        <div class="quantity">
-                            <p>Quantity:</p>
-                            <input class="basketItem__quantity" type="number" value=${item.quantity}>
+        if (i === index ) {
+            orderItems.forEach(item => {
+                var productContainer = document.createElement('div');
+                var productContents = 
+                    `<div class="order__item">
+                        <div class="order__image">
+                            <img class="orderItem__image" src=${item.image} alt="" />
                         </div>
-                        <button class="remove__button">View Item</button>
-                    </div>
-                </div>`
-            productContainer.innerHTML = productContents;
-            container.append(productContainer);
-        })
+                        <div class="orderItem__info">
+                            <h4 class="orderItem__name">${item.name}</h4>
+                            <p class="orderItem__price">${item.price}</p>
+                            <div class="quantity">
+                                <p>Quantity:</p>
+                                <input class="orderItem__quantity" type="number" value=${item.quantity}>
+                            </div>
+                            <button class="remove__button">View Item</button>
+                        </div>
+                    </div>`
+                productContainer.innerHTML = productContents;
+                container.append(productContainer);
+            })
+        }
+        
     }
     
 }

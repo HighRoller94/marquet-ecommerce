@@ -25,16 +25,32 @@
         </div>
         <span class="basket__divider"></span>
         <div class="subtotal">
-            <h1 class="basket__total"></h1>
+            <div class="subtotal__amount">
+                <h2>Subtotal
+                    <span class="subtotal__count"></span>
+                </h2>
+                <h1 class="basket__total"></h1>
+            </div>
+            
             <div class="basket__gift">
                 <input type="checkbox">
                 <p>This order contains a gift</p>
             </div>
             <button class="basket__checkout">
                 <a id="basket__checkout" href="/html/checkout.html">
-                    CHECKOUT
+                    Checkout
                 </a>
             </button>
+            <div class="product__additional">
+                <div class="payment">
+                    <img src="../assets/logos/klarna.svg" alt="Klarna Logo" />
+                    <h4>Pay in 3 monthly, interest-free instalments of<span class="klarna__statement"></span></h4>
+                </div>
+                <div class="product__delivery">
+                    <img src="../assets/icons/delivery__iconBlack.svg" alt="Delivery Icon" />
+                    <h4>Free delivery on all products when you spend over £50!</h4>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -50,7 +66,6 @@
     <script src="../js/components/navbar.js"></script>
     <script src="../js/components/footer.js"></script>
     <script src="../js/components/newsletter.js"></script>
-
     <script src="../js/main.js"></script>
     <script src="../js/basket.js"></script>
 

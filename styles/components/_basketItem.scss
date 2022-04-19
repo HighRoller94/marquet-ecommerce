@@ -6,6 +6,7 @@
     background-color: #fcfcfc;
     margin: 0 auto;
     position: relative;
+    border-radius: 3px;
     padding: 1rem;
     max-height: 13rem;
     .item__image {
@@ -13,6 +14,7 @@
         object-fit: cover;
         max-height: 11rem;
         width: 100%;
+        cursor: pointer;
     }
     .basketItem__info {
         margin-left: 1rem;
@@ -22,6 +24,10 @@
             font-family: 'Helvetica', sans-serif;
             text-transform: capitalize;
             font-size: 1.4rem;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.8;
+            }
         }
         .basketItem__price {
             font-weight: 300;
@@ -61,7 +67,7 @@
                 background-color: #fcfcfc;
                 font-size: .85rem;
                 width: 100%;
-                transition: 200ms ease-in;
+                transition: 100ms ease-in;
                 &:hover {
                     text-decoration: underline;
                     cursor: pointer;
@@ -70,13 +76,13 @@
             .view__button {
                 outline: none;
                 border: none;
-
+                border-radius: 3px;
                 background-color: #0c0c0c;
                 color: white;
                 font-size: .85rem;
                 width: 100%;
                 padding: .3rem .6rem;
-                transition: 200ms ease-in;
+                transition: 100ms ease-in;
                 border: .5px solid #0c0c0c;
                 &:hover {
                     background-color: #424242;
@@ -84,7 +90,9 @@
                 }
             }
         }
-        
+    }
+    .item__gallery {
+        display: none;
     }
 }
 

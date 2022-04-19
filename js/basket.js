@@ -9,16 +9,35 @@ function ready() {
     toggleCheckout();
     var removeCartItemButtons = document.getElementsByClassName('remove__button');
     for (var i = 0; i < removeCartItemButtons.length; i++) {
-        var button = removeCartItemButtons[i]
+        var button = removeCartItemButtons[i];
         button.addEventListener('click', removeCartItem);
     }
     
-    const quantityInputs = document.getElementsByClassName('basketItem__quantity')
+    const quantityInputs = document.getElementsByClassName('basketItem__quantity');
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i];
         input.addEventListener('change', quantityChanged);
     }
+
+    const productItems = document.getElementsByClassName('item__image');
+    const productNames = document.getElementsByClassName('basketItem__name');
+    const viewButtons = document.getElementsByClassName('view__button');
+    console.log(viewButtons)
+    for (var i = 0; i < productItems.length; i++) {
+        var item = productItems[i];
+        item.addEventListener('click', getBasketItemDetails);
+    }
+    for (var i = 0; i < productNames.length; i++) {
+        var item = productNames[i];
+        item.addEventListener('click', getBasketItemDetails);
+    }
+    for (var i = 0; i < viewButtons.length; i++) {
+        var item = viewButtons[i];
+        item.addEventListener('click', getBasketItemDetails);
+    }
+
 }
+
 
 // UPDATE COUNTER TEXT
 
@@ -31,6 +50,12 @@ const counterText = () => {
         counterText.innerHTML = 'You have 1 item in your basket';
     } else if (basketItems.length > 1) {
         counterText.innerHTML = `You have ${basketItems.length} items in your basket`;
+    }
+    const subCount = document.querySelector('.subtotal__count');
+    if (basketItems.length === 1) {
+        subCount.innerHTML = `(${basketItems.length} item):`;
+    } else {
+        subCount.innerHTML = `(${basketItems.length} items):`;
     }
 }
 
@@ -54,7 +79,7 @@ const toggleCheckout = () => {
 const retrieveBasket = () => {
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
     var itemsContainer = document.getElementsByClassName('items__container')[0];
-
+    console.log(basketItems)
     basketItems.forEach(item => {
         var itemContainer = document.createElement('div');
         var itemContents =
@@ -73,6 +98,12 @@ const retrieveBasket = () => {
                         <button class="remove__button">Remove Item</button>
                         <button class="view__button">View Item</button>
                     </div>
+                </div>
+                <div class="item__gallery">
+                    <img src=${item.gallery[0]} alt="" />
+                    <img src=${item.gallery[1]} alt="" />
+                    <img src=${item.gallery[2]} alt="" />
+                    <img src=${item.gallery[3]} alt="" />
                 </div>
             </div>`
         itemContainer.innerHTML = itemContents;
@@ -160,4 +191,27 @@ const updateCartTotal = () => {
     const klarnaSplit = klarna / 100;
 
     klarnaPrice.innerHTML = '£' + klarnaSplit;
+}
+
+// PRODUCT CLICKED
+
+const getBasketItemDetails = (event) => {
+    var clicked = event.target
+    var product = clicked.parentElement.parentElement.parentElement
+    var name = product.getElementsByClassName('basketItem__name')[0].innerText
+    var price = product.getElementsByClassName('basketItem__price')[0].innerText
+    var image = product.getElementsByClassName('item__image')[0].src
+
+    var gallery = product.getElementsByClassName('item__gallery')[0]
+    const galleryImages = []
+    for (let i = 0; i < gallery.children.length; i++) {
+        galleryImages.push(gallery.children[i].currentSrc)
+    }
+    var product = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1', gallery: galleryImages}
+    console.log(product)
+    const productDetails = JSON.parse(sessionStorage.getItem('productDetails'));
+    productDetails.push(product)
+    sessionStorage.setItem(`productDetails`, JSON.stringify(productDetails));
+
+    pushProductPage(name)
 }

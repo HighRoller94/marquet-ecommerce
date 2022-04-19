@@ -5,9 +5,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem 0;
+    margin-bottom: 1.75rem;
     .sale__text {
-        padding-top: 1rem;
         margin-top: -.3rem;
         h4 {
             font-weight: 300;
@@ -16,22 +16,24 @@
             color: white;
         }
     }
-    .sale__timer {
+    .timer {
+        width: 45%;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: .9rem;
+        margin-top: .5rem;
         background-color: white;
-        width: 40%;
-        .timer {
-            font-size: 2.5rem;
-            color: black;
-        }
+        padding: .2rem 1rem;
+        font-size: 2.3rem;
+        font-weight: 500;
+        font-family: 'Helvetica', sans-serif;
+        color: black;
     }
 }
 
 @media screen and (min-width: 768px) {
     .sale {
+        display: none;
         padding-bottom: 2rem;
         .sale__text {
             padding-top: 1.25rem;
@@ -51,18 +53,6 @@
 
 @media screen and (min-width: 1312px) {
     .sale {
-        margin-top: -2.2rem;
-        padding: 1.5rem 0 2.6rem 0;
-        .sale__text {
-            padding-top: 0;
-        }
-        .sale__timer {
-            margin-top: 1.3rem;
-            width: 17%;
-            .timer {
-                padding: .3rem 0;
-                color: #0c0c0c;
-            }
-        }
+        display: none;
     }
 }

@@ -15,6 +15,7 @@
         grid-row-start: 1;
         grid-column-start: 1;
         opacity: 0; 
+        border-radius: 3px;
         transition: 300ms ease-in-out;
         &:nth-child(1) {
             background-image: url('../../assets/main/hero__bg.svg');
@@ -28,14 +29,15 @@
                 h4 {
                     padding: .5rem 1.25rem;
                     border: 1px solid white;
-                    font-size: .9rem;
+                    font-size: 1.2rem;
                     text-transform: capitalize;
                     font-family: 'Helvetica', sans-serif;
                     font-weight: 400;
+                    border-radius: 3px;
                 }
                 h1 {
                     margin-top: 1rem;
-                    font-size: 3.5rem;
+                    font-size: 4rem;
                     font-family: 'Helvetica Neue', sans-serif;
                     font-weight: 600;
                     text-transform: uppercase;
@@ -49,11 +51,11 @@
                 .main__btn {
                     color: white;
                     outline: none;
+                    border-radius: 3px;
                     border: 1px solid white;
                     background-color: transparent;
-                    text-transform: uppercase;
-                    padding: .3rem 1rem;
-                    font-size: 1rem;
+                    padding: .4rem 1rem;
+                    font-size: 1.3rem;
                     margin-top: 2.5rem;
                     transition: 200ms ease-in;
                     &:hover {
@@ -64,7 +66,51 @@
             }
         }
         &:nth-child(2) {
-            background-image: url('../../assets/footwear/mens.svg');
+            background-image: url('../../assets/main/vans__bg.svg');
+            background-position-y: 50%;
+            background-position-x: 0%;
+            background-size: cover;
+            position: relative;
+            .vans__head {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 3.5rem;
+                width: 100%;
+                margin-top: 2rem;
+                img {
+                    width: 100%;
+                }
+                h2 {
+                    color: white;
+                    text-transform: uppercase;
+                    font-family: 'Helvetica', sans-serif;
+                    font-weight: 300;
+                    margin: 1.5rem auto 1rem auto;
+                    font-size: 1.5rem;
+                }
+                button {
+                    outline: none;
+                    border: 1px solid white;
+                    border-radius: 3px;
+                    width: 50%;
+                    background: none;
+                    color: white;
+                    margin-top: 1rem;
+                    padding: .4rem 1rem;
+                    font-size: 1.3rem;
+                    &:hover {
+                        background-color: white;
+                        color: black;
+                    }
+                }
+            }
+            .secondary__btn {
+                display: none;
+            }
         }
         &:nth-child(3) {
             background-image: url('../../assets/main/banner.svg');
@@ -112,10 +158,11 @@
         height: 12rem;
         background-size: 100%;
         background-position: 30%;
+        border-radius: 3px;
         margin: 0 auto;
         transition: 200ms ease-in;
         position: relative;
-        margin-bottom: .5rem;
+        margin-bottom: 1rem;
         h1 {
             position: absolute;
             color: white;
@@ -124,7 +171,7 @@
             font-family: 'Helvetica', sans-serif;
             transform: translate(-50%, -50%);
             font-weight: 300;
-            font-size: 1.1rem;
+            font-size: 1rem;
             padding: 0.4rem 1.1rem;
             background-color: #000000;
         }
@@ -155,8 +202,10 @@
     .trending {
         height: auto;
         cursor: pointer;
+        
         img {
             width: 95%;
+            border-radius: 3px;
         }
         h1 {
             font-size: .95rem;
@@ -174,11 +223,12 @@
             border: none;
             background-color: #0c0c0c;
             color: white;
+            border-radius: 3px;
             font-size: .9rem;
             margin-top: .2rem;
             width: 95%;
             padding: .5rem 1rem;
-            transition: 200ms ease-in;
+            transition: 100ms ease-in;
             text-transform: capitalize;
             &:hover {
                 background-color: #383838;
@@ -271,8 +321,10 @@
     margin: 2.5rem auto;
     .trending {
         height: auto;
+        cursor: pointer;
         img {
             width: 95%;
+            border-radius: 3px;
         }
         h1 {
             font-size: .95rem;
@@ -280,11 +332,6 @@
             font-family: 'Helvetica', sans-serif;
             font-weight: 300;
             text-transform: capitalize;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            display: inline-block;
-            width: 90%;
         }
         p {
             margin: .2rem 0;
@@ -294,14 +341,14 @@
             outline: none;
             border: none;
             background-color: #0c0c0c;
-            font-family: 'Helvetica', sans-serif;
-            text-transform: capitalize;
             color: white;
+            border-radius: 3px;
             font-size: .9rem;
             margin-top: .2rem;
             width: 95%;
             padding: .5rem 1rem;
-            transition: 200ms ease-in;
+            transition: 100ms ease-in;
+            text-transform: capitalize;
             &:hover {
                 background-color: #383838;
                 cursor: pointer;
@@ -462,10 +509,10 @@
             width: 65%;
             height: 38rem;
             background-size: 100%;
-            margin: 2rem auto 1.5rem auto;
+            margin: 2.5rem auto 2rem auto;
             &:nth-child(1) {
                 .main__header {
-                    margin-top: 6rem;
+                    margin-top: 6.25rem;
                     h1 {
                         font-size: 7rem;
                         margin-top: 1rem;
@@ -510,6 +557,7 @@
         display: grid;
         width: 66.1%;
         margin: 0 auto;
+        align-items: center;
         grid-template-columns: 33.3% 33.3% 33.3%;
         .accessories {
             display: flex;
@@ -534,7 +582,21 @@
         width: 65%;
         grid-template-columns: 24.5% 24.5% 24.5% 24.5%;
         grid-gap: 1%;
-
+        .trending {
+            h1 {
+                font-size: 1.1rem;
+                margin-top: 0.5rem;
+                font-family: 'Helvetica', sans-serif;
+                font-weight: 300;
+                text-transform: capitalize;
+            }
+            .item__price {
+                margin-top: .3rem;
+            }
+            .add__button {
+                margin-top: .5rem;
+            }
+        }
     }
 
     .options__row {
@@ -597,10 +659,16 @@
         .trending {
             h1 {
                 font-size: 1.1rem;
-                margin-top: 0.3rem;
+                margin-top: 0.5rem;
                 font-family: 'Helvetica', sans-serif;
                 font-weight: 300;
                 text-transform: capitalize;
+            }
+            .item__price {
+                margin-top: .3rem;
+            }
+            .add__button {
+                margin-top: .5rem;
             }
         }
     }

@@ -3,9 +3,6 @@
 // PAGES
 
 @import './pages/index';
-@import './pages/mens';
-@import './pages/womens';
-@import './pages/footwear';
 @import './pages/checkout';
 @import './pages/basket';
 @import './pages/productDetails';
@@ -21,8 +18,10 @@
 @import './components/divider';
 @import './components/basketItem';
 @import './components/confirmedItem';
+@import './components/orderItem';
 @import './components/checkoutItem';
 @import './components/latestArrivals';
+@import './components/toast';
 
 * {
     margin: 0;
@@ -30,7 +29,7 @@
     box-sizing: border-box;
     padding: 0;
     scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Helvetica', sans-serif;
 }
 
 body {
@@ -38,4 +37,3 @@ body {
     height: 100%;
     background-color: #f1f1f1;
 }
-

@@ -17,23 +17,37 @@
         <div class="confirmation__header">
             <h1>Thankyou for your purchase!</h1>
             <h3>Your items are on the way and will be with you soon!</h3>
+            <div class="expected__delivery">
+                <h1>Expected Delivery:<h2 class="expected__date"></h2></h1>
+            </div>
             <div class="order__numberContainer">
-                <p class="order__numberText">Order Number:<p class="order__number"></p></p>
+                <p>Order Number:<p class="order__number"></p></p>
             </div>
             
         </div>
         <div class="items__container">
 
         </div>
-        <div class="confirmation__total">
-            <span class="bar"></span>
-            <h2>Total:<span class="confirmed__total"></span></h2>
+        <span class="basket__divider"></span>
+        <div class="confirmation">
+            <div class="confirmation__total">
+                <h2>Subtotal
+                    <span class="subtotal__count"></span>
+                </h2>
+                <h2 class="confirmed__total"></h2>
+            </div>
+            <button class="view__btn">
+                <a href="/html/orders.html">
+                    View Order
+                </a>
+            </button>
         </div>
+        
     </div>
 
-    <!-- LATEST ARRIVALS-->
-    
-    <Latest-Arrivals></Latest-Arrivals>
+    <!-- NEWSLETTER -->
+
+    <Marquet-Newsletter></Marquet-Newsletter>
     
     <!-- FOOTER -->
 
@@ -44,5 +58,4 @@
     <script src="../js/components/newsletter.js"></script>
     <script src="../js/confirmation.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/components/latestArrivals.js"></script>
 </html>

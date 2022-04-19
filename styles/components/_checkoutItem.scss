@@ -2,52 +2,63 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
     justify-content: center;
-    background-color: #eeeeee;
+    background-color: #fcfcfc;
     margin: 0 auto;
-    padding: 2rem 1.25rem;
+    position: relative;
+    border-radius: 3px;
+    padding: 1rem;
+    max-height: 13rem;
     .checkout__imageContainer {
         .checkout__itemImage {
             min-width: 120px;
-            width: 75%;
+            object-fit: cover;
+            max-height: 11rem;
+            width: 100%;
+            cursor: pointer;
         }
     }
     .checkoutItem__info {
         margin-left: 1rem;
+        max-height: 11.5rem;
         .checkoutItem__name {
             font-weight: 400;
-            text-transform: uppercase;
-            font-size: 1.5rem;
-            margin-top: -.25rem;
+            font-family: 'Helvetica', sans-serif;
+            text-transform: capitalize;
+            font-size: 1.4rem;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.8;
+            }
         }
         .checkoutItem__price {
             font-weight: 300;
             color: grey;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            margin-top: .3rem;
         }
         .checkoutItem__quantity {
             display: flex;
             margin: .25rem auto;
+            font-size: .85rem;
             .quantity {
                 display: flex;
                 margin: .25rem auto;
+                font-weight: 400;
+                font-size: .9rem;
             }
         }
         .remove__button {
+            text-align: left;
             outline: none;
+            margin-bottom: .5rem;
             border: none;
-            background-color: #0c0c0c;
-            color: white;
-            text-transform: uppercase;
+            background-color: #fcfcfc;
             font-size: .85rem;
-            margin-top: .5rem;
-            min-width: 11rem;
-            padding: .5rem .8rem;
-            transition: 200ms ease-in;
-            border: .5px solid #0c0c0c;
+            width: 100%;
+            transition: 100ms ease-in;
             &:hover {
-                background-color: #424242;
+                text-decoration: underline;
                 cursor: pointer;
             }
         }
@@ -55,53 +66,9 @@
 }
 
 @media screen and (min-width: 768px) {
-    .checkout__item {
-        .checkout__imageContainer {
-            .checkout__itemImage {
-                
-            }
-        }
-        .checkoutItem__info {
-            .checkoutItem__name {
     
-            }
-            .checkoutItem__price {
-    
-            }
-            .checkoutItem__quantity {
-                .quantity {
-    
-                }
-            }
-            .remove__button {
-    
-            }
-        }
-    }
 }
 
 @media screen and (min-width: 1312px) {
-    .checkout__item {
-        .checkout__imageContainer {
-            .checkout__itemImage {
-                
-            }
-        }
-        .checkoutItem__info {
-            .checkoutItem__name {
     
-            }
-            .checkoutItem__price {
-    
-            }
-            .checkoutItem__quantity {
-                .quantity {
-    
-                }
-            }
-            .remove__button {
-    
-            }
-        }
-    }
 }

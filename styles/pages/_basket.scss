@@ -21,11 +21,11 @@
             h1 {
                 font-size: 2.5rem;
                 font-weight: 500;
-                text-transform: uppercase;
-                font-family: 'Roboto Condensed', sans-serif;
+                text-transform: capitalize;
+                font-family: 'Helvetica Neue', 'Roboto Condensed';
             }
             p {
-                margin-top: .75rem;
+                margin-top: .5rem;
                 font-size: 0.95rem;
             }
         }
@@ -223,8 +223,8 @@
         display: flex;
         flex-direction: row;
         margin: 0 auto;
-        justify-content: center;
-        margin-top: 2rem;
+        align-items: flex-start;
+        margin-top: 1rem;
         .basket {
             margin-top: 3rem;
             align-items:initial;
@@ -253,8 +253,8 @@
         }
         .subtotal {
             position: sticky;
-            top: 8rem;
-            margin-top: 4rem;
+            top: 10rem;
+            margin-top: 5rem;
             margin-left: 2rem;
             height: 100%;
             width: 40%;

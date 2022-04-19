@@ -99,6 +99,7 @@ const updateCartTotal = () => {
 const submitButton = document.getElementById('submitBtn');
 submitButton.onclick = () => {
     submitButton.classList.toggle('button--loading');
+    progress.style.width = "100%";
     setTimeout(submitOrder, 2000);
 }
 
@@ -111,7 +112,7 @@ const progress = document.getElementById('progress');
 const scrollToTop = () => {
     window.scrollTo({
         top: 0,
-        behaviour: 'smooth'
+        scrolling: false,
     })
 }
 
@@ -124,25 +125,18 @@ const formSelection = () => {
 
     firstFormHeight = forms[0].clientHeight;
     secondFormHeight = forms[1].clientHeight;
-    thirdFormHeight = forms[2].clientHeight;
 
+    console.log(secondFormHeight)
     containerHeight.style.height = `${firstFormHeight}px`;
-    console.log(firstFormHeight);
-    console.log(forms[1].clientHeight);
     
     const nextOne = document.getElementById('Next1');
-    const nextTwo = document.getElementById('Next2');
     const backOne = document.getElementById('Back1');
-    const backTwo = document.getElementById('Back2');
-
-    console.log(containerHeight)
 
     nextOne.onclick = () => {
         forms[0].classList.remove('form__section', 'fade-in');
         containerHeight.style.height = `${secondFormHeight}px`;
         forms[1].classList.add('form__section', 'fade-in');
         progress.style.width = "66%";
-
     }
     
     backOne.onclick = () => {
@@ -150,22 +144,6 @@ const formSelection = () => {
         containerHeight.style.height = `${firstFormHeight}px`;
         forms[1].classList.remove('form__section', 'fade-in');
         progress.style.width = "33%";
-        scrollToTop();
-    }
-    
-    nextTwo.onclick = () => {
-        forms[2].classList.add('form__section', 'fade-in');
-        containerHeight.style.height = `${thirdFormHeight}px`;
-        forms[1].classList.remove('form__section', 'fade-in');
-        progress.style.width = "100%";
-        scrollToTop();
-    }
-    
-    backTwo.onclick = () => {
-        forms[2].classList.remove('form__section', 'fade-in');
-        containerHeight.style.height = `${secondFormHeight}px`;
-        forms[1].classList.add('form__section', 'fade-in');
-        progress.style.width = "66%";
     }
     
 }
@@ -184,7 +162,6 @@ const submitOrder = () => {
 
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
-
     const fullName = firstName + ' ' + lastName;
 
     const address = document.getElementById('address').value;
@@ -225,17 +202,3 @@ const submitOrder = () => {
 
     window.document.location = "/html/confirmation.html";
 }
-
-// ADJUST FORM HEIGHT BASED ON CHILD HEIGHT
-
-const parent = document.querySelector('.checkout__container')
-const children = parent.children;
-
-let largestExtent = 0
-
-for (var i = 0; i < children.length; i++) {
-    let extent = children[i].offsetHeight + children[i].offsetTop
-    if (extent > largestExtent) largestExtent = extent
-}
-
-parent.style.height = `${largestExtent + 20}px`

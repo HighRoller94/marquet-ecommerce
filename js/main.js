@@ -40,7 +40,32 @@ const loadCarousel = () => {
         // Select the first carousel div to display
         items[0].classList.add('carousel__selected', 'fade-in');
         buttons[0].classList.add('selected', 'fade-in');
-    })
+
+        var timer;
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            const slides = document.querySelectorAll('.carousel__div');
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('fade-in')
+            }
+            slides[slideIndex - 1].classList.add('fade-in')
+                clearTimeout(timer);
+            timer = setTimeout(() => plusSlides(1), 8000);
+        }
+        })
 }
 
 
@@ -71,6 +96,7 @@ function ready() {
     }
 
     loadCarousel();
+    
     toastNotification();
     getBasketCount();
 }
@@ -123,7 +149,7 @@ const addItemToCart = (item) => {
     basketItems.push(item)
     sessionStorage.setItem(`basket`, JSON.stringify(basketItems));
     showToast(message);
-    getBasketCount()
+    getBasketCount();
 }
 
 // PRODUCT CLICKED

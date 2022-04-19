@@ -61,7 +61,6 @@ const getProductDetails = () => {
 
     klarnaPrice.innerHTML = '£' + klarnaSplit;
     checkProduct();
-
 }
 
 // CHECK IF PRODUCT IS IN CART AND CHANGE BUTTONS

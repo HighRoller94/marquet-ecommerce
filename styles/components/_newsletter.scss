@@ -1,5 +1,5 @@
 .newsletter {
-    margin-top: 5rem;
+    margin-top: 2.5rem;
     width: 100%;
     background-color: #0c0c0c;
     padding: 2rem 0 3rem 0;
@@ -9,7 +9,6 @@
         justify-content: center;
         margin: 0 auto;
         width: 85%;
-        
         .newsletter__header {
             display: flex;
             flex-direction: column;
@@ -93,7 +92,7 @@
 
 @media screen and (min-width: 1312px) {
     .newsletter {
-        margin-top: 8rem;
+        margin-top: 4rem;
         padding: 3rem;
         .divider__bottom {
             width: 5%;

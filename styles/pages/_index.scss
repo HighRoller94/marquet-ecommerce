@@ -48,7 +48,7 @@
                     font-weight: 500;
                     margin-top: .2rem;
                 }
-                .main__btn {
+                button {
                     color: white;
                     outline: none;
                     border-radius: 3px;
@@ -57,9 +57,9 @@
                     padding: .4rem 1rem;
                     font-size: 1.3rem;
                     margin-top: 2.5rem;
-                    transition: 200ms ease-in;
                     &:hover {
-                        background-color: rgba(255, 255, 255, 0.3);
+                        background-color: white;
+                        color: black;
                         cursor: pointer;
                     }
                 }
@@ -80,31 +80,39 @@
                 text-align: center;
                 padding: 3.5rem;
                 width: 100%;
-                margin-top: 2rem;
+                margin-top: 3rem;
                 img {
                     width: 100%;
+                    max-width: 400px;
                 }
                 h2 {
                     color: white;
                     text-transform: uppercase;
                     font-family: 'Helvetica', sans-serif;
                     font-weight: 300;
-                    margin: 1.5rem auto 1rem auto;
+                    margin: 1.25rem auto 1rem auto;
                     font-size: 1.5rem;
                 }
-                button {
-                    outline: none;
-                    border: 1px solid white;
-                    border-radius: 3px;
-                    width: 50%;
-                    background: none;
+                a {
+                    text-decoration: none;
                     color: white;
-                    margin-top: 1rem;
+                }
+                button {
+                    color: white;
+                    outline: none;
+                    border-radius: 3px;
+                    border: 1px solid white;
+                    background-color: transparent;
                     padding: .4rem 1rem;
                     font-size: 1.3rem;
+                    z-index: 99;
+                    margin-top: 1rem;
                     &:hover {
                         background-color: white;
-                        color: black;
+                        a {
+                            color: black;
+                        }
+                        cursor: pointer;
                     }
                 }
             }
@@ -202,7 +210,6 @@
     .trending {
         height: auto;
         cursor: pointer;
-        
         img {
             width: 95%;
             border-radius: 3px;
@@ -223,7 +230,6 @@
             border: none;
             background-color: #0c0c0c;
             color: white;
-            border-radius: 3px;
             font-size: .9rem;
             margin-top: .2rem;
             width: 95%;
@@ -342,7 +348,6 @@
             border: none;
             background-color: #0c0c0c;
             color: white;
-            border-radius: 3px;
             font-size: .9rem;
             margin-top: .2rem;
             width: 95%;
@@ -404,7 +409,7 @@
             background-size: cover;
             &:nth-child(1) {
                 .main__header {
-                    margin-top: 5rem;
+                    margin-top: 6rem;
                     h4 {
                         font-size: 1.3rem;
                         padding: .6rem 1.4rem;
@@ -412,18 +417,48 @@
                     }
                     h1 {
                         font-size: 6.5rem;
-                        font-weight: 300;
                     }
                     h2 {
                         font-size: 2rem;
                     }
                     .main__btn {
                         padding: .5rem 1.5rem;
-                        font-size: 1.5rem;
+                        font-size: 1.3rem;
                     }
                 }
             }
-            
+            &:nth-child(2) {
+                .vans__head {
+                    padding: 3.5rem;
+                    width: 100%;
+                    margin-top: 3.5rem;
+                    img {
+                        width: 70%;
+                    }
+                    h2 {
+                        color: white;
+                        text-transform: uppercase;
+                        font-family:  'Helvetica', sans-serif;
+                        font-weight: 300;
+                        margin: 2rem auto 1rem auto;
+                        font-size: 1.75rem;
+                    }
+                    button {
+                        outline: none;
+                        border: 1px solid white;
+                        border-radius: 3px;
+                        
+                        background: none;
+                        color: white;
+                        margin-top: 1rem;
+                        padding: .5rem 1.5rem;
+                        font-size: 1.3rem;
+                    }
+                }
+                .secondary__btn {
+                    display: none;
+                }
+            }
         }
         .carousel__nav {
             bottom: 2.5rem;
@@ -444,6 +479,7 @@
     
     .options__container {
         display: grid;
+        width: 98.5%;
         grid-template-columns: 50% 50%;
         .option {
             min-height: 15rem;
@@ -509,10 +545,10 @@
             width: 65%;
             height: 38rem;
             background-size: 100%;
-            margin: 2.5rem auto 2rem auto;
+            margin: 2.3rem auto 2rem auto;
             &:nth-child(1) {
                 .main__header {
-                    margin-top: 6.25rem;
+                    margin-top: 7rem;
                     h1 {
                         font-size: 7rem;
                         margin-top: 1rem;
@@ -527,8 +563,37 @@
                 }
             }
             &:nth-child(2) {
-            }
-            &:nth-child(3) {
+                .vans__head {
+                    padding: 3.5rem;
+                    width: 100%;
+                    margin-top: 4rem;
+                    img {
+                        width: 90%;
+                        max-width: 500px;
+                    }
+                    h2 {
+                        color: white;
+                        text-transform: uppercase;
+                        font-family:  'Helvetica', sans-serif;
+                        font-weight: 300;
+                        margin: 1.5rem auto 1rem auto;
+                        font-size: 2rem;
+                    }
+                    button {
+                        outline: none;
+                        border: 1px solid white;
+                        border-radius: 3px;
+                        
+                        background: none;
+                        color: white;
+                        margin-top: 1rem;
+                        padding: .5rem 1.5rem;
+                        font-size: 1.3rem;
+                    }
+                }
+                .secondary__btn {
+                    display: none;
+                }
             }
         }
         .carousel__nav {
@@ -542,10 +607,11 @@
     }
 
     #shop__category {
+        background-color: none;
         .divider {
             width: 65%;
             background-color: none;
-            margin: .5rem auto 1.75rem auto;
+            margin: -.75rem auto 1.3rem auto;
             padding: 1rem 0 0.5rem 0;
             h2 {
                 font-size: 2.2rem;
@@ -567,7 +633,7 @@
     #trending__divider {
         .divider {
             background-color: transparent;
-            margin: 2rem 0 1.5rem 0;
+            margin: 1rem 0 1.5rem 0;
             h2 {
                 font-size: 1.5rem;
             }
@@ -676,7 +742,7 @@
     #latest__divider {
         .divider {
             background-color: transparent;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
             h2 {
                 font-size: 1.5rem;
             }
@@ -685,7 +751,6 @@
             }
         }
     }
-
     .banner__bg {
         width: 65%;
         margin: 8rem auto 0 auto;

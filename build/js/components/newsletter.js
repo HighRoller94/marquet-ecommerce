@@ -2,9 +2,6 @@ class Newsletter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <div class="container">
-            <div class="divider__bottom">
-                    <span></span>
-                </div>
             <div class="newsletter">
                 <div class="newsletter__container">
                     <div class="newsletter__header">

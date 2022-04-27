@@ -5,9 +5,7 @@ class Sale extends HTMLElement {
             <div class="sale__text">
                 <h4>Hurry! Sale ends in</h4>
             </div>
-            <div class="sale__timer">
-                <span class="timer"></span>
-            </div>
+            <span class="timer"></span>
         </div>
         `;
     }

@@ -38,10 +38,11 @@ const retrieveBasket = () => {
                     <h4 class="checkoutItem__name">${item.name}</h4>
                     <p class="checkoutItem__price">${item.price}</p>
                     <div class="quantity">
-                        <p>Quantity:</p>
-                        <p>${item.quantity}</p>
+                        <p>Quantity: ${item.quantity}</p>
                     </div>
-                    <button class="remove__button">Remove from Basket</button>
+                    <div class="checkoutItem__btns">
+                        <button class="remove__button">Remove Item</button>
+                    </div>
                 </div>
             </div>`
         itemContainer.innerHTML = itemContents;
@@ -80,17 +81,41 @@ const removeCartItem = (event) => {
 const updateCartTotal = () => {
     const cartItemsContainer = document.getElementsByClassName('items__container')[0];
     const cartItems = cartItemsContainer.getElementsByClassName('checkout__item');
+    const subtotalShipping = document.querySelector('.subtotal__shipping');
+    const subtotalTax = document.querySelector('.subtotal__tax');
+    const subTotal = document.querySelector('.subtotal__price');
+
     var total = 0;
+    var subtotal = 0;
+    var shipping = 0;
     for (var i = 0; i < cartItems.length; i++) {
         var cartItem = cartItems[i];
 
         var priceElement = cartItem.getElementsByClassName('checkoutItem__price')[0];
-
         var price = parseFloat(priceElement.innerHTML.replace('£', ''));
 
-        total = total + price;
+        subtotal = subtotal + price;
     }
-    total = Math.round(total * 100) / 100;
+
+    
+    if (subtotal > 50) {
+        subtotalShipping.innerHTML = '£0.00';
+    } else {
+        subtotalShipping.innerHTML = '£3.99';
+        var shipping = 3.99;
+    }
+    console.log(shipping)
+
+    var tax = parseInt((subtotal * 0.05).toFixed(2));
+    subtotalTax.innerHTML = '£' + tax;
+
+    console.log(tax)
+    subtotal = Math.round(subtotal * 100) / 100;
+    console.log(subtotal)
+    
+    subTotal.innerHTML = '£' + (subtotal.toFixed(2))
+    var total = (tax + shipping + subtotal);
+    
     document.getElementsByClassName('basket__total')[0].innerHTML = '£' + total;
 }
 
@@ -100,7 +125,7 @@ const submitButton = document.getElementById('submitBtn');
 submitButton.onclick = () => {
     submitButton.classList.toggle('button--loading');
     progress.style.width = "100%";
-    setTimeout(submitOrder, 2000);
+    setTimeout(submitOrder, 2500);
 }
 
 // PROGRESS BAR 
@@ -120,15 +145,18 @@ const scrollToTop = () => {
 
 const formSelection = () => {
     const forms = document.querySelectorAll('.checkout__form');
-    const containerHeight = document.querySelector('.checkout__container');
+    const containerHeight = document.querySelector('.checkout__form');
     forms[0].classList.add('form__section', 'fade-in');
+    const placeOrder = document.querySelector('.order__btn');
+    const subTotal = document.querySelector('.subtotal__container');
 
     firstFormHeight = forms[0].clientHeight;
     secondFormHeight = forms[1].clientHeight;
+    console.log(firstFormHeight)
 
-    console.log(secondFormHeight)
     containerHeight.style.height = `${firstFormHeight}px`;
     
+    console.log(containerHeight.clientHeight)
     const nextOne = document.getElementById('Next1');
     const backOne = document.getElementById('Back1');
 
@@ -136,16 +164,20 @@ const formSelection = () => {
         forms[0].classList.remove('form__section', 'fade-in');
         containerHeight.style.height = `${secondFormHeight}px`;
         forms[1].classList.add('form__section', 'fade-in');
+        subTotal.style.display = 'block';
+        subTotal.style.opacity = '1';
         progress.style.width = "66%";
+        placeOrder.style.opacity = '1'
+        placeOrder.style.pointerEvents = 'all'
+        scrollToTop();
     }
-    
     backOne.onclick = () => {
         forms[0].classList.add('form__section', 'fade-in');
         containerHeight.style.height = `${firstFormHeight}px`;
         forms[1].classList.remove('form__section', 'fade-in');
         progress.style.width = "33%";
+        scrollToTop();
     }
-    
 }
 
 // GET DELIVERY DATE
@@ -160,13 +192,13 @@ const addDays = (originalDate, days) => {
 
 const submitOrder = () => {
 
+    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const fullName = firstName + ' ' + lastName;
 
     const address = document.getElementById('address').value;
-    const county = document.getElementById('county');
-    const country = document.getElementById('country');
 
     const orderPrice = document.getElementsByClassName('basket__total')[0].textContent;
     const timeSubmitted = new Date().toLocaleDateString();
@@ -187,8 +219,6 @@ const submitOrder = () => {
         orderAddress: `${address}`
     }
 
-    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
-
     const orderDetails = {
         ...orderDets,
         orderItems: basketItems
@@ -197,8 +227,16 @@ const submitOrder = () => {
     const orders = JSON.parse(localStorage.getItem('orders'))
     orders.push(orderDetails)
     sessionStorage.clear('basket');
-    sessionStorage.setItem('recentOrders', JSON.stringify(orders))
     localStorage.setItem(`orders`, JSON.stringify(orders));
 
-    window.document.location = "/html/confirmation.html";
+    checkoutComplete();
+}
+
+const checkoutComplete = () => {
+    window.document.location = "/html/index.html";
+
+    const message = `Thanks! Your order as now been placed`;
+    console.log(message)
+
+    showToast(message);
 }

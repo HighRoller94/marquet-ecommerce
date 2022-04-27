@@ -10,62 +10,62 @@ const loadCarousel = () => {
     const carouselContainer = document.querySelector('.hero__carousel');
 
     document.querySelectorAll('.hero__carousel').forEach(carousel => {
-        // Generate the html for each of the carousel divs we have
-        const items = carousel.querySelectorAll('.carousel__div');
-        const buttonsHtml = Array.from(items, () => {
-            return `<span class="carousel__btn"></span>`;
-        })
+    // Generate the html for each of the carousel divs we have
+    const items = carousel.querySelectorAll('.carousel__div');
+    const buttonsHtml = Array.from(items, () => {
+        return `<span class="carousel__btn"></span>`;
+    })
+
+    // Append the carousel nav to the end of the carousal div container
+    carousel.insertAdjacentHTML('beforeend', `
+    <div class="carousel__nav">
+        ${buttonsHtml.join('')}
+    </div>
+    `)
     
-        // Append the carousel nav to the end of the carousal div container
-        carousel.insertAdjacentHTML('beforeend', `
-        <div class="carousel__nav">
-            ${buttonsHtml.join('')}
-        </div>
-        `)
-        
-        const buttons = carousel.querySelectorAll('.carousel__btn');
-        buttons.forEach((button, i) => {
-            button.addEventListener('click', () => {
-                // Unselect any current carousel divs/buttons
-                items.forEach(item => 
-                    item.classList.remove('carousel__selected', 'fade-in'));
-                buttons.forEach(button => 
-                    button.classList.remove('selected', 'fade-in' ));
-                // Select and add class to selected carousel and button
-                items[i].classList.add('carousel__selected', 'fade-in');
-                button.classList.add('selected', 'fade-in');
-            })
+    const buttons = carousel.querySelectorAll('.carousel__btn');
+    buttons.forEach((button, i) => {
+        button.addEventListener('click', () => {
+            // Unselect any current carousel divs/buttons
+            items.forEach(item => 
+                item.classList.remove('carousel__selected', 'fade-in'));
+            buttons.forEach(button => 
+                button.classList.remove('selected', 'fade-in' ));
+            // Select and add class to selected carousel and button
+            items[i].classList.add('carousel__selected', 'fade-in');
+            button.classList.add('selected', 'fade-in');
         })
-        
-        // Select the first carousel div to display
-        items[0].classList.add('carousel__selected', 'fade-in');
-        buttons[0].classList.add('selected', 'fade-in');
+    })
+    
+    // Select the first carousel div to display
+    items[0].classList.add('carousel__selected', 'fade-in');
+    buttons[0].classList.add('selected', 'fade-in');
 
-        var timer;
-        var slideIndex = 1;
-        showSlides(slideIndex);
+    var timer;
+    var slideIndex = 1;
+    showSlides(slideIndex);
 
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        let i;
+        const slides = document.querySelectorAll('.carousel__div');
+        if (n > slides.length) {
+            slideIndex = 1
         }
-
-        function showSlides(n) {
-            let i;
-            const slides = document.querySelectorAll('.carousel__div');
-            if (n > slides.length) {
-                slideIndex = 1
-            }
-            if (n < 1) {
-                slideIndex = slides.length
-            }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].classList.remove('fade-in')
-            }
-            slides[slideIndex - 1].classList.add('fade-in')
-                clearTimeout(timer);
-            timer = setTimeout(() => plusSlides(1), 8000);
+        if (n < 1) {
+            slideIndex = slides.length
         }
-        })
+        for (i = 0; i < slides.length; i++) {
+            slides[i].classList.remove('fade-in')
+        }
+        slides[slideIndex - 1].classList.add('fade-in')
+            clearTimeout(timer);
+        timer = setTimeout(() => plusSlides(1), 8000);
+    }
+    })
 }
 
 

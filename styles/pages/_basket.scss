@@ -14,7 +14,7 @@
         width: 100%;
         .basket__header {
             display: flex;
-            width: 85%;
+            width: 87%;
             justify-content: left;
             flex-direction: column;
             margin-top: 1rem;
@@ -48,6 +48,9 @@
         }
     }
     .subtotal {
+        background-color: white;
+        padding: 2rem;
+        border: 1px solid #f1f1f1;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -105,7 +108,7 @@
                 bottom: 0;
                 right: 0;
                 z-index: -1;
-                background-color: #f1f1f1;
+                background-color: white;
                 transform: scaleX(0);
                 transform-origin: left;
                 transition: transform 300ms ease-in-out;
@@ -180,7 +183,7 @@
 
 @media screen and (min-width: 768px) {
     .basket__container {
-        margin-top: 2rem;
+        margin-top: 1rem;
         .basket {
             margin-top: 1rem;
             .basket__header {
@@ -226,7 +229,7 @@
         align-items: flex-start;
         margin-top: 1rem;
         .basket {
-            margin-top: 3rem;
+            margin-top: 2.5rem;
             align-items:initial;
             .basket__header {
                 width: 100%;
@@ -243,7 +246,7 @@
             .items__container {
                 width: 95%;
                 row-gap: 2rem;
-                margin-top: 2.5rem;
+                margin-top: 3rem;
                 grid-template-columns: 1fr;
                 
             }
@@ -253,8 +256,8 @@
         }
         .subtotal {
             position: sticky;
-            top: 10rem;
-            margin-top: 5rem;
+            top: 8.5rem;
+            margin-top: 4rem;
             margin-left: 2rem;
             height: 100%;
             width: 40%;

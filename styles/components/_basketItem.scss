@@ -1,12 +1,11 @@
 .basket__item {
-    width: 95%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-    background-color: #fcfcfc;
+    background-color: white;
     margin: 0 auto;
     position: relative;
-    border-radius: 3px;
     padding: 1rem;
     max-height: 13rem;
     .item__image {
@@ -33,11 +32,11 @@
             font-weight: 300;
             color: grey;
             font-size: 1.1rem;
-            margin-top: .3rem;
+            margin-top: .5rem;
         }
         .quantity {
             display: flex;
-            margin: .25rem auto;
+            margin: .5rem auto;
             font-size: .85rem;
             p {
                 font-weight: 400;
@@ -57,11 +56,12 @@
             align-items: flex-start;
             position: absolute;
             width: 97.5%;
-            bottom: .5rem;
+            bottom: .3rem;
             right: .2rem;
             .remove__button {
                 text-align: left;
                 outline: none;
+                margin-top: -.3rem;
                 margin-bottom: .5rem;
                 border: none;
                 background-color: #fcfcfc;
@@ -76,7 +76,6 @@
             .view__button {
                 outline: none;
                 border: none;
-                border-radius: 3px;
                 background-color: #0c0c0c;
                 color: white;
                 font-size: .85rem;
@@ -135,7 +134,14 @@
             margin-left: 1.3rem;
             width: 100%;
             .basketItem__name {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+            }
+            .basketItem__price {
+                margin-top: .5rem;
+                font-size: 1.3rem;
+            }
+            .quantity {
+                margin-top: 1rem;
             }
             .basketItem__btns {
                 bottom: .3rem;

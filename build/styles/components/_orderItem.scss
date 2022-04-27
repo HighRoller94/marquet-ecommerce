@@ -1,0 +1,87 @@
+.order__item {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #fcfcfc;
+    position: relative;
+    padding: 1rem;
+    max-height: 13rem;
+    .orderItem__image {
+        min-width: 120px;
+        object-fit: cover;
+        max-height: 11rem;
+        width: 100%;
+    }
+    .orderItem__info {
+        margin-left: 1.5rem;
+        .orderItem__name {
+            font-weight: 400;
+            font-family: 'Helvetica', sans-serif;
+            text-transform: capitalize;
+            font-size: 1.4rem;
+        }
+        .orderItem__price {
+            font-weight: 300;
+            color: grey;
+            font-size: 1.1rem;
+            margin-top: .3rem;
+        }
+        .quantity {
+            margin-top: .3rem;
+            font-size: 0.9rem;
+        }
+        
+        .remove__button {
+            outline: none;
+            border: none;
+            position: absolute;
+            width: 97.5%;
+            bottom: .5rem;
+            right: .2rem;
+            background-color: #0c0c0c;
+            color: white;
+            font-size: .85rem;
+            width: 100%;
+            padding: .3rem .6rem;
+            transition: 200ms ease-in;
+            border: .5px solid #0c0c0c;
+            &:hover {
+                background-color: #424242;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .order__item {
+        width: 97%;
+        .orderItem__info {
+            margin-left: 1.2rem;
+            .orderItem__name {
+                font-size: 1.2rem;
+            }
+            .orderItem__price {
+                margin-top: .2rem;
+                font-size: 1.1rem;
+            }
+            .quantity {
+                p {
+                    font-size: 1rem;
+                }
+                .orderItem__quantity {
+                    font-size: 1rem;
+                }
+            }
+            .remove__button {
+                font-size: .85rem;
+                padding: .2rem .4rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1312px) {
+}

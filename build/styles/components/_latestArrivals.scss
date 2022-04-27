@@ -1,0 +1,70 @@
+.latest {
+    width: 90%;
+    margin: 2.5rem auto 3.5rem auto;
+    h1 {
+        font-size: 1.6rem;
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+    .more__container {
+        margin-top: 2.5rem;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        width: 100%;
+        grid-gap: 2%;
+        row-gap: 3%;
+        .arrival {
+            height: auto;
+            cursor: pointer;
+            .arrival__image {
+                width: 95%;
+                border-radius: 3px;
+            }
+            .arrival__name {
+                font-size: .95rem;
+                margin-top: 0.3rem;
+                font-family: 'Helvetica', sans-serif;
+                font-weight: 300;
+                text-transform: capitalize;
+            }
+            .arrival__price {
+                margin: .2rem 0;
+                opacity: .8;
+            }
+            .alt__images {
+                display: none;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .latest {
+        width: 94%;
+        margin: 6rem auto;
+        h1 {
+            margin-bottom: 2rem;
+        }
+        .more__container {
+            margin-top: 0;
+            width: 100%;
+            grid-template-columns: 24.5% 24.5% 24.5% 24.5%;
+            grid-gap: 1%;
+        }
+    }
+}
+
+@media screen and (min-width: 1312px) {
+    .latest {
+        width: 65%;
+        margin: 6rem auto;
+        h1 {
+            margin-bottom: 3rem;
+            font-size: 1.8rem;
+        }
+    }
+    .more__container {
+        width: 65%;
+        margin: 3rem auto;
+    }
+}

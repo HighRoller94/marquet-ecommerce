@@ -2,18 +2,26 @@
 
 // PAGES
 
-@import './mens';
-@import './footwear';
+@import './pages/index';
+@import './pages/checkout';
+@import './pages/basket';
+@import './pages/productDetails';
+@import './pages/confirmation';
+@import './pages/orders';
 
 // COMPONENTS
 
-@import './navbar';
-@import './sale';
-@import './newsletter';
-@import './footer';
-@import './divider';
-@import './basket';
-@import './basketItem';
+@import './components/navbar';
+@import './components/sale';
+@import './components/newsletter';
+@import './components/footer';
+@import './components/divider';
+@import './components/basketItem';
+@import './components/confirmedItem';
+@import './components/orderItem';
+@import './components/checkoutItem';
+@import './components/latestArrivals';
+@import './components/toast';
 
 * {
     margin: 0;
@@ -21,11 +29,11 @@
     box-sizing: border-box;
     padding: 0;
     scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Helvetica', sans-serif;
 }
 
 body {
     overflow-x: hidden;
-    background-color: #fcfcfc;
+    height: 100%;
+    background-color: #fcfcfc
 }
-

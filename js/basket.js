@@ -79,7 +79,6 @@ const toggleCheckout = () => {
 const retrieveBasket = () => {
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
     var itemsContainer = document.getElementsByClassName('items__container')[0];
-    console.log(basketItems)
     basketItems.forEach(item => {
         var itemContainer = document.createElement('div');
         var itemContents =
@@ -132,7 +131,6 @@ const removeCartItem = (event) => {
     var button = event.target;
     var shopItem = button.parentElement.parentElement;
     var name = shopItem.getElementsByClassName('basketItem__name')[0].innerText;
-    console.log('removed' + name);
     const basketItems = JSON.parse(sessionStorage.getItem('basket'));
     var itemsContainer = document.getElementsByClassName('items__container')[0];
     console.log(itemsContainer)
@@ -161,7 +159,6 @@ const quantityChanged = (event) => {
     if (isNaN(input.value) || input.value <= 0) {
         input.value = 1
     }
-    console.log(input.value)
     updateCartTotal()
 }
 
@@ -208,7 +205,6 @@ const getBasketItemDetails = (event) => {
         galleryImages.push(gallery.children[i].currentSrc)
     }
     var product = { name: `${name}`, price: `${price}`, image: `${image}`, quantity: '1', gallery: galleryImages}
-    console.log(product)
     const productDetails = JSON.parse(sessionStorage.getItem('productDetails'));
     productDetails.push(product)
     sessionStorage.setItem(`productDetails`, JSON.stringify(productDetails));

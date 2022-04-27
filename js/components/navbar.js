@@ -24,16 +24,16 @@ class Navbar extends HTMLElement {
                                 </svg>
                             </div>
                             <li class="navbar__item">
-                                <a href="#" class="navbar__links">Mens /</a>
+                                <a href="#" class="navbar__links">Mens</a>
                             </li>
                             <li class="navbar__item">
-                                <a href="#" class="navbar__links">Womens /</a>
+                                <a href="#" class="navbar__links">Womens</a>
                             </li>
                             <li class="navbar__item">
-                                <a href="#" class="navbar__links">Footwear /</a>
+                                <a href="#" class="navbar__links">Footwear</a>
                             </li>
                             <li class="navbar__item">
-                                <a href="#" class="navbar__links">Accessories /</a>
+                                <a href="#" class="navbar__links">Accessories</a>
                             </li>
                             <div class="mobile__bottom">
                                 <a href="/html/orders.html">
@@ -44,6 +44,9 @@ class Navbar extends HTMLElement {
                         </ul>
                     </div>
                     <div class="nav__icons">
+                        <div class="search__icon">
+                        
+                        </div>
                         <a href="/html/basket.html">
                             <p class="basket__count"></p>
                             <img class="shopping__icon" src="" alt="Basket" />

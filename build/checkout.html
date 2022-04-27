@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/styles/styles.css"> 
+    <link rel="browser icon" type="image/jpg" href="/assets/logos/MarquetLogo.ico" />
+    </head>
+    <body>
+        <!-- NAVBAR -->
+
+        <Marquet-Nav></Marquet-Nav>
+
+        <!-- CHECKOUT -->
+
+        <div class="checkout">
+            <div class="progress__container">
+                <div class="step__row">
+                    <div id="progress"></div>
+                    <div class="step__col">Shipping</div>
+                    <div class="step__col">Review</div>
+                    <div class="step__col">Complete!</div>
+                </div>
+            </div>
+            <div class="checkout__container" id="checkout__container">
+                <!-- FIRST FORM -->
+                <form class="checkout__form" id="firstForm">
+                    <div class="checkout__header">
+                        <div class="step__icon">1</div>
+                        <div class="checkout__title">
+                            <h3>Personal Details</h3>
+                            <p>We just need a few details</p>
+                        </div>
+                    </div>
+                    <div class="form__inputs">
+                        <div class="input__names" >
+                            <div class="input__field">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" oninput="this.className = ''" id="firstName" required>
+                            </div>
+                            <div class="input__field">
+                                <label for="lastName">Last name *</label>
+                                <input type="text"  oninput="this.className = ''" id="lastName"required>
+                            </div>
+                        </div>
+                        <div class="input__field">
+                            <label for="email">Email Address*</label>
+                            <input type="text"  oninput="this.className = ''" id="email"required>
+                        </div>
+                        <div class="input__field">
+                            <label for="emailconfirm">Confirm Email Address</label>
+                            <input type="text"  oninput="this.className = ''" id="emailconfirm"required>
+                        </div>
+                        <div class="email__policy">
+                            <input type="checkbox" />
+                            <p>Sign up to receive exclusive offers and promotions. View our privacy policy for more information.</p>
+                        </div>
+                    </div>
+                    <div class="checkout__divider"></div>
+                    <div class="checkout__header">
+                        <div class="step__icon">2</div>
+                        <div class="checkout__title">
+                            <h3>Shipping Details</h3>
+                            <p>We are we shipping your items?</p>
+                        </div>
+                    </div>
+                    <div class="form__inputs">
+                        <div class="input__field">
+                            <label for="street">Street Address*</label>
+                            <input type="text" oninput="this.className = ''" id="address" required>
+                        </div>
+                        <div class="town__county">
+                            <div class="input__field">
+                                <label for="lastName">Town</label>
+                                <input type="text"  oninput="this.className = ''" id="town"required>
+                            </div>  
+                            <div class="input__field">
+                                <label for="email">County</label>
+                                <input type="text"  oninput="this.className = ''" id="county"required>
+                            </div>
+                        </div>
+                        <div class="post__code">
+                            <div class="input__field"> 
+                                <label for="emailconfirm">Post code*</label>
+                                <input type="text"  oninput="this.className = ''" id="emailconfirm"required>
+                            </div>  
+                            <div class="input__field">
+                                <label for="emailconfirm">Confirm Post Code*</label>
+                                <input type="text"  oninput="this.className = ''" id="emailconfirm"required> 
+                            </div>
+                        </div>
+                        <div class="billing__policy">
+                            <input type="checkbox" />
+                            <p>Use same address for billing</p>
+                        </div>
+                    </div>
+                    <div class="checkout__divider"></div>
+                    <div class="btns">
+                        <button type="button" id="Next1">Next</button>
+                    </div>
+                </form>
+                <!-- SECOND FORM -->
+                <form class="checkout__form" id="secondForm">
+                    <div class="checkout__header">
+                        <div class="step__icon">3</div>
+                        <div class="checkout__title">
+                            <h3>Review your items</h3>
+                            <p>Take a minute to double check your items</p>
+                        </div>
+                    </div>
+                    <div class="items__container">
+                    </div>
+                    <div class="checkout__divider"></div>
+                    <button class="back__btn" id="Back1">Back</button>
+                </form>
+                <!-- TOTAL SECTION -->
+                <div class="subtotal__container">
+                    <div class="subtotal">
+                        <h1>Order Summary</h1>
+                        <div class="checkout__divider"></div>
+                        <ul class="subtotal__details">
+                            <li>Subtotal <span class="subtotal__price"></span></li>
+                            <li>Shipping<span class="subtotal__shipping"></span></li>
+                            <li>Estimated Tax<span class="subtotal__tax"></span></li>
+                            <li>Total:<span class="basket__total"></span></li>
+                        </ul>
+                        <button type="button" class="order__btn" id="submitBtn">
+                            <span class="button__text">Place your order</span>
+                        </button>
+                    </div>
+                    <div class="checkout__btns">
+                        <button class="login__button"></button>
+                        <button class="guest__button"></button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <!-- NEWSLETTER -->
+        <Marquet-Newsletter></Marquet-Newsletter>
+
+        <!-- FOOTER -->
+        <Marquet-Footer></Marquet-Footer>
+
+    </body>
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/footer.js"></script>
+    <script src="../js/components/newsletter.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/checkout.js"></script>
+</html>

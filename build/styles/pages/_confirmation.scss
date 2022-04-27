@@ -1,0 +1,258 @@
+.confirmation__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1.75rem auto;
+    .confirmation__header {
+        display: flex;
+        flex-direction: column;
+        color: #202020;
+        width: 85%;
+        margin: 0 auto;
+        margin-top: .75rem;
+        h1 {
+            font-size: 3rem;
+            width: 90%;
+            font-weight: 400;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+        h3 {
+            margin-top: 1.25rem;
+            font-weight: 400;
+            font-size: .95rem;
+        }
+        .expected__delivery {
+            display: flex;
+            justify-content: left;
+            margin-top: 1.5rem;
+            width: 75%;
+            align-items: center;
+            h1 {
+                font-family: 'Helvetica', sans-serif;
+                font-size: 1.3rem;
+                font-weight: 500;
+            }
+            .expected__date {
+                font-size: 1.3rem;
+                font-weight: 500;
+                margin-left: .2rem;
+            }
+        }
+        .order__numberContainer {
+            display: flex;
+            margin-top: 2rem;
+            justify-content: right;
+            p {
+                font-size: .8rem;
+            }
+            .order__number {
+                margin-left: .2rem;
+            }
+        }
+    }
+    .items__container {
+        width: 85%;
+        margin: 0 auto;
+        margin-top: 1.4rem;
+    }
+    .basket__divider {
+        margin: 3rem auto 2rem auto;
+        width: 85%;
+        height: 2px;
+        background-color: grey;
+        opacity: .8;
+    }
+    .confirmation {
+        width: 85%;
+        justify-content: center;
+        margin: 0 auto;
+        .confirmation__total {
+            display: flex;
+            align-items: center;
+            
+            justify-content: right;
+            margin: 0 auto;
+            h2 {
+                font-weight: 300;
+                font-size: 1.3rem;
+            }
+            .confirmed__total {
+                font-weight: bold;
+                font-size: 1.5rem;
+                margin-left: .5rem;
+                margin-top: 0;
+            }
+        }
+        .view__btn {
+            margin: 3rem auto;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            background-color: #0c0c0c;
+            color: white;
+            width: 100%;
+            padding: .6rem .6rem;
+            font-size: 1rem;
+            border: 1px solid #0c0c0c;
+            overflow: auto;
+            z-index: 1;
+            position: relative;
+            cursor: pointer;
+            transition: 300ms ease-in-out;
+            a {
+                transition: 300ms ease-in-out;
+                text-decoration: none;
+                color: white;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                outline: none;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                z-index: -1;
+                background-color: #f1f1f1;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 300ms ease-in-out;
+            }
+            &:hover::before,
+            &:focus::before {
+                transform: scaleX(1);
+                
+            }
+            &:hover a,
+            &:focus a {
+                color: #0c0c0c;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .confirmation__container {
+        margin-top: 3rem;
+        .confirmation__header {
+            width: 94%;
+            h1 {
+                font-size: 3rem;
+            }
+            h3 {
+                font-size: 1rem;
+            }
+            .expected__delivery {
+                display: flex;
+                flex-direction: row;
+                margin-top: 1.5rem;
+                width: 55%;
+                h1 {
+                    font-family: 'Helvetica', sans-serif;
+                    font-size: 1.6rem;
+                    font-weight: 500;
+                }
+                .expected__date {
+                    font-size: 1.8rem;
+                    margin-left: 0;
+                    font-weight: 500;
+                }
+            }
+            .order__numberContainer {
+                display: flex;
+                margin-top: 2rem;
+                justify-content: right;
+                
+                p {
+                    font-size: .8rem;
+                }
+                .order__number {
+                    margin-left: .2rem;
+                }
+            }
+        }
+        .items__container {
+            margin-top: 2rem;
+            width: 95%;
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+        .basket__divider {
+            margin: 1rem auto 2rem auto;
+            width: 94%;
+            height: 2px;
+            background-color: grey;
+            opacity: .8;
+        }
+        .confirmation {
+            width: 94%;
+            .confirmation__total {
+                h2 {
+                    font-weight: 300;
+                    font-size: 1.4rem;
+                }
+                .confirmed__total {
+                    font-weight: bold;
+                    font-size: 1.4rem;
+                    margin-left: 1rem;
+                    margin-top: 0;
+                }
+            }
+            .view__btn {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1312px) {
+    .confirmation__container {
+        .confirmation__header {
+            width: 70%;
+            margin-top: 3rem;
+            h1 {
+                font-size: 3.5rem;
+            }
+            h3 {
+                margin-top: 1rem;
+                font-size: 1rem;
+            }
+            .expected__delivery {
+                width: 30%;
+            }
+            .order__numberContainer {
+                p {
+                    font-size: 0.95rem;
+                }
+            }
+        }
+        .items__container {
+            width: 71%;
+        }
+        .basket__divider {
+            width: 70%;
+            margin-top: 3rem;
+        }
+        .confirmation {
+            width: 70%;
+            justify-content: right;
+            .confirmation__total {
+                margin-top: 0rem;
+                h2 {
+                    font-size: 1.5rem;
+                }
+                .confirmed__total {
+                    font-size: 1.5rem;
+                }
+            }
+            .view__btn {
+                display: block;
+                margin-top: 3rem;
+                margin-left: auto;
+                margin-right: 0;
+                width: 30%;
+            }
+        }
+        
+    }
+}

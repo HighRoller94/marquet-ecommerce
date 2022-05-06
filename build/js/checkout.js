@@ -38,8 +38,10 @@ const retrieveBasket = () => {
                     <h4 class="checkoutItem__name">${item.name}</h4>
                     <p class="checkoutItem__price">${item.price}</p>
                     <div class="quantity">
-                        <p>Quantity:</p>
-                        <p>${item.quantity}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                    </div>
+                    <div class="checkoutItem__btns">
+                        <button class="remove__button">Remove Item</button>
                     </div>
                 </div>
             </div>`
@@ -79,17 +81,41 @@ const removeCartItem = (event) => {
 const updateCartTotal = () => {
     const cartItemsContainer = document.getElementsByClassName('items__container')[0];
     const cartItems = cartItemsContainer.getElementsByClassName('checkout__item');
+    const subtotalShipping = document.querySelector('.subtotal__shipping');
+    const subtotalTax = document.querySelector('.subtotal__tax');
+    const subTotal = document.querySelector('.subtotal__price');
+
     var total = 0;
+    var subtotal = 0;
+    var shipping = 0;
     for (var i = 0; i < cartItems.length; i++) {
         var cartItem = cartItems[i];
 
         var priceElement = cartItem.getElementsByClassName('checkoutItem__price')[0];
-
         var price = parseFloat(priceElement.innerHTML.replace('£', ''));
 
-        total = total + price;
+        subtotal = subtotal + price;
     }
-    total = Math.round(total * 100) / 100;
+
+    
+    if (subtotal > 50) {
+        subtotalShipping.innerHTML = '£0.00';
+    } else {
+        subtotalShipping.innerHTML = '£3.99';
+        var shipping = 3.99;
+    }
+    console.log(shipping)
+
+    var tax = parseInt((subtotal * 0.05).toFixed(2));
+    subtotalTax.innerHTML = '£' + tax;
+
+    console.log(tax)
+    subtotal = Math.round(subtotal * 100) / 100;
+    console.log(subtotal)
+    
+    subTotal.innerHTML = '£' + (subtotal.toFixed(2))
+    var total = (tax + shipping + subtotal);
+    
     document.getElementsByClassName('basket__total')[0].innerHTML = '£' + total;
 }
 
@@ -126,9 +152,11 @@ const formSelection = () => {
 
     firstFormHeight = forms[0].clientHeight;
     secondFormHeight = forms[1].clientHeight;
+    console.log(firstFormHeight)
 
     containerHeight.style.height = `${firstFormHeight}px`;
     
+    console.log(containerHeight.clientHeight)
     const nextOne = document.getElementById('Next1');
     const backOne = document.getElementById('Back1');
 
@@ -164,6 +192,8 @@ const addDays = (originalDate, days) => {
 
 const submitOrder = () => {
 
+    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
+
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const fullName = firstName + ' ' + lastName;
@@ -189,8 +219,6 @@ const submitOrder = () => {
         orderAddress: `${address}`
     }
 
-    const basketItems = JSON.parse(sessionStorage.getItem('basket'));
-
     const orderDetails = {
         ...orderDets,
         orderItems: basketItems
@@ -199,9 +227,16 @@ const submitOrder = () => {
     const orders = JSON.parse(localStorage.getItem('orders'))
     orders.push(orderDetails)
     sessionStorage.clear('basket');
-    sessionStorage.setItem('recentOrders', JSON.stringify(orders))
     localStorage.setItem(`orders`, JSON.stringify(orders));
 
-    window.document.location = "/html/index.html";
+    checkoutComplete();
 }
 
+    const checkoutComplete = () => {
+    window.document.location = "../index.html";
+
+    const message = `Thanks! Your order as now been placed`;
+    console.log(message)
+
+    showToast(message);
+}

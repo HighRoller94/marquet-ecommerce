@@ -20,17 +20,17 @@
             font-weight: 400;
             font-family: 'Helvetica', sans-serif;
             text-transform: capitalize;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
         }
         .orderItem__price {
             font-weight: 300;
             color: grey;
             font-size: 1.1rem;
-            margin-top: .3rem;
+            margin-top: .5rem;
         }
         .quantity {
-            margin-top: .3rem;
-            font-size: 0.9rem;
+            margin-top: .5rem;
+            font-size: 1rem;
         }
         
         .remove__button {
@@ -61,10 +61,10 @@
         .orderItem__info {
             margin-left: 1.2rem;
             .orderItem__name {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
             .orderItem__price {
-                margin-top: .2rem;
+
                 font-size: 1.1rem;
             }
             .quantity {
@@ -84,4 +84,25 @@
 }
 
 @media screen and (min-width: 1312px) {
+    .order__item {
+        width: 97%;
+        .orderItem__info {
+            margin-left: 1.2rem;
+            .orderItem__name {
+                font-size: 1.6rem;
+            }
+            .orderItem__price {
+                font-size: 1.3rem;
+            }
+            .quantity {
+                p {
+                    font-size: 1rem;
+                }
+            }
+            .remove__button {
+                font-size: .85rem;
+                padding: .2rem .4rem;
+            }
+        }
+    }
 }

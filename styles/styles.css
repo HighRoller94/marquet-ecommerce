@@ -81,6 +81,7 @@
 .hero__carousel .carousel__div:nth-child(1) .main__header button {
   color: white;
   outline: none;
+  z-index: 5;
   border-radius: 3px;
   border: 1px solid white;
   background-color: transparent;
@@ -861,7 +862,7 @@
   }
   .banner__bg {
     width: 65%;
-    margin: 8rem auto 0 auto;
+    margin: 7rem auto 3rem auto;
   }
 }
 
@@ -3337,7 +3338,7 @@
   -webkit-box-flex: 0.75;
       -ms-flex: 0.75;
           flex: 0.75;
-  height: 2.2rem;
+  height: 2.5rem;
   outline: none;
   border: none;
   padding-left: .8rem;
@@ -3373,39 +3374,48 @@
     padding: 2rem 0 3rem 0;
   }
   .newsletter .newsletter__container {
-    width: 60%;
+    width: 70%;
     text-align: center;
   }
   .newsletter .newsletter__container .newsletter__header h2 {
     font-size: 2rem;
+    width: 100%;
   }
   .newsletter .newsletter__container .newsletter__header p {
-    margin-top: 0;
+    margin-top: .5rem;
     font-size: 1rem;
   }
   .newsletter .newsletter__container .newsletter__form {
-    margin-top: 1.5rem;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 2rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .newsletter .newsletter__container .newsletter__form input {
-    margin-top: .5rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-flex: 0.75;
         -ms-flex: 0.75;
             flex: 0.75;
-    height: 2.5rem;
+    padding: .4rem 1.2rem;
     outline: none;
     border: none;
     padding-left: .8rem;
+  }
+  .newsletter .newsletter__container .newsletter__form button {
+    height: 2.5rem;
   }
 }
 
 @media screen and (min-width: 1312px) {
   .newsletter {
     margin-top: 4rem;
-    padding: 3rem;
+    padding: 3.5rem 0 2.5rem 0;
   }
   .newsletter .divider__bottom {
     width: 5%;
@@ -3430,6 +3440,9 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -3444,9 +3457,11 @@
     height: 3rem;
   }
   .newsletter .newsletter__container .newsletter__form button {
+    margin-top: .2rem;
     -webkit-box-flex: 0.2;
         -ms-flex: 0.2;
             flex: 0.2;
+    height: 3rem;
   }
 }
 

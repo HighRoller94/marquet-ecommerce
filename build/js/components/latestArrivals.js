@@ -97,5 +97,5 @@ const addProductDetails = (event) => {
 }
 
 const pushProductPage = (name) => {
-    window.document.location = './details.html' + '?' + `${name}`;
+    window.document.location = '../../details.html' + '?' + `${name}`;
 }

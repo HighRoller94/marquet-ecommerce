@@ -38,7 +38,7 @@ const loadCarousel = () => {
     })
     
     // Select the first carousel div to display
-    items[1].classList.add('carousel__selected', 'fade-in');
+    items[0].classList.add('carousel__selected', 'fade-in');
     buttons[0].classList.add('selected', 'fade-in');
 
     var timer;
@@ -176,7 +176,7 @@ const addProductDetails = (event) => {
 }
 
 const pushProductPage = (name) => {
-    window.document.location = './details.html' + '?' + `${name}`;
+    window.document.location = '../details.html' + '?' + `${name}`;
 }
 
 // TOAST NOTIFICATIONS

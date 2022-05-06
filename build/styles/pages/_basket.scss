@@ -183,7 +183,7 @@
 
 @media screen and (min-width: 768px) {
     .basket__container {
-        margin-top: 2rem;
+        margin-top: 1rem;
         .basket {
             margin-top: 1rem;
             .basket__header {
@@ -246,7 +246,7 @@
             .items__container {
                 width: 95%;
                 row-gap: 2rem;
-                margin-top: 2.5rem;
+                margin-top: 3rem;
                 grid-template-columns: 1fr;
                 
             }
@@ -256,7 +256,7 @@
         }
         .subtotal {
             position: sticky;
-            top: 9rem;
+            top: 8.5rem;
             margin-top: 4rem;
             margin-left: 2rem;
             height: 100%;

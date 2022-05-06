@@ -63,7 +63,7 @@
                         <div class="step__icon">2</div>
                         <div class="checkout__title">
                             <h3>Shipping Details</h3>
-                            <p>We are we shipping your items?</p>
+                            <p>Where are we shipping your items?</p>
                         </div>
                     </div>
                     <div class="form__inputs">
@@ -113,7 +113,9 @@
                     <div class="items__container">
                     </div>
                     <div class="checkout__divider"></div>
+                    <div class="btns">
                     <button class="back__btn" id="Back1">Back</button>
+                    </div>
                 </form>
                 <!-- TOTAL SECTION -->
                 <div class="subtotal__container">
@@ -121,10 +123,22 @@
                         <h1>Order Summary</h1>
                         <div class="checkout__divider"></div>
                         <ul class="subtotal__details">
-                            <li>Subtotal <span class="subtotal__price"></span></li>
-                            <li>Shipping<span class="subtotal__shipping"></span></li>
-                            <li>Estimated Tax<span class="subtotal__tax"></span></li>
-                            <li>Total:<span class="basket__total"></span></li>
+                            <div class="subtotal__info">
+                                <li>Subtotal </li>
+                                <span class="subtotal__price"></span>
+                            </div>
+                            <div class="subtotal__info">
+                                <li>Shipping</li>
+                                <span class="subtotal__shipping"></span>
+                            </div>
+                            <div class="subtotal__info">
+                                <li>Estimated Tax</li>
+                                <span class="subtotal__tax"></span>
+                            </div>
+                            <div class="subtotal__info">
+                                <li>Total:</li>
+                                <span class="basket__total"></span>
+                            </div>
                         </ul>
                         <button type="button" class="order__btn" id="submitBtn">
                             <span class="button__text">Place your order</span>

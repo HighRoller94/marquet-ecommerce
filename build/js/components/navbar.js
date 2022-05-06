@@ -16,7 +16,7 @@ class Navbar extends HTMLElement {
                         <span class="bar"></span>
                         <span class="bar"></span>
                     </div>
-                    <a href="/html/index.html" id="nav__logo">MARQUET</a>
+                    <a href="../../index.html" id="nav__logo">MARQUET</a>
                     <div class="side__menu">
                         <ul class="nav__menu">
                             <div class="mobile__logoContainer">
@@ -47,11 +47,11 @@ class Navbar extends HTMLElement {
                         <div class="search__icon">
                         
                         </div>
-                        <a href="/html/basket.html">
+                        <a href="../../basket.html">
                             <p class="basket__count"></p>
                             <img class="shopping__icon" src="" alt="Basket" />
                         </a>
-                        <a href="/html/orders.html">
+                        <a href="../../orders.html">
                             <img class="account__icon" src="../assets/navbar/account.svg" alt="" />
                         </a>
                     </div>

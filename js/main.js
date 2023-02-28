@@ -63,7 +63,7 @@ const loadCarousel = () => {
         }
         slides[slideIndex - 1].classList.add('fade-in')
             clearTimeout(timer);
-        timer = setTimeout(() => plusSlides(1), 8000);
+        timer = setTimeout(() => plusSlides(1), 80000);
     }
     })
 }
